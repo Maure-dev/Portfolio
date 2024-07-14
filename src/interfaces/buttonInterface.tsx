@@ -10,10 +10,10 @@ export const ButtonInterface = ({
     <button
       onClick={onClick}
       type="submit"
-      className={`px-8 py-4 rounded-lg text-2xl font-semibold hover:shadow-lg hover:shadow-primaryBlue ${
+      className={`px-8 py-4 rounded-lg text-2xl font-semibold hover:bg-primary/80 ${
         primary
-          ? "bg-primaryBlue text-white"
-          : "bg-transparent border-4 border-primaryBlue hover:bg-primaryBlue/5 text-primaryBlue"
+          ? "bg-primary text-white"
+          : "bg-transparent border-4 border-primary hover:bg-primary/5 text-primary"
       } ${className ? className : ""}`}
     >
       {description}

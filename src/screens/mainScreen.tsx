@@ -1,14 +1,15 @@
 import { OutletInterface } from "../interfaces/outletInterface";
 import { OutletProvider } from "../containers/contexts/outletContext";
 import { HeaderInterface } from "../interfaces/headerInterface";
+import React from "react";
 
 export const MainScreen = () => {
   return (
-    <div>
+    <React.Fragment>
       <OutletProvider>
         <HeaderInterface />
         <OutletInterface />
       </OutletProvider>
-    </div>
+    </React.Fragment>
   );
 };

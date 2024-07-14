@@ -6,15 +6,13 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        primaryBlue: "#0071E3",
-        primaryLightBlue: "#cde3f1",
-        secondaryLightBlue: "#AADCEC",
-      },
       colors: {
-        primaryBlue: "#0071E3",
-        primaryLightBlue: "#cde3f1",
-        secondaryLightBlue: "#AADCEC",
+        primary: "#CE1F36",
+        secondary: "#7C7B7B",
+        background: "#1E1E1E",
+        backgroundSecondary: "#212121",
+        textDark: "#535353",
+        white: "#FFFFFF",
       },
     },
   },

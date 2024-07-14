@@ -1,3 +1,12 @@
+import React from "react";
+import { FooterInterface } from "../interfaces/footerInterface";
+import { SectionProjectsInterface } from "../interfaces/projects/sectionProjectsInterface";
+
 export const ProjectsScreen = () => {
-  return <h3>ALIVE PROJECTS</h3>;
+  return (
+    <React.Fragment>
+      <SectionProjectsInterface />
+      <FooterInterface />
+    </React.Fragment>
+  );
 };

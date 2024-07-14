@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { ButtonInterface } from "./buttonInterface";
+import { ButtonInterface } from "../buttonInterface";
 import type {
   ContactFormInterfaceType,
   FormDataType,
-} from "../containers/entities/entities";
-import { InputInterface } from "./inputInterface";
-import { TextAreaInterface } from "./textAreaInterface";
+} from "../../containers/entities/entities";
+import { InputInterface } from "../inputInterface";
+import { TextAreaInterface } from "../textAreaInterface";
 // import { postMailer } from "../../services/contactService";
 //import { ContactContext } from "@src/containers/contexts/contactContext";
 
@@ -110,7 +110,7 @@ export const ContactFormInterface = ({
         />
         <ButtonInterface
           primary={true}
-          description="Submit"
+          description="Send message"
           className="w-full mt-6"
         />
       </form>
