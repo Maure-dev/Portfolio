@@ -59,7 +59,7 @@ export const ContactFormInterface = ({
   return (
     <>
       <form
-        className={`flex flex-col items-center justify-center min-w-[20rem] w-[40%] ${
+        className={`flex flex-col lg:grid lg:grid-cols-2 gap-4 w-full ${
           className ? className : ""
         }`}
         onSubmit={(e) => handleSubmit(e)}
@@ -100,19 +100,22 @@ export const ContactFormInterface = ({
           className="w-full mb-4"
           required={true}
         />
-        <TextAreaInterface
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Got a question or proposal, or just want to say hello? Go ahead."
-          className="w-full"
-          required={true}
-        />
-        <ButtonInterface
-          primary={true}
-          description="Send message"
-          className="w-full mt-6"
-        />
+        <div className="col-span-2">
+          <TextAreaInterface
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Got a question or proposal, or just want to say hello? Go ahead."
+            className="w-full col-span-2"
+            required={true}
+          />
+          <ButtonInterface
+            primary={true}
+            type="submit"
+            description="Send message"
+            className="w-fit lg:float-right mt-6"
+          />
+        </div>
       </form>
     </>
   );

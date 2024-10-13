@@ -1,3 +1,12 @@
+import React from "react";
+import { SectionExperiencesInterface } from "../interfaces/about/sectionExperiencesInterfaces";
+import { FooterInterface } from "../interfaces/footerInterface";
+
 export const AboutScreen = () => {
-  return <h3>ALIVE ABOUT</h3>;
+  return (
+    <React.Fragment>
+      <SectionExperiencesInterface />
+      <FooterInterface />
+    </React.Fragment>
+  );
 };

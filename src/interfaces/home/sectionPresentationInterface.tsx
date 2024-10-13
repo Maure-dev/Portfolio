@@ -1,7 +1,9 @@
 export const SectionPresentationInterface = () => {
   return (
     <section className="h-full w-full bg-background flex flex-col items-center px-4 lg:px-48 justify-center text-white">
-      <h1 className="text-5xl lg:text-6xl mb-8 lg:mb-16">Nice to meet you</h1>
+      <h1 className="text-4xl lg:text-6xl mb-16 text-center">
+        Nice to meet you
+      </h1>
       <div className="flex flex-col justify-center lg:w-3/4">
         <span className="text-secondary mb-0.5 text-xl lg:text-4xl">
           &lt;h1&gt;
@@ -18,20 +20,6 @@ export const SectionPresentationInterface = () => {
         <span className="text-secondary mt-2 text-xl lg:text-4xl">
           &lt;/h1&gt;
         </span>
-      </div>
-      <div className="flex items-center p-8 mb-8 lg:mb-16">
-        <div className="flex flex-col p-4 bg-backgroundSecondary text-textDark mr-8">
-          pepe
-        </div>
-        <div className="flex flex-col p-4 bg-backgroundSecondary text-textDark mr-8">
-          pepe
-        </div>
-        <div className="flex flex-col p-4 bg-backgroundSecondary text-textDark mr-8">
-          pepe
-        </div>
-        <div className="flex flex-col p-4 bg-backgroundSecondary text-textDark">
-          pepe
-        </div>
       </div>
     </section>
   );

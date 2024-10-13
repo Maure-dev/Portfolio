@@ -5,11 +5,12 @@ export const ButtonInterface = ({
   description,
   className,
   onClick,
+  type,
 }: ButtonInterfaceType) => {
   return (
     <button
       onClick={onClick}
-      type="submit"
+      type={type}
       className={`px-8 py-4 rounded-lg text-2xl font-semibold hover:bg-primary/80 ${
         primary
           ? "bg-primary text-white"

@@ -3,12 +3,12 @@ import { ContactFormInterface } from "./contactFormInterface";
 
 export const SectionContactInterface = () => {
   return (
-    <section className="pt-20 h-full w-full bg-background flex flex-col text-center items-center justify-center px-4 lg:px-20 text-white">
+    <section className="h-full w-full bg-background flex flex-col text-center items-center justify-center px-4 lg:px-48 text-white">
       {/* <AlertInterface className="fixed z-30 top-24 lg:right-8 w-11/12 lg:w-fit right-4" /> */}
-      <h1 className="text-4xl lg:text-6xl font-medium text-primaryBlue">
+      <h1 className="text-4xl lg:text-6xl font-medium text-primaryBlue mb-8 lg:mb-16">
         Send me a message!
       </h1>
-      <ContactFormInterface className="mt-8" />
+      <ContactFormInterface />
     </section>
   );
 };

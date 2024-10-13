@@ -1,6 +1,4 @@
 import { NavLink, useLocation } from "react-router-dom";
-import gitHub from "../assets/github-dark.svg";
-import LinkedIn from "../assets/linkedin-dark.svg";
 
 export const FooterInterface = () => {
   const location = useLocation();
@@ -11,17 +9,17 @@ export const FooterInterface = () => {
   return (
     <footer className="h-screen w-full bg-background flex flex-col items-center px-4 lg:px-20 justify-center text-center text-white relative">
       <h1 className="text-4xl lg:text-7xl font-medium">Let's works together</h1>
-      <div className="flex flex-col lg:flex-row items-center mt-16">
+      <div className="flex flex-row items-center mt-16">
         <a
           href="https://www.linkedin.com/in/mauro-gerardi"
           target="_blank"
-          className="flex items-center mb-4 lg:mb-0 lg:mr-24"
+          className="flex items-center mr-8 lg:mr-24"
         >
-          <img src={LinkedIn} alt="LinkedIn Logo" className="w-24" />
+          <i className="fa-brands fa-linkedin text-8xl hover:text-primary" />
         </a>
         {location.pathname != "/contact" && (
-          <NavLink to="/contact" className="flex mb-4 lg:mb-0 lg:mr-24">
-            <i className="material-symbols-outlined text-8xl">email</i>
+          <NavLink to="/contact" className="flex mr-8 lg:mr-24">
+            <i className="fa-regular fa-envelope text-8xl hover:text-primary" />
           </NavLink>
         )}
         <a
@@ -29,11 +27,12 @@ export const FooterInterface = () => {
           target="_blank"
           className="flex items-center"
         >
-          <img src={gitHub} alt="Git Hub Logo" className="w-24" />
+          <i className="fa-brands fa-github text-8xl hover:text-primary" />
         </a>
       </div>
-      <p className="font-semibold absolute bottom-8">
-        © Mauro Alejandro Gerardi - {getYear()}
+      <p className="font-semibold absolute bottom-8 flex items-center">
+        <i className="fa-regular fa-copyright mr-2" />
+        <span>Mauro Alejandro Gerardi - {getYear()}</span>
       </p>
     </footer>
   );
