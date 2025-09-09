@@ -13,23 +13,6 @@ export const ContactProvider = ({ children }: ContactContextPropsType) => {
     message: "",
   });
 
-  const showNotification = (title: string, options?: NotificationOptions) => {
-    if (!("Notification" in window)) {
-      console.warn("This browser doesn't support notifications.");
-      return;
-    }
-
-    if (Notification.permission === "default") {
-      Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          new Notification(title, options);
-        }
-      });
-    } else if (Notification.permission === "granted") {
-      new Notification(title, options);
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -42,10 +25,6 @@ export const ContactProvider = ({ children }: ContactContextPropsType) => {
       );
       console.log("Email sent", result.text);
 
-      showNotification("¡Email sent!", {
-        body: "Your message has been sent successfully.",
-      });
-
       setFormData({
         firstName: "",
         lastName: "",
@@ -55,9 +34,6 @@ export const ContactProvider = ({ children }: ContactContextPropsType) => {
       });
     } catch (error) {
       console.error("Error sending email", error);
-      showNotification("Error sending email", {
-        body: "There was a problem sending your message. Please try again.",
-      });
     }
   };
 
@@ -67,7 +43,6 @@ export const ContactProvider = ({ children }: ContactContextPropsType) => {
         formData,
         setFormData,
         handleSubmit,
-        showNotification,
       }}
     >
       {children}

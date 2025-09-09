@@ -13,7 +13,6 @@ export type ContactContextType = {
   formData: FormDataType;
   setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
-  showNotification: (title: string, options?: NotificationOptions) => void;
 };
 
 export type ContactContextPropsType = {
