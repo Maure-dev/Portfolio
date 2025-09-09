@@ -56,7 +56,7 @@ export const CarouselInterface = ({ slides }: CarrouselInterfaceType) => {
               </>
             )}
             <Card.Root
-              className={`rounded-lg bg-white pt-16 lg:pt-8 2xl:pt-20 px-8 lg:px-16 pb-8 h-104 lg:h-80 2xl:h-112 cursor-pointer absolute transition-transform duration-300 ease-linear w-[75vw] md:max-w-[50vw] lg:max-w-[36vw] 2xl:max-w-[45vw] z-20
+              className={`rounded-lg bg-white pt-8 2xl:pt-20 px-8 lg:px-16 pb-8 h-104 lg:h-80 2xl:h-112 cursor-pointer absolute transition-transform duration-300 ease-linear w-[75vw] md:max-w-[50vw] lg:max-w-[36vw] 2xl:max-w-[45vw] z-20
               ${(index === activeCard - 1 || index === activeCard + 1) && "z-30"
                 } ${(index === activeCard ||
                   index === activeCard - 1 ||
