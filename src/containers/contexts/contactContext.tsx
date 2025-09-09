@@ -35,10 +35,10 @@ export const ContactProvider = ({ children }: ContactContextPropsType) => {
 
     try {
       const result = await emailjs.send(
-        import.meta.env.REACT_APP_EMAILJS_SERVICE_ID!,
-        import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
         formData,
-        import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
       );
       console.log("Email sent", result.text);
 
