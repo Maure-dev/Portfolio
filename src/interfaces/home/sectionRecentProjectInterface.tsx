@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import recentProject from "../../assets/sectionRecentProject/recentProject.png";
+import macbook from "../../assets/sectionRecentProject/macbook.png";
 import { ButtonInterface } from "../buttonInterface";
 
 export const SectionRecentProjectInterface = () => {
@@ -29,7 +30,7 @@ export const SectionRecentProjectInterface = () => {
           />
         </div>
         <div
-          className="lg:hidden flex items-center justify-center w-full bg-[url('src/assets/sectionRecentProject/macbook.png')] bg-no-repeat bg-center bg-contain p-[16.5%] pt-[12%]"
+          className={`lg:hidden flex items-center justify-center w-full bg-[url(${macbook})] bg-no-repeat bg-center bg-contain p-[16.5%] pt-[12%]`}
         >
           <img
             src={recentProject}
@@ -40,7 +41,7 @@ export const SectionRecentProjectInterface = () => {
         </div>
       </div>
       <div
-        className="hidden lg:flex items-center justify-center w-2/3 bg-[url('src/assets/sectionRecentProject/macbook.png')] bg-no-repeat bg-center bg-contain p-[10.5%] pt-[8%]"
+        className={`hidden lg:flex items-center justify-center w-2/3 bg-[url(${macbook})] bg-no-repeat bg-center bg-contain p-[10.5%] pt-[8%]`}
       >
         <img
           src={recentProject}
