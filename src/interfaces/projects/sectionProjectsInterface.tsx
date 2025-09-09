@@ -6,6 +6,7 @@ import contratar from "../../assets/sectionProjects/contratar.png";
 import libreta from "../../assets/sectionProjects/libreta.png";
 import certificado from "../../assets/sectionProjects/certificado.png";
 import portal from "../../assets/sectionProjects/portal.png";
+import macbook from "../../assets/sectionProjects/macbook.png";
 import { useEffect, useState } from "react";
 
 export const SectionProjectsInterface = () => {
@@ -129,12 +130,13 @@ export const SectionProjectsInterface = () => {
             onClick={() => handlePreviousNextProject(index - 1)}
           />
           <div
-            className="w-full bg-[url('src/assets/sectionProjects/macbook.png')] bg-no-repeat bg-center bg-contain p-[15%] pt-[12%] mb-8"
+            className="w-full relative p-[15%] pt-[12%] mb-8"
           >
+            <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%] left-0" />
             <img
               src={projectView.image as string}
               alt="Recent Project - Image"
-              className={`max-w-full h-auto cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
+              className={`max-w-full h-auto z-20 cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
                 }`}
               onClick={() => handleViewProject(projectView.urlSite as string)}
             />
@@ -155,12 +157,13 @@ export const SectionProjectsInterface = () => {
           onClick={() => handlePreviousNextProject(index - 1)}
         />
         <div
-          className="w-full bg-[url('src/assets/sectionProjects/macbook.png')] bg-no-repeat bg-center bg-contain p-[15%] pt-[12%]"
+          className="w-full p-[15%] pt-[12%] relative"
         >
+          <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%] left-0" />
           <img
             src={projectView.image as string}
             alt="Recent Project - Image"
-            className={`max-w-full h-auto cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
+            className={`max-w-full h-auto z-20 cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
               }`}
             onClick={() => handleViewProject(projectView.urlSite as string)}
           />

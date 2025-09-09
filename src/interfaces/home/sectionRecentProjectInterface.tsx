@@ -30,23 +30,25 @@ export const SectionRecentProjectInterface = () => {
           />
         </div>
         <div
-          className={`lg:hidden flex items-center justify-center w-full bg-[url(${macbook})] bg-no-repeat bg-center bg-contain p-[16.5%] pt-[12%]`}
+          className="lg:hidden flex items-center justify-center w-full p-[16.5%] pt-[12%] relative"
         >
+          <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%]" />
           <img
             src={recentProject}
             alt="Recent Project - Image"
-            className="max-w-full h-auto cursor-pointer"
+            className="max-w-full h-auto cursor-pointer z-20"
             onClick={handleViewProject}
           />
         </div>
       </div>
       <div
-        className={`hidden lg:flex items-center justify-center w-2/3 bg-[url(${macbook})] bg-no-repeat bg-center bg-contain p-[10.5%] pt-[8%]`}
+        className="hidden lg:flex items-center justify-center relative w-2/3 p-[10.5%] pt-[8%]"
       >
+        <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%]" />
         <img
           src={recentProject}
           alt="Recent Project - Image"
-          className="max-w-full h-auto cursor-pointer"
+          className="max-w-full h-auto cursor-pointer z-20"
           onClick={handleViewProject}
         />
       </div>

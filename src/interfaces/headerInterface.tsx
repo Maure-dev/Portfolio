@@ -37,7 +37,7 @@ export const HeaderInterface = (): JSX.Element => {
   return (
     <React.Fragment>
       <header
-        className="h-20 w-full backdrop-blur-2xl fixed z-60 px-4 lg:px-48 py-7 flex items-center justify-center text-white"
+        className="h-20 w-full backdrop-blur-2xl fixed z-80 px-4 lg:px-48 py-7 flex items-center justify-center text-white"
         style={{ WebkitBackdropFilter: "blur(40px)" }}
       >
         <button
