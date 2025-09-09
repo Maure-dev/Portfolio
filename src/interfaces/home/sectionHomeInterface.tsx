@@ -7,7 +7,7 @@ export const SectionHomeInterface = () => {
         Hi, my name <br /> is <b className="text-primary">Mauro</b>
       </h1>
       <p className="text-3xl mb-16 text-center">
-        Front-End Developer & SSR Business Analyst
+        SSR Front-End Developer & SSR Business Analyst
       </p>
       <div className="flex w-full items-center justify-center">
         <img

@@ -3,11 +3,20 @@ export type OutletContextType = {
   handleScroll: (event: React.UIEvent<HTMLElement>) => void;
   menuOpen: boolean;
   handleSetMenuOpen: (option: boolean) => void;
-  language: string;
-  handleSetLanguage: (e: string) => void;
 };
 
 export type OutletContextPropsType = {
+  children: ReactNode;
+};
+
+export type ContactContextType = {
+  formData: FormDataType;
+  setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  showNotification: (title: string, options?: NotificationOptions) => void;
+};
+
+export type ContactContextPropsType = {
   children: ReactNode;
 };
 

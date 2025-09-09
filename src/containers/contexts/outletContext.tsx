@@ -9,12 +9,6 @@ export const OutletContext = createContext<OutletContextType | null>(null);
 export const OutletProvider = ({ children }: OutletContextPropsType) => {
   const [scrollTop, setScrollTop] = useState<number>(0);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [language, setLanguage] = useState(() => {
-    if (navigator.language.includes("es")) {
-      return sessionStorage.getItem("language") || "es";
-    }
-    return sessionStorage.getItem("language") || "en";
-  });
 
   const handleScroll = (event: React.UIEvent<HTMLElement>) => {
     setScrollTop(event.currentTarget.scrollTop);
@@ -24,11 +18,6 @@ export const OutletProvider = ({ children }: OutletContextPropsType) => {
     setMenuOpen(option);
   };
 
-  const handleSetLanguage = (e: string) => {
-    setLanguage(e);
-    sessionStorage.setItem("language", e);
-  };
-
   return (
     <OutletContext.Provider
       value={{
@@ -36,8 +25,6 @@ export const OutletProvider = ({ children }: OutletContextPropsType) => {
         handleScroll,
         menuOpen,
         handleSetMenuOpen,
-        language,
-        handleSetLanguage,
       }}
     >
       {children}

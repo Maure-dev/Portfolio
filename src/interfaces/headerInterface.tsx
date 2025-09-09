@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import type { CSSProperties } from "react";
+import type { CSSProperties, JSX } from "react";
 import type { HeaderItemsType } from "../containers/entities/entities";
 import ProfileImage from "/profile-rounded.png";
-import { SidenavMobileInterface } from "./projects/sidenavMobileInterface";
+import { SidenavMobileInterface } from "./sidenavMobileInterface";
 import React, { useContext } from "react";
 import { OutletContext } from "../containers/contexts/outletContext";
 
@@ -37,7 +37,7 @@ export const HeaderInterface = (): JSX.Element => {
   return (
     <React.Fragment>
       <header
-        className="h-20 w-full backdrop-blur-2xl fixed z-50 px-4 lg:px-48 py-7 flex items-center justify-center text-white"
+        className="h-20 w-full backdrop-blur-2xl fixed z-60 px-4 lg:px-48 py-7 flex items-center justify-center text-white"
         style={{ WebkitBackdropFilter: "blur(40px)" }}
       >
         <button

@@ -42,13 +42,13 @@ export const CarouselInterface = ({ slides }: CarrouselInterfaceType) => {
             {activeCard === index && (
               <>
                 <div
-                  className=" h-[60%] w-2/4 md:w-1/4 right-1/2 absolute z-[60] cursor-pointer"
+                  className=" h-[60%] w-2/4 md:w-1/4 right-1/2 absolute z-60 cursor-pointer"
                   onClick={() => {
                     return handleClick(index + 1);
                   }}
                 ></div>
                 <div
-                  className=" h-[60%] w-2/4 md:w-1/4 left-1/2 absolute z-[60] cursor-pointer"
+                  className=" h-[60%] w-2/4 md:w-1/4 left-1/2 absolute z-60 cursor-pointer"
                   onClick={() => {
                     return handleClick(index - 1);
                   }}
@@ -56,21 +56,19 @@ export const CarouselInterface = ({ slides }: CarrouselInterfaceType) => {
               </>
             )}
             <Card.Root
-              className={`rounded-lg bg-white pt-16 lg:pt-8 2xl:pt-20 px-8 lg:px-16 pb-8 h-[26rem] lg:h-[20rem] 2xl:h-[28rem] cursor-pointer absolute transition-transform duration-300 ease-linear w-[75vw] md:max-w-[50vw] lg:max-w-[36vw] 2xl:max-w-[45vw] z-20
-              ${
-                (index === activeCard - 1 || index === activeCard + 1) && "z-30"
-              } ${
-                (index === activeCard ||
+              className={`rounded-lg bg-white pt-16 lg:pt-8 2xl:pt-20 px-8 lg:px-16 pb-8 h-104 lg:h-80 2xl:h-112 cursor-pointer absolute transition-transform duration-300 ease-linear w-[75vw] md:max-w-[50vw] lg:max-w-[36vw] 2xl:max-w-[45vw] z-20
+              ${(index === activeCard - 1 || index === activeCard + 1) && "z-30"
+                } ${(index === activeCard ||
                   index === activeCard - 1 ||
                   index === activeCard + 1) &&
                 "shadow-2xl shadow-[#888888]/25"
-              } ${isRigthOrLeft(index)}`}
+                } ${isRigthOrLeft(index)}`}
               onClick={() => {
                 return handleClick(index);
               }}
             >
               <Card.Content className="flex flex-col h-full justify-between items-center text-center font-bold">
-                <h2 className="text-base lg:text-xl 2xl:text-3xl">
+                <h2 className="text-base lg:text-lg 2xl:text-2xl">
                   {data.description}
                 </h2>
                 <div className="mt-12">
@@ -85,9 +83,8 @@ export const CarouselInterface = ({ slides }: CarrouselInterfaceType) => {
               onClick={() => {
                 handleClick(index);
               }}
-              className={`w-2 h-2 lg:w-3 lg:h-3 rounded-full z-30 border border-primary absolute bottom-40 md:mb-[-5rem] lg:bottom-44 2xl:bottom-60 right-[38vw] md:right-[47vw] cursor-pointer ${
-                circleClassName[index]
-              } ${index === activeCard && "bg-primary"}`}
+              className={`w-2 h-2 lg:w-3 lg:h-3 rounded-full z-30 border border-primary absolute bottom-40 md:-mb-20 lg:bottom-44 2xl:bottom-60 right-[38vw] md:right-[47vw] cursor-pointer ${circleClassName[index]
+                } ${index === activeCard && "bg-primary"}`}
             ></div>
           </div>
         );

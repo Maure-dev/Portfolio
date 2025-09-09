@@ -12,75 +12,75 @@ export const SectionProjectsInterface = () => {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [projectView, setProjectView] = useState({
-    title: "",
-    subtitle: "",
-    description: "",
-    urlSite: "",
-    image: "",
+    title: null as string | null,
+    subtitle: null as string | null,
+    description: null as string | null,
+    urlSite: null as string | null,
+    image: null as string | null,
   });
 
   const projects = [
     {
       title: "SaaS Moorea.io",
-      subtitle: "Gestiona y automatiza tus procesos",
+      subtitle: "Manage and automate your processes",
       description:
-        "SaaS es un modelo de distribución de software donde el soporte lógico y los respectivos datos que maneja se alojan en los servidores de un proveedor, cuyo acceso es a través de Internet",
+        "SaaS is a software distribution model where the software and the respective data it handles are hosted on a provider's servers, which are accessed via the Internet.",
       urlSite: "https://saas.moorea.io/",
       image: saasMoorea,
     },
     {
       title: "Moorea.io",
-      subtitle: "Transforma los procesos en experiencias",
+      subtitle: "Transform processes into experiences",
       description:
-        "Moorea permite extraer, analizar y gestionar información crítica de una variedad de formatos digitales. Transforma la manera en la que entidades interactúan con su vasto conjunto de documentos, garantizando precisión, eficiencia y seguridad en cada paso",
+        "Moorea enables you to extract, analyze, and manage critical information from a variety of digital formats. It transforms the way organizations interact with their vast document collections, ensuring accuracy, efficiency, and security at every step.",
       urlSite: "https://moorea.io/",
       image: moorea,
     },
     {
       title: "Leafnoise",
-      subtitle: "Procesos más simples e inteligentes",
+      subtitle: "Simpler and smarter processes",
       description:
-        "Haz que tu proceso de transformación digital sea más simple y exitoso. La digitalización de tu organización está a tu alcance",
+        "Make your digital transformation process simpler and more successful. The digitization of your organization is within your reach.",
       urlSite: "https://leafnoise.io/",
       image: leafnoise,
     },
     {
       title: "COMPR.AR",
-      subtitle: "Portal de Contrataciones de Bienes y Servicios",
+      subtitle: "Goods and Services Contracting Portal",
       description:
-        "Es el sistema electrónico de gestión de las compras y contrataciones de la Administración Pública Nacional. A través de la plataforma, las entidades gubernamentales tramitan y publican sus procesos de compra, y los proveedores presentan sus ofertas de forma ágil, transparente y segura",
+        "It is the electronic system for managing purchases and contracts for the National Public Administration. Through the platform, government entities process and publish their purchasing processes, and suppliers submit their bids in an agile, transparent, and secure manner.",
       urlSite: "https://comprar.gob.ar/",
       image: comprar,
     },
     {
       title: "CONTRAT.AR",
-      subtitle: "Portal de Contrataciones y Concesiones de Obra Pública",
+      subtitle: "Public Works Contracts and Concessions Portal",
       description:
-        "Es el sistema electrónico de gestión de las contrataciones del Estado Nacional. A través de la plataforma, las entidades gubernamentales tramitan y publican sus procesos de contratación, y los constructores realizan sus propuestas de forma ágil, transparente y segura",
+        "It is the electronic system for managing national government contracts. Through the platform, government entities process and publish their contracting processes, and builders submit their bids in a fast, transparent, and secure manner.",
       urlSite: "https://contratar.gob.ar/",
       image: contratar,
     },
     {
       title: "Libretas AUH",
-      subtitle: "Sistema para control de salud, educación y vacunación",
+      subtitle: "System for health, education, and vaccination control",
       description:
-        "Es un documento que los titulares de la Asignación Universal por Hijo (AUH) deben presentar todos los años para demostrar que sus hijos están cumpliendo con los controles de salud, vacunación y educación",
+        "It is a document that recipients of the Universal Child Allowance (AUH) must submit every year to prove that their children are complying with health checks, vaccinations, and education requirements.",
       urlSite: "https://www.anses.gob.ar/hijos/libreta-de-asignacion-universal",
       image: libreta,
     },
     {
       title: "Certificados Escolares",
-      subtitle: "Sistema para control de asistencia al colegio",
+      subtitle: "School attendance monitoring system",
       description:
-        "Este documento confirma que los niños efectivamente asisten a la escuela, y los padres tienen tiempo de entregarlo hasta el último día hábil del año. Esto permite percibir la ayuda económica por parte del ANSES",
+        "This document confirms that children are actually attending school, and parents have until the last working day of the year to submit it. This allows them to receive financial assistance from ANSES.",
       urlSite: "https://www.anses.gob.ar/educacion/ayuda-escolar-anual",
       image: certificado,
     },
     {
       title: "Portal de Trámites",
-      subtitle: "Portal Único de Trámites Digitales para el ciudadano",
+      subtitle: "Single Portal for Digital Procedures for Citizens",
       description:
-        "Portal de acceso libre (sin necesidad de autenticación), donde el ciudadano puede visualizar todos los trámites disponibles, tanto presenciales como digitales. Cada trámite mostrará información relevante para que el ciudadano pueda comprender cómo realizarlo y en caso de ser online permitirá acceder al mismo",
+        "Free access portal (no authentication required) where citizens can view all available procedures, both in person and online. Each procedure will display relevant information so that citizens can understand how to complete it and, if it is online, will allow them to access it.",
       urlSite: "https://www.santafe.gov.ar/tramites",
       image: portal,
     },
@@ -112,71 +112,64 @@ export const SectionProjectsInterface = () => {
   return (
     <section className="h-full w-full bg-background flex flex-col lg:flex-row items-center px-4 lg:px-48 justify-center lg:justify-between text-white">
       <div
-        className={`flex flex-col lg:w-2/5 items-center lg:items-start text-center lg:text-start mb-16 lg:mb-0 transition-opacity duration-300 ${
-          isFading ? "opacity-0" : "opacity-100"
-        }`}
+        className={`flex flex-col lg:w-2/5 items-center lg:items-start text-center lg:text-start mb-16 lg:mb-0 transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
+          }`}
       >
         <h1 className="text-3xl lg:text-4xl mb-4 font-semibold">
           {projectView.title}
         </h1>
         <h3 className="text-xl mb-8 font-medium">{projectView.subtitle}</h3>
-        <p className="mb-8 lg:pr-32">{projectView.description}</p>
+        <p className="mb-8 lg:pr-32 text-justify">{projectView.description}</p>
         <div className="lg:hidden flex items-center justify-center w-full">
           <i
-            className={`fa-solid fa-chevron-left text-3xl ${
-              index === 0
-                ? "cursor-not-allowed text-textDark"
-                : "cursor-pointer"
-            }`}
+            className={`fa-solid fa-chevron-left text-3xl ${index === 0
+              ? "cursor-not-allowed text-textDark"
+              : "cursor-pointer"
+              }`}
             onClick={() => handlePreviousNextProject(index - 1)}
           />
           <div
-            className="w-full bg-[url('src/assets/sectionProjects/macbook.png')] bg-no-repeat bg-center bg-contain p-[15%] pt-[12%] mb-8 cursor-pointer"
-            onClick={() => handleViewProject(projectView.urlSite)}
+            className="w-full bg-[url('src/assets/sectionProjects/macbook.png')] bg-no-repeat bg-center bg-contain p-[15%] pt-[12%] mb-8"
           >
             <img
-              src={projectView.image}
+              src={projectView.image as string}
               alt="Recent Project - Image"
-              className={`max-w-full h-auto transition-opacity duration-300 ${
-                isFading ? "opacity-0" : "opacity-100"
-              }`}
+              className={`max-w-full h-auto cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
+                }`}
+              onClick={() => handleViewProject(projectView.urlSite as string)}
             />
           </div>
           <i
-            className={`fa-solid fa-chevron-right text-3xl ${
-              index + 1 === projects.length
-                ? "cursor-not-allowed text-textDark"
-                : "cursor-pointer"
-            }`}
+            className={`fa-solid fa-chevron-right text-3xl ${index + 1 === projects.length
+              ? "cursor-not-allowed text-textDark"
+              : "cursor-pointer"
+              }`}
             onClick={() => handlePreviousNextProject(index + 1)}
           />
         </div>
       </div>
       <div className="hidden lg:flex items-center justify-center w-3/5">
         <i
-          className={`fa-solid fa-chevron-left text-3xl ${
-            index === 0 ? "cursor-not-allowed text-textDark" : "cursor-pointer"
-          }`}
+          className={`fa-solid fa-chevron-left text-3xl ${index === 0 ? "cursor-not-allowed text-textDark" : "cursor-pointer"
+            }`}
           onClick={() => handlePreviousNextProject(index - 1)}
         />
         <div
-          className="w-full bg-[url('src/assets/sectionProjects/macbook.png')] bg-no-repeat bg-center bg-contain p-[15%] pt-[12%] cursor-pointer"
-          onClick={() => handleViewProject(projectView.urlSite)}
+          className="w-full bg-[url('src/assets/sectionProjects/macbook.png')] bg-no-repeat bg-center bg-contain p-[15%] pt-[12%]"
         >
           <img
-            src={projectView.image}
+            src={projectView.image as string}
             alt="Recent Project - Image"
-            className={`max-w-full h-auto transition-opacity duration-300 ${
-              isFading ? "opacity-0" : "opacity-100"
-            }`}
+            className={`max-w-full h-auto cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
+              }`}
+            onClick={() => handleViewProject(projectView.urlSite as string)}
           />
         </div>
         <i
-          className={`fa-solid fa-chevron-right text-3xl ${
-            index + 1 === projects.length
-              ? "cursor-not-allowed text-textDark"
-              : "cursor-pointer"
-          }`}
+          className={`fa-solid fa-chevron-right text-3xl ${index + 1 === projects.length
+            ? "cursor-not-allowed text-textDark"
+            : "cursor-pointer"
+            }`}
           onClick={() => handlePreviousNextProject(index + 1)}
         />
       </div>

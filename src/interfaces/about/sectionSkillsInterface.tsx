@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export const SectionSkillsInterface = () => {
   const skills = [
@@ -28,64 +28,53 @@ export const SectionSkillsInterface = () => {
   ];
 
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollAmount = 1;
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-    if (scrollContainer) {
-      const scrollWidth = scrollContainer.scrollWidth;
+    let animationFrameId: number;
 
-      const scrollHandler = () => {
-        setScrollLeft((prevScrollLeft) => {
-          let newScrollLeft = prevScrollLeft + 1;
-          if (newScrollLeft >= scrollWidth) {
-            newScrollLeft = 0;
-          }
+    const scroll = () => {
+      if (!scrollContainer) return;
 
-          scrollContainer.scrollTo({
-            left: newScrollLeft,
-            behavior: "smooth",
-          });
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
+      } else {
+        scrollContainer.scrollLeft += scrollAmount;
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
 
-          return newScrollLeft;
-        });
-      };
+    // Disable user interaction
+    scrollContainer.style.pointerEvents = "none";
 
-      const scrollInterval = setInterval(scrollHandler, 10);
-      return () => clearInterval(scrollInterval);
-    }
+    animationFrameId = requestAnimationFrame(scroll);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      if (scrollContainer) {
+        scrollContainer.style.pointerEvents = "auto";
+      }
+    };
   }, []);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-
-    if (scrollContainer) {
-      scrollContainer.scrollTo({
-        left: scrollLeft,
-        behavior: "auto",
-      });
-    }
-  }, [scrollLeft]);
 
   return (
     <section className="h-full w-full bg-background flex flex-col items-center px-4 lg:px-48 justify-center text-white">
       <h1 className="text-5xl lg:text-6xl mb-16 font-semibold">Skills</h1>
       <div
         ref={scrollRef}
-        className="flex items-center p-8 w-full overflow-x-auto"
+        className="flex items-center p-8 w-full overflow-x-hidden whitespace-nowrap"
       >
-        {skills.map((skill, index) => {
-          const isLastSkill = skills.length - 1;
+        {[...skills, ...skills].map((skill, index) => {
           return (
             <div
               key={index}
-              className={`flex flex-col p-8 pt-4 pr-24 rounded-lg bg-backgroundSecondary ${
-                isLastSkill !== index && "mr-8"
-              }`}
+              className="flex flex-col p-8 pt-4 pr-24 rounded-lg bg-backgroundSecondary mr-8"
             >
               <i className={`${skill.icon} text-3xl mb-4`} />
-              <span className="text-nowrap">{skill.text}</span>
+              <span className="whitespace-nowrap">{skill.text}</span>
             </div>
           );
         })}
