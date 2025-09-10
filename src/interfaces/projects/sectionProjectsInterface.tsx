@@ -7,6 +7,8 @@ import libreta from "../../assets/sectionProjects/libreta.png";
 import certificado from "../../assets/sectionProjects/certificado.png";
 import portal from "../../assets/sectionProjects/portal.png";
 import macbook from "../../assets/sectionProjects/macbook.png";
+import ClickIcon from "../clickIcon";
+import PointIcon from "../pointIcon";
 import { useEffect, useState } from "react";
 
 export const SectionProjectsInterface = () => {
@@ -130,7 +132,7 @@ export const SectionProjectsInterface = () => {
             onClick={() => handlePreviousNextProject(index - 1)}
           />
           <div
-            className="w-full relative p-[15%] pt-[12%] mb-8"
+            className="flex items-center justify-center w-full relative p-[15%] pt-[12%] mb-8"
           >
             <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%] left-0" />
             <img
@@ -140,6 +142,7 @@ export const SectionProjectsInterface = () => {
                 }`}
               onClick={() => handleViewProject(projectView.urlSite as string)}
             />
+            <PointIcon className="absolute w-[12%] -rotate-40 bottom-[25%] right-[16%] z-30 fill-primary" />
           </div>
           <i
             className={`fa-solid fa-chevron-right text-3xl ${index + 1 === projects.length
@@ -157,7 +160,7 @@ export const SectionProjectsInterface = () => {
           onClick={() => handlePreviousNextProject(index - 1)}
         />
         <div
-          className="w-full p-[15%] pt-[12%] relative"
+          className="flex items-center justify-center w-full p-[15%] pt-[12%] relative"
         >
           <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%] left-0" />
           <img
@@ -167,6 +170,7 @@ export const SectionProjectsInterface = () => {
               }`}
             onClick={() => handleViewProject(projectView.urlSite as string)}
           />
+          <ClickIcon className="absolute w-[12%] bottom-[25%] right-[16%] z-30 stroke-primary fill-none" />
         </div>
         <i
           className={`fa-solid fa-chevron-right text-3xl ${index + 1 === projects.length

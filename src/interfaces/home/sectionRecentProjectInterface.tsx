@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import recentProject from "../../assets/sectionRecentProject/recentProject.png";
 import macbook from "../../assets/sectionRecentProject/macbook.png";
+import ClickIcon from "../clickIcon";
+import PointIcon from "../pointIcon";
 import { ButtonInterface } from "../buttonInterface";
 
 export const SectionRecentProjectInterface = () => {
@@ -39,6 +41,7 @@ export const SectionRecentProjectInterface = () => {
             className="max-w-full h-auto cursor-pointer z-20"
             onClick={handleViewProject}
           />
+          <PointIcon className="absolute w-[12%] -rotate-40 bottom-[25%] right-[16%] z-30 fill-primary" />
         </div>
       </div>
       <div
@@ -51,6 +54,7 @@ export const SectionRecentProjectInterface = () => {
           className="max-w-full h-auto cursor-pointer z-20"
           onClick={handleViewProject}
         />
+        <ClickIcon className="absolute w-[12%] bottom-[25%] right-[16%] z-30 stroke-primary fill-none" />
       </div>
     </section>
   );
