@@ -10,7 +10,7 @@ export const SidenavMobileInterface = ({
 
   return (
     <aside
-      className={`w-screen h-screen bg-background transition-all duration-500 transform z-60 fixed pt-32 ${menuOpen ? "" : "-translate-x-full"
+      className={`w-screen h-screen bg-background transition-all duration-500 transform z-80 fixed pt-32 ${menuOpen ? "" : "-translate-x-full"
         }`}
     >
       <ul className="flex flex-col justify-start items-center h-screen text-white">

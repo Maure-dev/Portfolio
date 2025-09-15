@@ -6,7 +6,7 @@ export const SectionPresentationInterface = () => {
       </h1>
       <div className="flex flex-col justify-center lg:w-3/4">
         <span className="text-secondary mb-0.5 text-xl lg:text-4xl">
-          &lt;h1&gt;
+          &lt;p&gt;
         </span>
         <p className="border-l-2 border-secondary pl-4 ml-4 lg:ml-8 text-lg lg:text-2xl">
           I am a passionate Front-End developer with experience in AngularJS and
@@ -18,7 +18,7 @@ export const SectionPresentationInterface = () => {
           expand my skill set.
         </p>
         <span className="text-secondary mt-2 text-xl lg:text-4xl">
-          &lt;/h1&gt;
+          &lt;/p&gt;
         </span>
       </div>
     </section>
