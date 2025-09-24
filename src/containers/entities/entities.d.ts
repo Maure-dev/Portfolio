@@ -33,6 +33,7 @@ export type ButtonInterfaceType = {
   description: string;
   type: "button" | "submit" | "reset" | undefined;
   onClick?: (e) => void;
+  disabled?: boolean;
 };
 
 export type AlertInterfaceType = {
