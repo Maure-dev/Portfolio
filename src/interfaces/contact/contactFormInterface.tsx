@@ -19,6 +19,14 @@ export const ContactFormInterface = ({ className }: { className?: string }) => {
   const [captchaError, setCaptchaError] = React.useState(false);
   const [captchaKey, setCaptchaKey] = React.useState(0);
 
+  const handleCaptchaChange = React.useCallback((token: string) => {
+    setCaptchaToken(token);
+    setCaptchaError(false);
+  }, []);
+  const handleCaptchaReset = React.useCallback(() => {
+    setCaptchaToken(null);
+  }, []);
+
   if (!contactContext) return null;
 
   const { formData, setFormData, handleSubmit, status } = contactContext;
@@ -99,12 +107,9 @@ export const ContactFormInterface = ({ className }: { className?: string }) => {
           <div className="flex flex-col gap-4 mt-6 lg:flex-row items-center justify-center lg:justify-between">
             <GoogleReCaptchaCheckbox
               key={captchaKey}
-              onChange={(token) => {
-                setCaptchaToken(token);
-                setCaptchaError(false);
-              }}
-              onExpired={() => setCaptchaToken(null)}
-              onError={() => setCaptchaToken(null)}
+              onChange={handleCaptchaChange}
+              onExpired={handleCaptchaReset}
+              onError={handleCaptchaReset}
             />
             <ButtonInterface
               primary
