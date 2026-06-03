@@ -3,10 +3,76 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/profile-rounded.png" />
-  <link href="./src/assets/fontawesome/css/all.css" rel="stylesheet" />
+  <script>
+    // Apply the persisted theme before first paint to avoid a flash of the
+    // wrong theme. Dark is the default: only an explicit 'light' choice opts out.
+    (function () {
+      try {
+        var isLight = localStorage.getItem("theme") === "light";
+        document.documentElement.classList.add(isLight ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>| Mauro Alejandro Gerardi</title>
+
+  <!-- Primary meta -->
+  <title>Mauro Gerardi — Front-End Developer & Business Analyst</title>
+  <meta name="description"
+    content="Portfolio of Mauro Gerardi, a Semi-Senior Front-End Developer (Angular & React) and Business Analyst. Explore projects, experience, and skills." />
+  <meta name="author" content="Mauro Alejandro Gerardi" />
+  <meta name="theme-color" content="#1E1E1E" />
+  <link rel="canonical" href="https://maure-dev.vercel.app/" />
+
+  <!-- Icons / PWA -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mauro Gerardi" />
+  <meta property="og:title" content="Mauro Gerardi — Front-End Developer & Business Analyst" />
+  <meta property="og:description"
+    content="Semi-Senior Front-End Developer (Angular & React) and Business Analyst. Explore projects, experience, and skills." />
+  <meta property="og:url" content="https://maure-dev.vercel.app/" />
+  <meta property="og:image" content="https://maure-dev.vercel.app/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mauro Gerardi — Front-End Developer & Business Analyst" />
+  <meta name="twitter:description"
+    content="Semi-Senior Front-End Developer (Angular & React) and Business Analyst. Explore projects, experience, and skills." />
+  <meta name="twitter:image" content="https://maure-dev.vercel.app/og.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mauro Alejandro Gerardi",
+      "url": "https://maure-dev.vercel.app/",
+      "image": "https://maure-dev.vercel.app/og.png",
+      "jobTitle": "Front-End Developer & Business Analyst",
+      "knowsAbout": ["Angular", "React", "TypeScript", "Business Analysis"],
+      "sameAs": [
+        "https://www.linkedin.com/in/mauro-gerardi",
+        "https://github.com/Maure-dev"
+      ]
+    }
+  </script>
 </head>
 
 <body>

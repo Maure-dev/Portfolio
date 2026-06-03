@@ -1,185 +1,208 @@
-import saasMoorea from "../../assets/sectionProjects/saasMoorea.png";
-import moorea from "../../assets/sectionProjects/moorea.png";
-import leafnoise from "../../assets/sectionProjects/leafnoise.png";
-import comprar from "../../assets/sectionProjects/comprar.png";
-import contratar from "../../assets/sectionProjects/contratar.png";
-import libreta from "../../assets/sectionProjects/libreta.png";
-import certificado from "../../assets/sectionProjects/certificado.png";
-import portal from "../../assets/sectionProjects/portal.png";
-import macbook from "../../assets/sectionProjects/macbook.png";
-import ClickIcon from "../clickIcon";
-import PointIcon from "../pointIcon";
+import saasMoorea from "../../assets/sectionProjects/saasMoorea.webp";
+import moorea from "../../assets/sectionProjects/moorea.webp";
+import leafnoise from "../../assets/sectionProjects/leafnoise.webp";
+import comprar from "../../assets/sectionProjects/comprar.webp";
+import contratar from "../../assets/sectionProjects/contratar.webp";
+import libreta from "../../assets/sectionProjects/libreta.webp";
+import certificado from "../../assets/sectionProjects/certificado.webp";
+import portal from "../../assets/sectionProjects/portal.webp";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faXmark,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import { Reveal } from "../revealInterface";
+
+type ProjectId =
+  | "saasMoorea"
+  | "moorea"
+  | "leafnoise"
+  | "comprar"
+  | "contratar"
+  | "libretas"
+  | "certificados"
+  | "portal";
+
+type ProjectCategory = "saas" | "government";
+
+type Project = {
+  id: ProjectId;
+  title: string;
+  urlSite: string;
+  image: string;
+  category: ProjectCategory;
+  stack: string[];
+};
+
+const REACT_STACK = ["React", "TypeScript", "Tailwind CSS"];
+const DOTNET_STACK = [".NET", "Angular Material", "SQL"];
+
+const projects: Project[] = [
+  { id: "saasMoorea", title: "SaaS Moorea.io", urlSite: "https://saas.moorea.io/", image: saasMoorea, category: "saas", stack: REACT_STACK },
+  { id: "moorea", title: "Moorea.io", urlSite: "https://moorea.io/", image: moorea, category: "saas", stack: REACT_STACK },
+  { id: "leafnoise", title: "Leafnoise", urlSite: "https://leafnoise.io/", image: leafnoise, category: "saas", stack: REACT_STACK },
+  { id: "comprar", title: "COMPR.AR", urlSite: "https://comprar.gob.ar/", image: comprar, category: "government", stack: DOTNET_STACK },
+  { id: "contratar", title: "CONTRAT.AR", urlSite: "https://contratar.gob.ar/", image: contratar, category: "government", stack: DOTNET_STACK },
+  { id: "libretas", title: "Libretas AUH", urlSite: "https://www.anses.gob.ar/hijos/libreta-de-asignacion-universal", image: libreta, category: "government", stack: DOTNET_STACK },
+  { id: "certificados", title: "Certificados Escolares", urlSite: "https://www.anses.gob.ar/educacion/ayuda-escolar-anual", image: certificado, category: "government", stack: DOTNET_STACK },
+  { id: "portal", title: "Portal de Trámites", urlSite: "https://www.santafe.gov.ar/tramites", image: portal, category: "government", stack: REACT_STACK },
+];
+
+const FILTERS = ["all", "saas", "government"] as const;
+type Filter = (typeof FILTERS)[number];
 
 export const SectionProjectsInterface = () => {
-  const [index, setIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
-  const [projectView, setProjectView] = useState({
-    title: null as string | null,
-    subtitle: null as string | null,
-    description: null as string | null,
-    urlSite: null as string | null,
-    image: null as string | null,
-  });
+  const { t } = useTranslation();
+  const [filter, setFilter] = useState<Filter>("all");
+  const [selected, setSelected] = useState<Project | null>(null);
 
-  const projects = [
-    {
-      title: "SaaS Moorea.io",
-      subtitle: "Manage and automate your processes",
-      description:
-        "SaaS is a software distribution model where the software and the respective data it handles are hosted on a provider's servers, which are accessed via the Internet.",
-      urlSite: "https://saas.moorea.io/",
-      image: saasMoorea,
-    },
-    {
-      title: "Moorea.io",
-      subtitle: "Transform processes into experiences",
-      description:
-        "Moorea enables you to extract, analyze, and manage critical information from a variety of digital formats. It transforms the way organizations interact with their vast document collections, ensuring accuracy, efficiency, and security at every step.",
-      urlSite: "https://moorea.io/",
-      image: moorea,
-    },
-    {
-      title: "Leafnoise",
-      subtitle: "Simpler and smarter processes",
-      description:
-        "Make your digital transformation process simpler and more successful. The digitization of your organization is within your reach.",
-      urlSite: "https://leafnoise.io/",
-      image: leafnoise,
-    },
-    {
-      title: "COMPR.AR",
-      subtitle: "Goods and Services Contracting Portal",
-      description:
-        "It is the electronic system for managing purchases and contracts for the National Public Administration. Through the platform, government entities process and publish their purchasing processes, and suppliers submit their bids in an agile, transparent, and secure manner.",
-      urlSite: "https://comprar.gob.ar/",
-      image: comprar,
-    },
-    {
-      title: "CONTRAT.AR",
-      subtitle: "Public Works Contracts and Concessions Portal",
-      description:
-        "It is the electronic system for managing national government contracts. Through the platform, government entities process and publish their contracting processes, and builders submit their bids in a fast, transparent, and secure manner.",
-      urlSite: "https://contratar.gob.ar/",
-      image: contratar,
-    },
-    {
-      title: "Libretas AUH",
-      subtitle: "System for health, education, and vaccination control",
-      description:
-        "It is a document that recipients of the Universal Child Allowance (AUH) must submit every year to prove that their children are complying with health checks, vaccinations, and education requirements.",
-      urlSite: "https://www.anses.gob.ar/hijos/libreta-de-asignacion-universal",
-      image: libreta,
-    },
-    {
-      title: "Certificados Escolares",
-      subtitle: "School attendance monitoring system",
-      description:
-        "This document confirms that children are actually attending school, and parents have until the last working day of the year to submit it. This allows them to receive financial assistance from ANSES.",
-      urlSite: "https://www.anses.gob.ar/educacion/ayuda-escolar-anual",
-      image: certificado,
-    },
-    {
-      title: "Portal de Trámites",
-      subtitle: "Single Portal for Digital Procedures for Citizens",
-      description:
-        "Free access portal (no authentication required) where citizens can view all available procedures, both in person and online. Each procedure will display relevant information so that citizens can understand how to complete it and, if it is online, will allow them to access it.",
-      urlSite: "https://www.santafe.gov.ar/tramites",
-      image: portal,
-    },
-  ];
-
-  const handleViewProject = (site: string) => {
-    window.open(site, "_blank");
-  };
-
-  const handlePreviousNextProject = (projectNumber: number) => {
-    if (projectNumber >= 0 && projectNumber < projects.length) {
-      setIndex(projectNumber);
-      handleSetProject(projectNumber);
-    }
-  };
-
-  const handleSetProject = (projectNumber: number) => {
-    setIsFading(true);
-    setTimeout(() => {
-      setProjectView(projects[projectNumber]);
-      setIsFading(false);
-    }, 300);
-  };
+  const visible =
+    filter === "all"
+      ? projects
+      : projects.filter((p) => p.category === filter);
 
   useEffect(() => {
-    setProjectView(projects[0]);
-  }, []);
+    if (!selected) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selected]);
 
   return (
-    <section className="h-full w-full bg-background flex flex-col lg:flex-row items-center px-4 lg:px-48 justify-center lg:justify-between text-white">
-      <div
-        className={`flex flex-col lg:w-2/5 items-center lg:items-start text-center lg:text-start mb-16 lg:mb-0 transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
-          }`}
-      >
-        <h1 className="text-3xl lg:text-4xl mb-4 font-semibold">
-          {projectView.title}
+    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-white">
+      <Reveal className="w-full max-w-6xl flex flex-col items-center">
+        <h1 className="text-5xl lg:text-6xl font-semibold text-center mb-3">
+          {t("projects.title")}
         </h1>
-        <h3 className="text-xl mb-8 font-medium">{projectView.subtitle}</h3>
-        <p className="mb-8 lg:pr-32 text-justify">{projectView.description}</p>
-        <div className="lg:hidden flex items-center justify-center w-full">
-          <i
-            className={`fa-solid fa-chevron-left text-3xl ${index === 0
-              ? "cursor-not-allowed text-textDark"
-              : "cursor-pointer"
+        <p className="text-lg text-secondary text-center mb-10">
+          {t("projects.subtitle")}
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              type="button"
+              onClick={() => setFilter(f)}
+              aria-pressed={filter === f}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
+                filter === f
+                  ? "bg-primary text-white"
+                  : "bg-backgroundSecondary text-secondary hover:text-white"
               }`}
-            onClick={() => handlePreviousNextProject(index - 1)}
-          />
-          <div
-            className="flex items-center justify-center w-full relative p-[15%] pt-[12%] mb-8"
-          >
-            <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%] left-0" />
-            <img
-              src={projectView.image as string}
-              alt="Recent Project - Image"
-              className={`max-w-full h-auto z-20 cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
-                }`}
-              onClick={() => handleViewProject(projectView.urlSite as string)}
-            />
-            <PointIcon className="absolute w-[12%] -rotate-40 bottom-[25%] right-[16%] z-30 fill-primary" />
-          </div>
-          <i
-            className={`fa-solid fa-chevron-right text-3xl ${index + 1 === projects.length
-              ? "cursor-not-allowed text-textDark"
-              : "cursor-pointer"
-              }`}
-            onClick={() => handlePreviousNextProject(index + 1)}
-          />
+            >
+              {t(`projects.filters.${f}`)}
+            </button>
+          ))}
         </div>
-      </div>
-      <div className="hidden lg:flex items-center justify-center w-3/5">
-        <i
-          className={`fa-solid fa-chevron-left text-3xl ${index === 0 ? "cursor-not-allowed text-textDark" : "cursor-pointer"
-            }`}
-          onClick={() => handlePreviousNextProject(index - 1)}
-        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
+          {visible.map((project) => (
+            <button
+              key={project.id}
+              type="button"
+              onClick={() => setSelected(project)}
+              aria-label={`${project.title} — ${t("projects.viewDetails")}`}
+              className="group text-left bg-backgroundSecondary rounded-xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 focus-visible:-translate-y-2 cursor-pointer"
+            >
+              <div className="aspect-[16/10] overflow-hidden bg-background">
+                <img
+                  src={project.image}
+                  alt={`${project.title} — ${t("common.projectPreviewAlt")}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-5">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <h3 className="text-lg font-semibold">{project.title}</h3>
+                  <span className="text-xs uppercase tracking-wide text-primary border border-primary/50 rounded-full px-2 py-0.5 shrink-0">
+                    {t(`projects.categories.${project.category}`)}
+                  </span>
+                </div>
+                <p className="text-sm text-secondary">
+                  {t(`projects.items.${project.id}.subtitle`)}
+                </p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </Reveal>
+
+      {selected && (
         <div
-          className="flex items-center justify-center w-full p-[15%] pt-[12%] relative"
+          className="fixed inset-0 z-200 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label={selected.title}
+          onClick={() => setSelected(null)}
         >
-          <img src={macbook} alt="Macbook - Image" className="absolute z-10 top-[8%] left-0" />
-          <img
-            src={projectView.image as string}
-            alt="Recent Project - Image"
-            className={`max-w-full h-auto z-20 cursor-pointer transition-opacity duration-300 ${isFading ? "opacity-0" : "opacity-100"
-              }`}
-            onClick={() => handleViewProject(projectView.urlSite as string)}
-          />
-          <ClickIcon className="absolute w-[12%] bottom-[25%] right-[16%] z-30 stroke-primary fill-none" />
+          <div
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-backgroundSecondary rounded-2xl text-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelected(null)}
+              aria-label={t("projects.close")}
+              className="absolute top-3 right-3 z-10 h-9 w-9 flex items-center justify-center rounded-full bg-background/80 hover:text-primary cursor-pointer"
+            >
+              <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
+            </button>
+            <div className="aspect-[16/9] overflow-hidden bg-background rounded-t-2xl">
+              <img
+                src={selected.image}
+                alt={`${selected.title} — ${t("common.projectPreviewAlt")}`}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div className="p-6 lg:p-8">
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <h2 className="text-2xl font-bold">{selected.title}</h2>
+                <span className="text-xs uppercase tracking-wide text-primary border border-primary/50 rounded-full px-2 py-0.5">
+                  {t(`projects.categories.${selected.category}`)}
+                </span>
+              </div>
+              <p className="text-primary mb-4">
+                {t(`projects.items.${selected.id}.subtitle`)}
+              </p>
+              <p className="text-secondary leading-relaxed mb-6">
+                {t(`projects.items.${selected.id}.description`)}
+              </p>
+              <p className="text-sm font-semibold mb-2">
+                {t("projects.stackLabel")}
+              </p>
+              <ul className="flex flex-wrap gap-2 mb-8">
+                {selected.stack.map((tech) => (
+                  <li
+                    key={tech}
+                    className="text-sm bg-background rounded-full px-3 py-1 text-secondary"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={selected.urlSite}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary text-white rounded-lg px-6 py-3 font-semibold hover:bg-primary/80 transition-colors"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  aria-hidden="true"
+                />
+                {t("projects.visitSite")}
+              </a>
+            </div>
+          </div>
         </div>
-        <i
-          className={`fa-solid fa-chevron-right text-3xl ${index + 1 === projects.length
-            ? "cursor-not-allowed text-textDark"
-            : "cursor-pointer"
-            }`}
-          onClick={() => handlePreviousNextProject(index + 1)}
-        />
-      </div>
+      )}
     </section>
   );
 };

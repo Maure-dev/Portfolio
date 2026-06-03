@@ -1,10 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 
+/* Manual (class-based) dark mode. Tailwind v4's built-in `dark:` follows the OS
+   via prefers-color-scheme; this override makes it key off a `.dark` class so a
+   toggle can override the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
+  /* DARK is the default theme (applies to :root and the explicit .dark class). */
+  :root,
+  .dark {
+    --bg: #1E1E1E;
+    --bg-secondary: #292929;
+    --primary: #CE1F36;
+    --secondary: #7C7B7B;
+    --muted: #535353;
+    --fg: #FFFFFF;
+  }
+
+  /* LIGHT overrides. */
+  .light {
+    --bg: #FFFFFF;
+    --bg-secondary: #F4F4F4;
+    --primary: #CE1F36;
+    --secondary: #7C7B7B;
+    --muted: #B5B5B5;
+    --fg: #1E1E1E;
+  }
+
   body {
-    user-select: none;
     font-family: "Sora", sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  /* Visible keyboard focus for all interactive elements (WCAG 2.4.7). */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   h1 {
@@ -24,20 +57,36 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #1E1E1E;
+    background: var(--bg);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #CE1F36;
+    background: var(--primary);
     border-radius: 0.5rem;
   }
 }
 
-@theme {
-  --color-primary: #CE1F36;
-  --color-secondary: #7C7B7B;
-  --color-background: #1E1E1E;
-  --color-backgroundSecondary: #292929;
-  --color-textDark: #535353;
-  --color-white: #FFFFFF;
+/* Entrance animation (applied with the motion-safe: variant so it is skipped
+   when the user prefers reduced motion). */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* `inline` makes the utilities emit var(...) so a runtime class swap on <html>
+   re-themes live, while keeping the existing class names (bg-background,
+   text-white, text-primary, ...) working unchanged. */
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--bg);
+  --color-backgroundSecondary: var(--bg-secondary);
+  --color-textDark: var(--muted);
+  --color-white: var(--fg);
 }

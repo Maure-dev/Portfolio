@@ -18,7 +18,8 @@ export const OutletInterface = () => {
   return (
     <div
       id="sectionContainer"
-      className="w-screen h-screen overflow-y-scroll"
+      tabIndex={-1}
+      className="w-screen h-screen overflow-y-scroll outline-none motion-safe:scroll-smooth"
       onScroll={handleScroll}
     >
       <Suspense>

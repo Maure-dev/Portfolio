@@ -1,32 +1,44 @@
-import { CarouselInterface } from "../carouselInterface";
+import { useTranslation } from "react-i18next";
+import { Reveal } from "../revealInterface";
+
+const EXPERIENCE_ORDER = [
+  "frontendDev",
+  "businessAnalyst",
+  "techLead",
+  "fullStack",
+] as const;
 
 export const SectionExperiencesInterface = () => {
-  const Experiences = [
-    {
-      titleLogo: "Technical Leader",
-      title: "Dec 2021 - Jun 2022 | Leafnoise Company S.A.",
-      description: "Leader of the COMPR.AR & CONTRAT.AR project belonging to the Office of the Chief of Staff of Ministers and administrators for the National Contracting Office (ONC). Managed the team of developers in .NET, Angular Material, and SQL languages.",
-    },
-    {
-      titleLogo: "SSR Business Analyst",
-      title: "Feb 2022 - Aug 2024 | Leafnoise Company S.A.",
-      description: "Responsible for analyzing the company's processes with a view to satisfying customer needs. Acting as the link between the customer and the technical team.",
-    },
-    {
-      titleLogo: "SSR Frontend Developer",
-      title: "Aug 2021 - Present | Leafnoise Company S.A.",
-      description: "Responsible for the platform belonging to the company seeking to meet customer needs, I work from the customer's perspective, interpreting and adapting web development languages to create the final experience for that customer/user.",
-    },
-    {
-      titleLogo: "Full Stack Developer",
-      title: "May 2021 - Jun 2022 | Leafnoise Company S.A.",
-      description: "Maintenance of the COMPR.AR & CONTRAT.AR project belonging to the Office of the Chief of Staff of Ministers and administrators by the National Contracting Office (ONC). Management of the team of developers in the languages .NET, Angular Material, and SQL.",
-    },
-  ];
+  const { t } = useTranslation();
+  const company = t("about.experiences.company");
 
   return (
-    <section className="h-screen w-full bg-background px-4 lg:px-48 flex flex-col items-center text-center justify-center relative overflow-hidden">
-      <CarouselInterface slides={Experiences} />
+    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-white">
+      <Reveal className="w-full max-w-3xl">
+        <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
+          {t("about.experiences.title")}
+        </h1>
+        <ol className="relative border-l-2 border-primary/40 ml-2">
+          {EXPERIENCE_ORDER.map((id) => (
+            <li key={id} className="relative pl-8 lg:pl-12 pb-12 last:pb-0">
+              <span
+                className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-primary ring-4 ring-background"
+                aria-hidden="true"
+              />
+              <p className="text-sm text-textDark mb-1">
+                {t(`about.experiences.items.${id}.period`)}
+              </p>
+              <h3 className="text-xl lg:text-2xl font-semibold">
+                {t(`about.experiences.items.${id}.role`)}
+              </h3>
+              <p className="text-primary font-medium mb-3">{company}</p>
+              <p className="text-secondary leading-relaxed">
+                {t(`about.experiences.items.${id}.description`)}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </Reveal>
     </section>
   );
 };

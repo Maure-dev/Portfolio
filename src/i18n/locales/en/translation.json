@@ -1,0 +1,254 @@
+{
+  "nav": {
+    "product": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "common": {
+    "brand": "Mauro Gerardi",
+    "downloadCv": "Download CV",
+    "viewCv": "View CV",
+    "backToTop": "Back to top",
+    "seeMoreProjects": "See more projects",
+    "profilePhotoAlt": "Photo of Mauro Gerardi",
+    "macbookAlt": "MacBook mockup",
+    "projectPreviewAlt": "Project preview",
+    "previousProject": "Previous project",
+    "nextProject": "Next project",
+    "openInNewTab": "Open {{name}} in a new tab",
+    "goToProject": "Go to project {{name}}",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme",
+    "language": "Change language",
+    "skipToContent": "Skip to content",
+    "linkedin": "LinkedIn profile",
+    "github": "GitHub profile",
+    "goToContact": "Go to the contact section"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hi, my name is",
+      "subtitle": "Semi-Senior Front-End Developer & Business Analyst",
+      "avatarAlt": "Mauro Gerardi memoji avatar"
+    },
+    "presentation": {
+      "title": "Nice to meet you",
+      "body": "I am a passionate Front-End developer with experience in AngularJS and Angular Material, a Functional Analyst, Scrum Master, and PO. I am a graduate of the University Technical Degree in Web Development at UNER, where I learned to use HTML, CSS, and JavaScript to create attractive and functional user interfaces for web applications. I also took a ReactJS course at CoderHouse to expand my skill set."
+    },
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Featured projects",
+      "technologies": "Technologies",
+      "languages": "Languages"
+    },
+    "services": {
+      "title": "What I do",
+      "items": {
+        "frontend": {
+          "title": "Frontend Development",
+          "description": "Accessible, responsive interfaces built with Angular and React, focused on a great user experience."
+        },
+        "analysis": {
+          "title": "Business Analysis",
+          "description": "I map and improve business processes and act as the bridge between stakeholders and the technical team."
+        },
+        "platforms": {
+          "title": "SaaS & Web Platforms",
+          "description": "End-to-end product work — from gathering requirements to shipping the final experience to users."
+        }
+      }
+    },
+    "recentProject": {
+      "titleLine1": "My recent",
+      "titleLine2": "work"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "People I've worked with have said some nice things...",
+      "items": {
+        "armando": {
+          "name": "Armando Trillo",
+          "title": "Bachelor of Information Systems",
+          "quote": "Mauro has demonstrated a positive, proactive attitude and strong commitment, adapting to the rapid changes in the project. He has overcome challenges and grown with each new role assigned to him: developer, incident manager, coordination, and training of teammates. He has a special ability as a Business Analyst to understand and describe business operational flows, integrating that knowledge into the code as a developer. He has a very well-rounded profile and has been a great colleague on the C&C Scrum Team."
+        },
+        "tamara": {
+          "name": "Tamara Martínez",
+          "title": "UX/UI Designer & Freelancer",
+          "quote": "It was a real pleasure working with Mauro, and I hope to work with him again. He is definitely the kind of developer you can trust with a project from start to finish. He has a great ability to understand project requirements and translate them into effective technical solutions. In addition, his attention to detail and commitment to quality are evident in every line of code he writes. He is always willing to collaborate and contribute ideas to improve the final product. I highly recommend Mauro for any web development project."
+        }
+      }
+    }
+  },
+  "about": {
+    "profile": {
+      "title": "Profile",
+      "objectivesLabel": "Goals",
+      "objectives": "To put my knowledge into practice, gain experience and grow professionally — working as part of a team and delivering the projects each role requires.",
+      "aptitudesLabel": "Strengths",
+      "aptitudes": "Punctual, organized and detail-oriented, with a strong sense of ownership and clear communication.",
+      "availabilityLabel": "Availability",
+      "availability": "Full-time · Remote",
+      "languagesLabel": "Languages",
+      "languages": {
+        "spanish": "Spanish — Native",
+        "english": "English — Intermediate"
+      }
+    },
+    "education": {
+      "title": "Education",
+      "status": "Graduate",
+      "items": {
+        "uner": {
+          "degree": "University Technician in Web Development",
+          "institution": "UNER — School of Administration Sciences",
+          "period": "2023 - 2025"
+        },
+        "technical": {
+          "degree": "Personal & Professional Computer Technician",
+          "institution": "E.E.S.T. N° 2 \"Manuel Mateo\", San Vicente",
+          "period": "2013 - 2019"
+        }
+      }
+    },
+    "skills": {
+      "title": "Skills",
+      "subtitle": "Technologies and tools I work with.",
+      "groups": {
+        "frontend": "Frontend",
+        "languages": "Languages",
+        "databases": "Databases",
+        "tooling": "Tooling"
+      }
+    },
+    "experiences": {
+      "title": "Experience",
+      "company": "Leafnoise Company S.A.",
+      "present": "Present",
+      "items": {
+        "techLead": {
+          "role": "Technical Leader",
+          "period": "Dec 2021 - Jun 2022",
+          "description": "Leader of the COMPR.AR & CONTRAT.AR project belonging to the Office of the Chief of Staff of Ministers and administrators for the National Contracting Office (ONC). Managed the team of developers in .NET, Angular Material, and SQL languages."
+        },
+        "businessAnalyst": {
+          "role": "Semi-Senior Business Analyst",
+          "period": "Feb 2022 - Aug 2024",
+          "description": "Responsible for analyzing the company's processes with a view to satisfying customer needs. Acting as the link between the customer and the technical team."
+        },
+        "frontendDev": {
+          "role": "Semi-Senior Frontend Developer",
+          "period": "Aug 2021 - Present",
+          "description": "Responsible for the platform belonging to the company seeking to meet customer needs, I work from the customer's perspective, interpreting and adapting web development languages to create the final experience for that customer/user."
+        },
+        "fullStack": {
+          "role": "Full Stack Developer",
+          "period": "May 2021 - Jun 2022",
+          "description": "Maintenance of the COMPR.AR & CONTRAT.AR project belonging to the Office of the Chief of Staff of Ministers and administrators by the National Contracting Office (ONC). Management of the team of developers in the languages .NET, Angular Material, and SQL."
+        }
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of products and platforms I have worked on.",
+    "filters": {
+      "all": "All",
+      "saas": "SaaS",
+      "government": "Government"
+    },
+    "categories": {
+      "saas": "SaaS",
+      "government": "Government"
+    },
+    "viewDetails": "View details",
+    "visitSite": "Visit site",
+    "close": "Close",
+    "stackLabel": "Tech stack",
+    "items": {
+      "saasMoorea": {
+        "subtitle": "Manage and automate your processes",
+        "description": "SaaS is a software distribution model where the software and the respective data it handles are hosted on a provider's servers, which are accessed via the Internet."
+      },
+      "moorea": {
+        "subtitle": "Transform processes into experiences",
+        "description": "Moorea enables you to extract, analyze, and manage critical information from a variety of digital formats. It transforms the way organizations interact with their vast document collections, ensuring accuracy, efficiency, and security at every step."
+      },
+      "leafnoise": {
+        "subtitle": "Simpler and smarter processes",
+        "description": "Make your digital transformation process simpler and more successful. The digitization of your organization is within your reach."
+      },
+      "comprar": {
+        "subtitle": "Goods and Services Contracting Portal",
+        "description": "It is the electronic system for managing purchases and contracts for the National Public Administration. Through the platform, government entities process and publish their purchasing processes, and suppliers submit their bids in an agile, transparent, and secure manner."
+      },
+      "contratar": {
+        "subtitle": "Public Works Contracts and Concessions Portal",
+        "description": "It is the electronic system for managing national government contracts. Through the platform, government entities process and publish their contracting processes, and builders submit their bids in a fast, transparent, and secure manner."
+      },
+      "libretas": {
+        "subtitle": "System for health, education, and vaccination control",
+        "description": "It is a document that recipients of the Universal Child Allowance (AUH) must submit every year to prove that their children are complying with health checks, vaccinations, and education requirements."
+      },
+      "certificados": {
+        "subtitle": "School attendance monitoring system",
+        "description": "This document confirms that children are actually attending school, and parents have until the last working day of the year to submit it. This allows them to receive financial assistance from ANSES."
+      },
+      "portal": {
+        "subtitle": "Single Portal for Digital Procedures for Citizens",
+        "description": "Free access portal (no authentication required) where citizens can view all available procedures, both in person and online. Each procedure will display relevant information so that citizens can understand how to complete it and, if it is online, will allow them to access it."
+      }
+    }
+  },
+  "contact": {
+    "heading": "Send me a message!",
+    "orEmail": "Or reach me directly",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "message": "Got a question or proposal, or just want to say hello? Go ahead.",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Thanks! Your message has been sent.",
+      "error": "Something went wrong. Please try again.",
+      "captchaError": "Please confirm you're not a robot."
+    }
+  },
+  "footer": {
+    "title": "Let's work together",
+    "copyright": "Mauro Alejandro Gerardi - {{year}}"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for doesn't exist or has moved.",
+    "cta": "Back to home"
+  },
+  "github": {
+    "title": "On GitHub",
+    "subtitle": "A look at some of my public repositories.",
+    "viewProfile": "View full profile",
+    "error": "Repositories couldn't be loaded right now."
+  },
+  "meta": {
+    "home": {
+      "title": "Mauro Gerardi — Front-End Developer & Business Analyst",
+      "description": "Portfolio of Mauro Gerardi, a Semi-Senior Front-End Developer (Angular & React) and Business Analyst. Explore projects, experience, and skills."
+    },
+    "projects": {
+      "title": "Projects — Mauro Gerardi",
+      "description": "Selected projects by Mauro Gerardi: SaaS platforms, government portals, and web applications built with Angular and React."
+    },
+    "about": {
+      "title": "About — Mauro Gerardi",
+      "description": "Experience and skills of Mauro Gerardi, Front-End Developer and Business Analyst."
+    },
+    "contact": {
+      "title": "Contact — Mauro Gerardi",
+      "description": "Get in touch with Mauro Gerardi for front-end development and business analysis opportunities."
+    }
+  }
+}

@@ -67,7 +67,7 @@ export const CarouselInterface = ({ slides }: CarrouselInterfaceType) => {
                 return handleClick(index);
               }}
             >
-              <Card.Content className="flex flex-col h-full justify-between items-center text-center font-bold">
+              <Card.Content className="flex flex-col h-full justify-between items-center text-center font-bold text-background">
                 <h2 className="text-base lg:text-lg 2xl:text-2xl">
                   {data.description}
                 </h2>

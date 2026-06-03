@@ -1,0 +1,254 @@
+{
+  "nav": {
+    "product": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "common": {
+    "brand": "Mauro Gerardi",
+    "downloadCv": "Descargar CV",
+    "viewCv": "Ver CV",
+    "backToTop": "Volver arriba",
+    "seeMoreProjects": "Ver más proyectos",
+    "profilePhotoAlt": "Foto de Mauro Gerardi",
+    "macbookAlt": "Maqueta de MacBook",
+    "projectPreviewAlt": "Vista previa del proyecto",
+    "previousProject": "Proyecto anterior",
+    "nextProject": "Proyecto siguiente",
+    "openInNewTab": "Abrir {{name}} en una pestaña nueva",
+    "goToProject": "Ir al proyecto {{name}}",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "switchToLight": "Cambiar a tema claro",
+    "switchToDark": "Cambiar a tema oscuro",
+    "language": "Cambiar idioma",
+    "skipToContent": "Saltar al contenido",
+    "linkedin": "Perfil de LinkedIn",
+    "github": "Perfil de GitHub",
+    "goToContact": "Ir a la sección de contacto"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hola, mi nombre es",
+      "subtitle": "Desarrollador Front-End Semi-Senior y Analista de Negocios",
+      "avatarAlt": "Memoji de Mauro Gerardi"
+    },
+    "presentation": {
+      "title": "Encantado de conocerte",
+      "body": "Soy un apasionado desarrollador Front-End con experiencia en AngularJS y Angular Material, Analista Funcional, Scrum Master y PO. Soy egresado de la Tecnicatura Universitaria en Desarrollo Web en la UNER, donde aprendí a usar HTML, CSS y JavaScript para crear interfaces de usuario atractivas y funcionales para aplicaciones web. También realicé un curso de ReactJS en CoderHouse para ampliar mis habilidades."
+    },
+    "stats": {
+      "experience": "Años de experiencia",
+      "projects": "Proyectos destacados",
+      "technologies": "Tecnologías",
+      "languages": "Idiomas"
+    },
+    "services": {
+      "title": "Qué hago",
+      "items": {
+        "frontend": {
+          "title": "Desarrollo Frontend",
+          "description": "Interfaces accesibles y responsivas hechas con Angular y React, enfocadas en una gran experiencia de usuario."
+        },
+        "analysis": {
+          "title": "Análisis de Negocios",
+          "description": "Relevo y mejoro procesos de negocio, y actúo como nexo entre los interesados y el equipo técnico."
+        },
+        "platforms": {
+          "title": "Plataformas SaaS y Web",
+          "description": "Trabajo de punta a punta en el producto: desde el relevamiento de requerimientos hasta la experiencia final del usuario."
+        }
+      }
+    },
+    "recentProject": {
+      "titleLine1": "Mi trabajo",
+      "titleLine2": "reciente"
+    },
+    "testimonials": {
+      "title": "Testimonios",
+      "subtitle": "Personas con las que trabajé dijeron cosas lindas...",
+      "items": {
+        "armando": {
+          "name": "Armando Trillo",
+          "title": "Licenciado en Sistemas de Información",
+          "quote": "Mauro demostró una actitud positiva y proactiva y un fuerte compromiso, adaptándose a los rápidos cambios del proyecto. Superó desafíos y creció con cada nuevo rol que se le asignó: desarrollador, gestor de incidentes, coordinación y capacitación de compañeros. Tiene una habilidad especial como Analista de Negocios para entender y describir los flujos operativos del negocio, integrando ese conocimiento en el código como desarrollador. Tiene un perfil muy completo y fue un gran compañero en el Scrum Team de C&C."
+        },
+        "tamara": {
+          "name": "Tamara Martínez",
+          "title": "Diseñadora UX/UI y Freelancer",
+          "quote": "Fue un verdadero placer trabajar con Mauro, y espero volver a hacerlo. Es, sin dudas, del tipo de desarrollador al que podés confiarle un proyecto de principio a fin. Tiene una gran capacidad para entender los requerimientos del proyecto y traducirlos en soluciones técnicas efectivas. Además, su atención al detalle y su compromiso con la calidad se notan en cada línea de código que escribe. Siempre está dispuesto a colaborar y aportar ideas para mejorar el producto final. Recomiendo a Mauro para cualquier proyecto de desarrollo web."
+        }
+      }
+    }
+  },
+  "about": {
+    "profile": {
+      "title": "Perfil",
+      "objectivesLabel": "Objetivos",
+      "objectives": "Poner en práctica mis conocimientos, ganar experiencia y crecer profesionalmente, trabajando en equipo y llevando adelante los proyectos que cada rol requiere.",
+      "aptitudesLabel": "Fortalezas",
+      "aptitudes": "Puntual, organizado y atento al detalle, con un fuerte sentido de responsabilidad y comunicación clara.",
+      "availabilityLabel": "Disponibilidad",
+      "availability": "Full-time · Remoto",
+      "languagesLabel": "Idiomas",
+      "languages": {
+        "spanish": "Español — Nativo",
+        "english": "Inglés — Intermedio"
+      }
+    },
+    "education": {
+      "title": "Educación",
+      "status": "Egresado",
+      "items": {
+        "uner": {
+          "degree": "Tecnicatura Universitaria en Desarrollo Web",
+          "institution": "UNER — Facultad de Ciencias de la Administración",
+          "period": "2023 - 2025"
+        },
+        "technical": {
+          "degree": "Técnico en Informática Personal y Profesional",
+          "institution": "E.E.S.T. N° 2 \"Manuel Mateo\", San Vicente",
+          "period": "2013 - 2019"
+        }
+      }
+    },
+    "skills": {
+      "title": "Habilidades",
+      "subtitle": "Tecnologías y herramientas con las que trabajo.",
+      "groups": {
+        "frontend": "Frontend",
+        "languages": "Lenguajes",
+        "databases": "Bases de datos",
+        "tooling": "Herramientas"
+      }
+    },
+    "experiences": {
+      "title": "Experiencia",
+      "company": "Leafnoise Company S.A.",
+      "present": "Actualidad",
+      "items": {
+        "techLead": {
+          "role": "Líder Técnico",
+          "period": "Dic 2021 - Jun 2022",
+          "description": "Líder del proyecto COMPR.AR y CONTRAT.AR perteneciente a la Jefatura de Gabinete de Ministros y administradores para la Oficina Nacional de Contrataciones (ONC). Gestioné el equipo de desarrolladores en los lenguajes .NET, Angular Material y SQL."
+        },
+        "businessAnalyst": {
+          "role": "Analista de Negocios Semi-Senior",
+          "period": "Feb 2022 - Ago 2024",
+          "description": "Responsable de analizar los procesos de la empresa con el objetivo de satisfacer las necesidades del cliente. Actuando como nexo entre el cliente y el equipo técnico."
+        },
+        "frontendDev": {
+          "role": "Desarrollador Frontend Semi-Senior",
+          "period": "Ago 2021 - Actualidad",
+          "description": "Responsable de la plataforma de la empresa que busca satisfacer las necesidades del cliente. Trabajo desde la perspectiva del cliente, interpretando y adaptando lenguajes de desarrollo web para crear la experiencia final de ese cliente/usuario."
+        },
+        "fullStack": {
+          "role": "Desarrollador Full Stack",
+          "period": "May 2021 - Jun 2022",
+          "description": "Mantenimiento del proyecto COMPR.AR y CONTRAT.AR perteneciente a la Jefatura de Gabinete de Ministros y administradores por la Oficina Nacional de Contrataciones (ONC). Gestión del equipo de desarrolladores en los lenguajes .NET, Angular Material y SQL."
+        }
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Una selección de productos y plataformas en los que trabajé.",
+    "filters": {
+      "all": "Todos",
+      "saas": "SaaS",
+      "government": "Gobierno"
+    },
+    "categories": {
+      "saas": "SaaS",
+      "government": "Gobierno"
+    },
+    "viewDetails": "Ver detalle",
+    "visitSite": "Visitar sitio",
+    "close": "Cerrar",
+    "stackLabel": "Tecnologías",
+    "items": {
+      "saasMoorea": {
+        "subtitle": "Gestioná y automatizá tus procesos",
+        "description": "SaaS es un modelo de distribución de software donde el software y los datos que maneja se alojan en los servidores de un proveedor, a los que se accede a través de Internet."
+      },
+      "moorea": {
+        "subtitle": "Transformá procesos en experiencias",
+        "description": "Moorea te permite extraer, analizar y gestionar información crítica de una variedad de formatos digitales. Transforma la manera en que las organizaciones interactúan con sus vastas colecciones de documentos, garantizando precisión, eficiencia y seguridad en cada paso."
+      },
+      "leafnoise": {
+        "subtitle": "Procesos más simples e inteligentes",
+        "description": "Hacé tu proceso de transformación digital más simple y exitoso. La digitalización de tu organización está a tu alcance."
+      },
+      "comprar": {
+        "subtitle": "Portal de Contratación de Bienes y Servicios",
+        "description": "Es el sistema electrónico de gestión de compras y contrataciones de la Administración Pública Nacional. A través de la plataforma, los organismos del Estado tramitan y publican sus procesos de compra, y los proveedores presentan sus ofertas de manera ágil, transparente y segura."
+      },
+      "contratar": {
+        "subtitle": "Portal de Contratos y Concesiones de Obra Pública",
+        "description": "Es el sistema electrónico de gestión de contratos del Estado nacional. A través de la plataforma, los organismos del Estado tramitan y publican sus procesos de contratación, y los constructores presentan sus ofertas de manera rápida, transparente y segura."
+      },
+      "libretas": {
+        "subtitle": "Sistema de control de salud, educación y vacunación",
+        "description": "Es un documento que las personas que perciben la Asignación Universal por Hijo (AUH) deben presentar cada año para acreditar que sus hijos cumplen con los controles de salud, la vacunación y los requisitos de educación."
+      },
+      "certificados": {
+        "subtitle": "Sistema de seguimiento de asistencia escolar",
+        "description": "Este documento confirma que los chicos realmente asisten a la escuela, y los padres tienen hasta el último día hábil del año para presentarlo. Esto les permite recibir la ayuda económica de ANSES."
+      },
+      "portal": {
+        "subtitle": "Portal Único de Trámites Digitales para la Ciudadanía",
+        "description": "Portal de acceso libre (sin autenticación) donde la ciudadanía puede ver todos los trámites disponibles, tanto presenciales como en línea. Cada trámite muestra información relevante para que las personas entiendan cómo realizarlo y, si es en línea, les permite acceder a él."
+      }
+    }
+  },
+  "contact": {
+    "heading": "¡Envíame un mensaje!",
+    "orEmail": "O contactame directamente",
+    "form": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phoneNumber": "Teléfono",
+      "message": "¿Tenés una pregunta o propuesta, o solo querés saludar? Adelante.",
+      "send": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Gracias! Tu mensaje fue enviado.",
+      "error": "Algo salió mal. Por favor, probá de nuevo.",
+      "captchaError": "Por favor, confirmá que no sos un robot."
+    }
+  },
+  "footer": {
+    "title": "Trabajemos juntos",
+    "copyright": "Mauro Alejandro Gerardi - {{year}}"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscás no existe o fue movida.",
+    "cta": "Volver al inicio"
+  },
+  "github": {
+    "title": "En GitHub",
+    "subtitle": "Un vistazo a algunos de mis repositorios públicos.",
+    "viewProfile": "Ver perfil completo",
+    "error": "No se pudieron cargar los repositorios en este momento."
+  },
+  "meta": {
+    "home": {
+      "title": "Mauro Gerardi — Desarrollador Front-End y Analista de Negocios",
+      "description": "Portfolio de Mauro Gerardi, Desarrollador Front-End Semi-Senior (Angular y React) y Analista de Negocios. Conocé proyectos, experiencia y habilidades."
+    },
+    "projects": {
+      "title": "Proyectos — Mauro Gerardi",
+      "description": "Proyectos seleccionados de Mauro Gerardi: plataformas SaaS, portales gubernamentales y aplicaciones web hechas con Angular y React."
+    },
+    "about": {
+      "title": "Sobre mí — Mauro Gerardi",
+      "description": "Experiencia y habilidades de Mauro Gerardi, Desarrollador Front-End y Analista de Negocios."
+    },
+    "contact": {
+      "title": "Contacto — Mauro Gerardi",
+      "description": "Ponete en contacto con Mauro Gerardi para oportunidades de desarrollo front-end y análisis de negocios."
+    }
+  }
+}

@@ -4,34 +4,37 @@ import type { HeaderItemsType } from "../containers/entities/entities";
 import ProfileImage from "/profile-rounded.png";
 import { SidenavMobileInterface } from "./sidenavMobileInterface";
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { OutletContext } from "../containers/contexts/outletContext";
+import { ThemeToggleInterface } from "./themeToggleInterface";
+import { LanguageToggleInterface } from "./languageToggleInterface";
+import { getCvUrl } from "../constants";
 
 const headerItems: HeaderItemsType = {
   data: [
     {
       id: "product",
-      text: "Home",
       router: "/",
     },
     {
       id: "projects",
-      text: "Projects",
       router: "/projects",
     },
     {
       id: "about",
-      text: "About",
       router: "/about",
     },
     {
       id: "contact",
-      text: "Contact",
       router: "/contact",
     },
   ],
 };
 
 export const HeaderInterface = (): JSX.Element => {
+  const { t, i18n } = useTranslation();
   const { menuOpen, handleSetMenuOpen } = useContext(OutletContext)!;
 
   return (
@@ -41,13 +44,16 @@ export const HeaderInterface = (): JSX.Element => {
         style={{ WebkitBackdropFilter: "blur(40px)" }}
       >
         <button
+          type="button"
+          aria-label={menuOpen ? t("common.closeMenu") : t("common.openMenu")}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-sidenav"
           className="fixed flex left-4 lg:hidden text-2xl"
           onClick={() => {
             handleSetMenuOpen(!menuOpen);
           }}
         >
-          {!menuOpen && <i className="fa-solid fa-bars" />}
-          {menuOpen && <i className="fa-solid fa-xmark" />}
+          <FontAwesomeIcon icon={menuOpen ? faXmark : faBars} aria-hidden="true" />
         </button>
         <NavLink
           to="/"
@@ -56,9 +62,9 @@ export const HeaderInterface = (): JSX.Element => {
           <img
             className="w-12 mr-4 lg:mr-8"
             src={ProfileImage}
-            alt="Profile Photo"
+            alt={t("common.profilePhotoAlt")}
           />
-          <h3 className="font-bold text-primary">Mauro Gerardi</h3>
+          <h3 className="font-bold text-primary">{t("common.brand")}</h3>
         </NavLink>
         <ul className="hidden lg:flex">
           {headerItems.data.map((item, index) => {
@@ -70,7 +76,7 @@ export const HeaderInterface = (): JSX.Element => {
                 style={({ isActive }: { isActive: boolean }): CSSProperties => {
                   return {
                     fontWeight: isActive ? 700 : 300,
-                    color: isActive ? "#ce1f36" : "",
+                    color: isActive ? "var(--primary)" : "",
                   };
                 }}
               >
@@ -79,12 +85,24 @@ export const HeaderInterface = (): JSX.Element => {
                     headerItems.data.length === index + 1 ? "" : "mr-8"
                   }
                 >
-                  {item.text}
+                  {t(`nav.${item.id}`)}
                 </li>
               </NavLink>
             );
           })}
         </ul>
+        <div className="hidden lg:flex fixed right-48 items-center gap-6">
+          <a
+            href={getCvUrl(i18n.resolvedLanguage)}
+            download
+            className="inline-flex items-center gap-2 border-2 border-primary text-primary rounded-lg px-4 py-1.5 text-sm font-semibold hover:bg-primary hover:text-white transition-colors duration-300"
+          >
+            <FontAwesomeIcon icon={faFileArrowDown} aria-hidden="true" />
+            {t("common.downloadCv")}
+          </a>
+          <LanguageToggleInterface />
+          <ThemeToggleInterface />
+        </div>
       </header>
       <SidenavMobileInterface headerItems={headerItems} />
     </React.Fragment>
