@@ -1,32 +1,27 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
-  /** Stagger delay in milliseconds. */
-  delayMs?: number;
-};
+import { useEffect, useRef, useState } from "react";
+import type { RevealInterfaceType } from "../containers/entities/entities";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
- * Fades and slides its children in when they scroll into view. The
- * IntersectionObserver root is the app scroll container (#sectionContainer),
- * since the window itself never scrolls. When the user prefers reduced motion
- * the content is shown immediately with no animation.
+ * Fades and slides its children in when they scroll into the viewport (the
+ * window is the scroll container, so the observer root is null). Shown
+ * immediately when the user prefers reduced motion or when
+ * IntersectionObserver is unavailable.
  */
-export const Reveal = ({ children, className, delayMs = 0 }: RevealProps) => {
+export const Reveal = ({ children, className, delayMs = 0 }: RevealInterfaceType) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(prefersReducedMotion);
+  const [visible, setVisible] = useState(
+    () => prefersReducedMotion() || typeof IntersectionObserver === "undefined"
+  );
 
   useEffect(() => {
     if (visible) return;
     const el = ref.current;
     if (!el) return;
 
-    const root = document.getElementById("sectionContainer");
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -37,7 +32,7 @@ export const Reveal = ({ children, className, delayMs = 0 }: RevealProps) => {
           }
         }
       },
-      { root, threshold: 0.15 }
+      { root: null, threshold: 0.15 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -46,9 +41,13 @@ export const Reveal = ({ children, className, delayMs = 0 }: RevealProps) => {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className ?? ""}`}
+      className={[
+        "motion-safe:transition-[opacity,transform] motion-safe:duration-700 motion-safe:ease-out",
+        visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       style={delayMs ? { transitionDelay: `${delayMs}ms` } : undefined}
     >
       {children}

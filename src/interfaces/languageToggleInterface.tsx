@@ -1,32 +1,61 @@
 import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage } from "@fortawesome/free-solid-svg-icons";
+import type { AppLanguage } from "../i18n/i18n";
 
+type LanguageToggleProps = {
+  className?: string;
+  /** "lg" gives 44px-tall targets for the touch menu. */
+  size?: "md" | "lg";
+};
+
+/** Segmented EN | ES control; the pressed option is the current language. */
 export const LanguageToggleInterface = ({
   className,
-}: {
-  className?: string;
-}) => {
+  size = "md",
+}: LanguageToggleProps) => {
   const { i18n, t } = useTranslation();
-  const current = i18n.resolvedLanguage === "es" ? "es" : "en";
-  const next = current === "en" ? "es" : "en";
+  const current: AppLanguage = i18n.resolvedLanguage === "es" ? "es" : "en";
+  const options: { code: AppLanguage; label: string }[] = [
+    { code: "en", label: t("common.switchToEnglish") },
+    { code: "es", label: t("common.switchToSpanish") },
+  ];
+  const optionSize = size === "lg" ? "h-11 min-w-12 px-3" : "h-10 min-w-10 px-2";
 
   return (
-    <button
-      type="button"
-      onClick={() => void i18n.changeLanguage(next)}
-      aria-label={t("common.language")}
-      title={t("common.language")}
-      className={`flex items-center gap-1.5 font-semibold hover:text-primary transition-colors duration-300 cursor-pointer ${
-        className ?? ""
-      }`}
+    <div
+      role="group"
+      aria-label={t("common.currentLanguage", { lang: current.toUpperCase() })}
+      className={[
+        "inline-flex items-center rounded-lg border border-border bg-surface p-0.5",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
-      <FontAwesomeIcon
-        icon={faLanguage}
-        className="text-xl"
-        aria-hidden="true"
-      />
-      <span className="uppercase">{next}</span>
-    </button>
+      {options.map(({ code, label }) => {
+        const active = code === current;
+        return (
+          <button
+            key={code}
+            type="button"
+            lang={code}
+            aria-pressed={active}
+            aria-label={label}
+            title={label}
+            onClick={() => {
+              if (!active) void i18n.changeLanguage(code);
+            }}
+            className={[
+              "inline-flex cursor-pointer items-center justify-center rounded-md text-sm font-semibold uppercase motion-safe:transition-colors",
+              optionSize,
+              active
+                ? "bg-primary text-on-primary"
+                : "text-secondary hover:text-foreground",
+            ].join(" ")}
+          >
+            {code}
+          </button>
+        );
+      })}
+    </div>
   );
 };

@@ -1,0 +1,173 @@
+{
+  "lang": "en",
+  "photo": false,
+  "meta": {
+    "title": "Mauro Gerardi — Front-End Developer & Business Analyst — CV (EN)",
+    "subject": "Curriculum Vitae",
+    "language": "en",
+    "keywords": [
+      "Mauro Gerardi",
+      "Front-End Developer",
+      "Business Analyst",
+      "React",
+      "TypeScript",
+      "Angular",
+      "Tailwind CSS",
+      "Firebase",
+      ".NET",
+      "Argentina",
+      "Remote"
+    ]
+  },
+  "labels": {
+    "summary": "Summary",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Selected projects",
+    "education": "Education",
+    "courses": "Courses",
+    "languages": "Languages",
+    "photoAlt": "Portrait of Mauro Gerardi"
+  },
+  "header": {
+    "name": "Mauro Alejandro Gerardi",
+    "title": "Front-End Developer & Business Analyst",
+    "contact": [
+      { "label": "Buenos Aires, Argentina (GMT-3) · Remote" },
+      { "label": "+54 9 11 3579-3196", "href": "tel:+5491135793196" },
+      { "label": "alegerardi.00@gmail.com", "href": "mailto:alegerardi.00@gmail.com" },
+      { "label": "maure-dev.vercel.app", "href": "https://maure-dev.vercel.app" },
+      { "label": "linkedin.com/in/mauro-gerardi", "href": "https://www.linkedin.com/in/mauro-gerardi" },
+      { "label": "github.com/Maure-dev", "href": "https://github.com/Maure-dev" }
+    ]
+  },
+  "summary": "Front-End Developer and Business Analyst with 5+ years at Leafnoise Company S.A., building SaaS products (Moorea) and Argentine public-sector platforms (COMPR.AR / CONTRAT.AR). I ship accessible, responsive interfaces in React, TypeScript and Angular, and turn business processes into clear requirements for Scrum teams. In 2026 I designed, built and launched two products solo: Abril Vet and Carili Design.",
+  "skills": [
+    {
+      "group": "Front end",
+      "items": "React 19, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Angular + Angular Material, Vite, React Router, i18next, responsive and accessible UI"
+    },
+    {
+      "group": "Back end & cloud",
+      "items": "Node.js, .NET / ASP.NET (C#), REST APIs, SQL (MySQL), MongoDB, Firebase (Auth, Firestore, security rules), Vercel Functions, Cloudinary, Mercado Pago API, Resend"
+    },
+    {
+      "group": "Tooling",
+      "items": "Git / GitHub, GitHub Actions CI, Vitest + Testing Library, ESLint, Lighthouse / axe, Vercel"
+    },
+    {
+      "group": "Analysis & delivery",
+      "items": "Business-process analysis, functional specs and user stories, backlog management, Scrum (Product Owner / Scrum Master), stakeholder liaison, incident management"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Leafnoise Company S.A.",
+      "meta": "Remote · May 2021 – Present",
+      "description": "Software company: SaaS products (Moorea) and public-sector platforms (ONC, ANSES, Province of Santa Fe).",
+      "roles": [
+        {
+          "id": "frontendDev",
+          "title": "Front-End Developer",
+          "period": "Aug 2021 – Present",
+          "bullets": [
+            "Build and maintain the front end of Leafnoise's SaaS products (Moorea, SaaS Moorea, leafnoise.io) in React, TypeScript and Tailwind CSS, turning UX designs into responsive, accessible production screens.",
+            "Own features from requirement to release: component architecture, forms and data-heavy views, REST API integration, state management, i18n and cross-browser/mobile QA."
+          ],
+          "metrics": []
+        },
+        {
+          "id": "businessAnalyst",
+          "title": "Business Analyst",
+          "period": "Feb 2022 – Aug 2024",
+          "bullets": [
+            "Analysed and documented customers' business processes and turned them into functional specifications, user stories and acceptance criteria for the Scrum team.",
+            "Bridge between stakeholders and developers, covering Product Owner and Scrum Master duties: backlog prioritisation, incident management, and coordination and training of teammates."
+          ],
+          "metrics": []
+        },
+        {
+          "id": "techLead",
+          "title": "Tech Lead — COMPR.AR / CONTRAT.AR",
+          "period": "Dec 2021 – Jun 2022",
+          "bullets": [
+            "Led the development team of COMPR.AR and CONTRAT.AR, Argentina's national e-procurement and public-works contracting portals (Chief of Cabinet of Ministers / National Procurement Office, ONC).",
+            "Coordinated the team's day-to-day work, incident resolution and deliveries with the client."
+          ],
+          "metrics": []
+        },
+        {
+          "id": "fullStack",
+          "title": "Full-Stack Developer — COMPR.AR / CONTRAT.AR",
+          "period": "May 2021 – Jun 2022",
+          "bullets": [
+            "Maintained and extended both portals: .NET back end, Angular Material front end and SQL database."
+          ],
+          "metrics": []
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Abril Vet",
+      "meta": "2026 · Freelance · Solo developer",
+      "description": "Management SaaS for veterinary clinics — patients, agenda, medical records, billing/POS, inventory, cash register, reports — with role-based staff access (Firebase Auth claims, Firestore rules) and a Vercel Functions back end.",
+      "stack": "React 19 · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Cloudinary · Resend",
+      "links": [
+        { "label": "abril-vet.vercel.app", "href": "https://abril-vet.vercel.app" },
+        { "label": "GitHub", "href": "https://github.com/Maure-dev/Abril-Vet" }
+      ]
+    },
+    {
+      "name": "Carili Design",
+      "meta": "2026 · Freelance · Solo developer",
+      "description": "E-commerce for a handmade ceramic sinks studio: catalogue, cart, Mercado Pago checkout confirmed by a server-side webhook, customer accounts and an admin panel (products, orders, users, content, messages).",
+      "stack": "React · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Mercado Pago · GitHub Actions",
+      "links": [
+        { "label": "carilidesign.vercel.app", "href": "https://carilidesign.vercel.app" },
+        { "label": "GitHub", "href": "https://github.com/Maure-dev/carilidesign" }
+      ]
+    },
+    {
+      "name": "Moorea",
+      "meta": "Leafnoise · Front-End Developer",
+      "description": "Document-intelligence and process-automation SaaS.",
+      "stack": "React · TypeScript · Tailwind CSS",
+      "links": [
+        { "label": "moorea.io", "href": "https://moorea.io/" },
+        { "label": "saas.moorea.io", "href": "https://saas.moorea.io/" }
+      ]
+    },
+    {
+      "name": "COMPR.AR & CONTRAT.AR",
+      "meta": "Leafnoise for the ONC · Tech Lead / Full-Stack Developer",
+      "description": "Argentina's national e-procurement and public-works contracting portals, where government entities publish their processes and suppliers submit their bids.",
+      "stack": ".NET · Angular Material · SQL",
+      "links": [
+        { "label": "comprar.gob.ar", "href": "https://comprar.gob.ar/" },
+        { "label": "contratar.gob.ar", "href": "https://contratar.gob.ar/" }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "uner",
+      "degree": "University Technical Degree in Web Development",
+      "institution": "UNER — Faculty of Administrative Sciences",
+      "period": "2023 – 2025",
+      "note": "Graduate"
+    },
+    {
+      "id": "technical",
+      "degree": "Personal & Professional Computer Technician",
+      "institution": "E.E.S.T. N° 2 \"Manuel Mateo\", San Vicente",
+      "period": "2013 – 2019"
+    }
+  ],
+  "courses": [{ "name": "React JS", "institution": "Coderhouse" }],
+  "languages": [
+    { "name": "Spanish", "level": "Native" },
+    { "name": "English", "level": "Intermediate" }
+  ]
+}

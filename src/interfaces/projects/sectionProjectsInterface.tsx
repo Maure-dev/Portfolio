@@ -73,7 +73,7 @@ export const SectionProjectsInterface = () => {
   }, [selected]);
 
   return (
-    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-white">
+    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
       <Reveal className="w-full max-w-6xl flex flex-col items-center">
         <h1 className="text-5xl lg:text-6xl font-semibold text-center mb-3">
           {t("projects.title")}
@@ -92,7 +92,7 @@ export const SectionProjectsInterface = () => {
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
                 filter === f
                   ? "bg-primary text-white"
-                  : "bg-backgroundSecondary text-secondary hover:text-white"
+                  : "bg-backgroundSecondary text-secondary hover:text-foreground"
               }`}
             >
               {t(`projects.filters.${f}`)}
@@ -143,7 +143,7 @@ export const SectionProjectsInterface = () => {
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-backgroundSecondary rounded-2xl text-white"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-backgroundSecondary rounded-2xl text-foreground"
             onClick={(e) => e.stopPropagation()}
           >
             <button

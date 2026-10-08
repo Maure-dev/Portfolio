@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mauro Gerardi — CV</title>
+    <!--
+      CV template. The page is empty until `renderCv(data)` fills it with one of the
+      `cv/data.*.json` files; `cv/build-cv.mjs` does that in headless Chrome and prints the
+      result to PDF. Keep everything (CSS + markup) in this single file.
+      Design tokens mirror src/main.css: Sora, #1E1E1E text, #CE1F36 accent.
+    -->
+    <style>
+      /*
+        Sora (OFL, see fonts/LICENSE) as static 400/600/700 instances generated from
+        node_modules/@fontsource-variable/sora. Chrome prints a *variable* font as Type3 glyph
+        outlines (160 KB+ PDFs); static instances are embedded as compact TrueType subsets.
+      */
+      @font-face {
+        font-family: "Sora";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url("./fonts/sora-latin-400.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+          U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Sora";
+        font-style: normal;
+        font-weight: 600;
+        font-display: block;
+        src: url("./fonts/sora-latin-600.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+          U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Sora";
+        font-style: normal;
+        font-weight: 700;
+        font-display: block;
+        src: url("./fonts/sora-latin-700.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+          U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Sora";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url("./fonts/sora-latin-ext-400.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+          U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Sora";
+        font-style: normal;
+        font-weight: 600;
+        font-display: block;
+        src: url("./fonts/sora-latin-ext-600.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+          U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Sora";
+        font-style: normal;
+        font-weight: 700;
+        font-display: block;
+        src: url("./fonts/sora-latin-ext-700.woff2") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+          U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      :root {
+        --fg: #1e1e1e;
+        --muted: #555555;
+        --faint: #8f8f8f;
+        --primary: #ce1f36;
+        --rule: #e5e5e5;
+        /* Body size is the main knob for fitting one page; the build script can override it. */
+        --body-size: 8.75pt;
+        --line: 1.24;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: var(--body-size);
+      }
+
+      body {
+        /* Always lay out at the printed content width (A4 minus the 14 mm margins), so the
+           on-screen preview and the build script's height check match the PDF. */
+        width: 182mm;
+        font-family: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 1rem;
+        line-height: var(--line);
+        color: var(--fg);
+        background: #ffffff;
+        text-align: left;
+        hyphens: manual;
+        font-variant-numeric: tabular-nums;
+        text-rendering: optimizeLegibility;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* On screen, centre the A4 content box so the layout can be checked in a browser. */
+      @media screen {
+        body {
+          margin: 14mm auto;
+        }
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: underline;
+        text-decoration-thickness: 0.06em;
+        text-decoration-color: rgba(206, 31, 54, 0.45);
+        text-underline-offset: 0.16em;
+      }
+
+      p,
+      ul,
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      /* Header */
+      .cv-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8mm;
+        margin-bottom: 2.6mm;
+      }
+
+      h1 {
+        font-size: 22pt;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin-bottom: 1.2mm;
+      }
+
+      .title {
+        font-size: 11pt;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--primary);
+        margin-bottom: 1.6mm;
+      }
+
+      .contact {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2em 0.55em;
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .contact li:not(:last-child)::after {
+        content: "·";
+        margin-left: 0.55em;
+        color: var(--faint);
+      }
+
+      .photo {
+        flex: none;
+        width: 25mm;
+        height: 25mm;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      /* Sections */
+      section {
+        margin-top: 2mm;
+      }
+
+      main > section:first-child {
+        margin-top: 0;
+      }
+
+      h2 {
+        font-size: 10pt;
+        font-weight: 600;
+        line-height: 1.2;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding-bottom: 0.7mm;
+        margin-bottom: 1.1mm;
+        border-bottom: 1.5pt solid var(--primary);
+      }
+
+      /* Education and Languages (+ courses) share the last row of the page. */
+      .bottom {
+        display: grid;
+        grid-template-columns: 1fr 54mm;
+        column-gap: 6mm;
+      }
+
+      .plain {
+        list-style: none;
+      }
+
+      h3 {
+        font-size: 1.07rem;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      h4 {
+        font-size: 1.03rem;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+
+      .when,
+      .muted {
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+
+      .when {
+        flex: none;
+        white-space: nowrap;
+      }
+
+      /* Skills */
+      .skills {
+        list-style: none;
+      }
+
+      .skills li {
+        margin-bottom: 0.5mm;
+      }
+
+      .skills .group,
+      .courses .group {
+        font-weight: 600;
+      }
+
+      /* Experience */
+      .company + .company {
+        margin-top: 2.5mm;
+      }
+
+      .company > .desc {
+        margin-top: 0.3mm;
+      }
+
+      .role {
+        margin-top: 1.5mm;
+        break-inside: avoid;
+      }
+
+      .bullets {
+        margin-top: 0.5mm;
+        padding-left: 3.8mm;
+      }
+
+      .bullets li {
+        padding-left: 0.5mm;
+        margin-bottom: 0.2mm;
+      }
+
+      .bullets li::marker {
+        color: var(--primary);
+      }
+
+      /* Projects */
+      .projects {
+        list-style: none;
+      }
+
+      .project {
+        margin-top: 1mm;
+        break-inside: avoid;
+      }
+
+      .project:first-child {
+        margin-top: 0;
+      }
+
+      .project h3 {
+        display: inline;
+      }
+
+      .project .links {
+        flex: none;
+        white-space: nowrap;
+        font-size: 0.93rem;
+      }
+
+      /* Education */
+      .education {
+        list-style: none;
+      }
+
+      .education li {
+        margin-bottom: 0.8mm;
+      }
+
+      .education strong {
+        font-weight: 600;
+      }
+
+      .courses {
+        margin-top: 0.3mm;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    (function () {
+      var esc = function (value) {
+        return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      };
+      var link = function (item) {
+        return item.href
+          ? '<a href="' + esc(item.href) + '">' + esc(item.label) + "</a>"
+          : esc(item.label);
+      };
+      var list = function (items, render) {
+        return (items || []).map(render).join("");
+      };
+
+      function renderCv(data) {
+        var L = data.labels;
+        var h = data.header;
+        document.documentElement.lang = data.lang;
+        document.title = data.meta.title;
+        if (data.bodySize) {
+          document.documentElement.style.setProperty("--body-size", data.bodySize);
+        }
+
+        var photo = data.photo
+          ? '<img class="photo" src="' + esc(data.photoSrc || "../public/profile.jpg") +
+            '" alt="' + esc(L.photoAlt) + '" width="106" height="106" />'
+          : "";
+
+        var header =
+          '<header class="cv-header"><div>' +
+          "<h1>" + esc(h.name) + "</h1>" +
+          '<p class="title">' + esc(h.title) + "</p>" +
+          '<ul class="contact">' + list(h.contact, function (c) { return "<li>" + link(c) + "</li>"; }) + "</ul>" +
+          "</div>" + photo + "</header>";
+
+        var summary =
+          "<section><h2>" + esc(L.summary) + "</h2><p>" + esc(data.summary) + "</p></section>";
+
+        var skills =
+          "<section><h2>" + esc(L.skills) + '</h2><ul class="skills">' +
+          list(data.skills, function (s) {
+            return '<li><span class="group">' + esc(s.group) + ":</span> " + esc(s.items) + "</li>";
+          }) +
+          "</ul></section>";
+
+        var experience =
+          "<section><h2>" + esc(L.experience) + "</h2>" +
+          list(data.experience, function (job) {
+            return (
+              '<div class="company">' +
+              '<div class="row"><h3>' + esc(job.company) + '</h3><span class="when">' + esc(job.meta) + "</span></div>" +
+              (job.description ? '<p class="desc muted">' + esc(job.description) + "</p>" : "") +
+              list(job.roles, function (role) {
+                var bullets = (role.bullets || []).concat(role.metrics || []);
+                return (
+                  '<div class="role">' +
+                  '<div class="row"><h4>' + esc(role.title) + '</h4><span class="when">' + esc(role.period) + "</span></div>" +
+                  '<ul class="bullets">' + list(bullets, function (b) { return "<li>" + esc(b) + "</li>"; }) + "</ul>" +
+                  "</div>"
+                );
+              }) +
+              "</div>"
+            );
+          }) +
+          "</section>";
+
+        var projects =
+          "<section><h2>" + esc(L.projects) + '</h2><ul class="projects">' +
+          list(data.projects, function (p) {
+            return (
+              '<li class="project">' +
+              '<div class="row"><div><h3>' + esc(p.name) + '</h3> <span class="muted">· ' + esc(p.meta) + "</span></div>" +
+              '<span class="links">' + list(p.links, link).replace(/<\/a><a/g, "</a> · <a") + "</span></div>" +
+              "<p>" + esc(p.description) + ' <span class="muted">' + esc(p.stack) + "</span></p>" +
+              "</li>"
+            );
+          }) +
+          "</ul></section>";
+
+        var education =
+          "<section><h2>" + esc(L.education) + '</h2><ul class="education">' +
+          list(data.education, function (e) {
+            return (
+              '<li><div class="row"><strong>' + esc(e.degree) + "</strong>" +
+              '<span class="when">' + esc(e.period) + (e.note ? " · " + esc(e.note) : "") + "</span></div>" +
+              '<p class="muted">' + esc(e.institution) + "</p></li>"
+            );
+          }) +
+          "</ul></section>";
+
+        var courses =
+          data.courses && data.courses.length
+            ? '<p class="courses"><span class="group">' + esc(L.courses) + ":</span> " +
+              data.courses.map(function (c) { return esc(c.name) + " — " + esc(c.institution); }).join(" · ") +
+              "</p>"
+            : "";
+
+        var languages =
+          "<section><h2>" + esc(L.languages) + '</h2><ul class="plain">' +
+          list(data.languages, function (l) { return "<li>" + esc(l.name) + " — " + esc(l.level) + "</li>"; }) +
+          "</ul>" + courses + "</section>";
+
+        document.body.innerHTML =
+          header + "<main>" + summary + skills + experience + projects +
+          '<div class="bottom">' + education + languages + "</div></main>";
+        return true;
+      }
+
+      window.renderCv = renderCv;
+
+      // Convenience for design work: when the repo is served by any static HTTP server, opening
+      // cv/template.html?lang=es renders the matching data file in the browser. Over file://
+      // (how cv/build-cv.mjs loads it) nothing is fetched; the build script injects the data.
+      if (location.protocol !== "file:") {
+        var lang = new URLSearchParams(location.search).get("lang") || "en";
+        fetch("./data." + lang + ".json")
+          .then(function (r) { return r.json(); })
+          .then(renderCv)
+          .catch(function (err) { console.error(err); });
+      }
+    })();
+  </script>
+</html>

@@ -58,7 +58,7 @@ export const SectionGithubInterface = () => {
   }, []);
 
   return (
-    <section className="min-h-screen w-full bg-backgroundSecondary flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-white">
+    <section className="min-h-screen w-full bg-backgroundSecondary flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
       <Reveal className="w-full max-w-6xl flex flex-col items-center">
         <h1 className="text-5xl lg:text-6xl font-semibold text-center mb-3">
           {t("github.title")}

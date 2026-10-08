@@ -4,7 +4,7 @@ import { Reveal } from "../revealInterface";
 export const SectionPresentationInterface = () => {
   const { t } = useTranslation();
   return (
-    <section className="h-full w-full bg-background flex flex-col items-center px-4 lg:px-48 justify-center text-white">
+    <section className="h-full w-full bg-background flex flex-col items-center px-4 lg:px-48 justify-center text-foreground">
       <Reveal className="flex flex-col items-center w-full">
         <h1 className="text-4xl lg:text-6xl mb-16 text-center">
           {t("home.presentation.title")}

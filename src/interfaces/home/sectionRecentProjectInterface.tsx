@@ -19,7 +19,7 @@ export const SectionRecentProjectInterface = () => {
   }
 
   return (
-    <section className="h-full w-full bg-background flex flex-col lg:flex-row items-center px-4 lg:px-48 justify-center lg:justify-between text-white">
+    <section className="h-full w-full bg-background flex flex-col lg:flex-row items-center px-4 lg:px-48 justify-center lg:justify-between text-foreground">
       <div className="flex flex-col lg:w-1/3 items-center lg:items-start mb-16 lg:mb-0">
         <div className="flex flex-col items-center lg:items-start">
           <h1 className="text-5xl lg:text-6xl mb-8 lg:mb-16 font-semibold">

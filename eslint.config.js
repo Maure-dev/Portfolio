@@ -21,13 +21,9 @@ export default tseslint.config(
   },
   {
     // Intentional patterns: context modules colocate the context object with
-    // its provider, and cardInterface exports a compound-component namespace.
-    // The fast-refresh-only hint does not apply to these.
-    files: [
-      "src/containers/contexts/**/*.{ts,tsx}",
-      "src/interfaces/cardInterface.tsx",
-      "src/routes/router.tsx",
-    ],
+    // its provider, and the router module exports the router next to its
+    // error-boundary component. The fast-refresh-only hint does not apply.
+    files: ["src/containers/contexts/**/*.{ts,tsx}", "src/routes/router.tsx"],
     rules: { "react-refresh/only-export-components": "off" },
   },
 );

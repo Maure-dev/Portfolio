@@ -4,6 +4,7 @@ import type {
   ThemeContextPropsType,
   ThemeType,
 } from "../entities/entities";
+import { THEME_COLORS } from "../../constants";
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
@@ -19,7 +20,24 @@ export const ThemeProvider = ({ children }: ThemeContextPropsType) => {
     const root = document.documentElement;
     root.classList.toggle("dark", theme === "dark");
     root.classList.toggle("light", theme === "light");
-    localStorage.setItem("theme", theme);
+    root.style.colorScheme = theme;
+
+    // Keep the browser chrome (address bar, PWA title bar) in sync.
+    let meta = document.head.querySelector<HTMLMetaElement>(
+      'meta[name="theme-color"]'
+    );
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "theme-color";
+      document.head.appendChild(meta);
+    }
+    meta.content = THEME_COLORS[theme];
+
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      /* storage unavailable (blocked cookies, quota): the theme still applies for this session */
+    }
   }, [theme]);
 
   const setTheme = (option: ThemeType) => setThemeState(option);

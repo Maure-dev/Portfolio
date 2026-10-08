@@ -86,7 +86,7 @@ export const SectionStatsInterface = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen w-full bg-backgroundSecondary flex items-center justify-center px-4 lg:px-48 py-24 text-white"
+      className="min-h-screen w-full bg-backgroundSecondary flex items-center justify-center px-4 lg:px-48 py-24 text-foreground"
     >
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 w-full max-w-5xl">
         {stats.map((stat) => (

@@ -1,9 +1,12 @@
 {
   "nav": {
-    "product": "Home",
+    "home": "Home",
     "projects": "Projects",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "main": "Main navigation",
+    "mobileMenu": "Menu",
+    "footer": "Footer navigation"
   },
   "common": {
     "brand": "Mauro Gerardi",
@@ -14,29 +17,50 @@
     "profilePhotoAlt": "Photo of Mauro Gerardi",
     "macbookAlt": "MacBook mockup",
     "projectPreviewAlt": "Project preview",
-    "previousProject": "Previous project",
-    "nextProject": "Next project",
     "openInNewTab": "Open {{name}} in a new tab",
-    "goToProject": "Go to project {{name}}",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "switchToLight": "Switch to light theme",
     "switchToDark": "Switch to dark theme",
-    "language": "Change language",
     "skipToContent": "Skip to content",
     "linkedin": "LinkedIn profile",
     "github": "GitHub profile",
-    "goToContact": "Go to the contact section"
+    "goToContact": "Go to the contact section",
+    "newTab": "(opens in a new tab)",
+    "viewProjects": "View projects",
+    "contactMe": "Send a message",
+    "viewCode": "View code",
+    "liveSite": "Live site",
+    "switchToSpanish": "Switch to Spanish (ES)",
+    "switchToEnglish": "Switch to English (EN)",
+    "currentLanguage": "Current language: {{lang}}",
+    "themeDark": "Dark theme",
+    "themeLight": "Light theme",
+    "photoOf": "Photo of {{name}}",
+    "email": "Email",
+    "loading": "Loading…",
+    "current": "Current"
   },
   "home": {
     "hero": {
-      "greeting": "Hi, my name is",
-      "subtitle": "Semi-Senior Front-End Developer & Business Analyst",
+      "greeting": "Hi, I'm",
+      "name": "Mauro Gerardi",
+      "subtitle": "Front-End Developer & Business Analyst",
+      "tagline": "I build accessible, data-heavy web apps with React, TypeScript and Angular — and turn business needs into features that ship.",
+      "availability": "Available for remote work · Argentina (GMT-3)",
+      "viewCv": "View CV (PDF)",
       "avatarAlt": "Mauro Gerardi memoji avatar"
     },
     "presentation": {
       "title": "Nice to meet you",
-      "body": "I am a passionate Front-End developer with experience in AngularJS and Angular Material, a Functional Analyst, Scrum Master, and PO. I am a graduate of the University Technical Degree in Web Development at UNER, where I learned to use HTML, CSS, and JavaScript to create attractive and functional user interfaces for web applications. I also took a ReactJS course at CoderHouse to expand my skill set."
+      "body": "I am a passionate Front-End developer with experience in AngularJS and Angular Material, a Functional Analyst, Scrum Master, and PO. I am a graduate of the University Technical Degree in Web Development at UNER, where I learned to use HTML, CSS, and JavaScript to create attractive and functional user interfaces for web applications. I also took a ReactJS course at CoderHouse to expand my skill set.",
+      "moreAboutMe": "More about me",
+      "facts": {
+        "years": "5+ years",
+        "stack": "React & Angular",
+        "analysis": "Business analysis & Scrum",
+        "languages": "Spanish & English"
+      }
     },
     "stats": {
       "experience": "Years of experience",
@@ -64,6 +88,11 @@
     "recentProject": {
       "titleLine1": "My recent",
       "titleLine2": "work"
+    },
+    "latestProjects": {
+      "title": "Latest projects",
+      "subtitle": "Two products designed, built and shipped end to end in 2026.",
+      "viewAll": "See all projects"
     },
     "testimonials": {
       "title": "Testimonials",
@@ -95,7 +124,12 @@
       "languages": {
         "spanish": "Spanish — Native",
         "english": "English — Intermediate"
-      }
+      },
+      "locationLabel": "Location",
+      "location": "Buenos Aires, Argentina (GMT-3)",
+      "openToLabel": "Open to",
+      "openTo": "Remote roles · Freelance projects",
+      "educationLabel": "Education"
     },
     "education": {
       "title": "Education",
@@ -126,6 +160,7 @@
     "experiences": {
       "title": "Experience",
       "company": "Leafnoise Company S.A.",
+      "companyMeta": "May 2021 – Present · Remote",
       "present": "Present",
       "items": {
         "techLead": {
@@ -156,17 +191,23 @@
     "subtitle": "A selection of products and platforms I have worked on.",
     "filters": {
       "all": "All",
+      "freelance": "Freelance",
       "saas": "SaaS",
       "government": "Government"
     },
     "categories": {
+      "freelance": "Freelance",
       "saas": "SaaS",
       "government": "Government"
     },
     "viewDetails": "View details",
     "visitSite": "Visit site",
+    "viewCode": "View code",
     "close": "Close",
     "stackLabel": "Tech stack",
+    "roleLabel": "My role",
+    "highlightsLabel": "Highlights",
+    "year": "Year",
     "items": {
       "saasMoorea": {
         "subtitle": "Manage and automate your processes",
@@ -205,33 +246,51 @@
   "contact": {
     "heading": "Send me a message!",
     "orEmail": "Or reach me directly",
+    "linkedin": "LinkedIn",
     "form": {
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email",
       "phoneNumber": "Phone Number",
       "message": "Got a question or proposal, or just want to say hello? Go ahead.",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Got a question or proposal, or just want to say hello? Go ahead.",
+      "optional": "optional",
       "send": "Send message",
       "sending": "Sending...",
       "success": "Thanks! Your message has been sent.",
       "error": "Something went wrong. Please try again.",
-      "captchaError": "Please confirm you're not a robot."
+      "captchaError": "Please confirm you're not a robot.",
+      "captchaHint": "Tick the captcha to enable sending.",
+      "minLength": "Please write at least 10 characters.",
+      "invalidEmail": "Please enter a valid email."
     }
   },
   "footer": {
     "title": "Let's work together",
-    "copyright": "Mauro Alejandro Gerardi - {{year}}"
+    "subtitle": "Open to remote front-end roles and freelance projects.",
+    "backToTop": "Back to top",
+    "copyright": "© {{year}} Mauro Alejandro Gerardi"
   },
   "notFound": {
     "title": "Page not found",
-    "description": "The page you are looking for doesn't exist or has moved.",
-    "cta": "Back to home"
+    "description": "The page you're looking for doesn't exist or has moved. Try my projects or get in touch.",
+    "cta": "Back to home",
+    "ctaProjects": "See projects"
+  },
+  "errors": {
+    "title": "Something went wrong",
+    "description": "Please reload the page or go back home."
   },
   "github": {
     "title": "On GitHub",
     "subtitle": "A look at some of my public repositories.",
     "viewProfile": "View full profile",
-    "error": "Repositories couldn't be loaded right now."
+    "error": "Repositories couldn't be loaded right now.",
+    "stars": "stars",
+    "forks": "forks",
+    "updated": "Updated {{date}}",
+    "live": "Live"
   },
   "meta": {
     "home": {

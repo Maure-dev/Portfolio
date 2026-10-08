@@ -19,7 +19,7 @@ export const InputInterface = ({
         value={value}
         onChange={onChange}
         required={required}
-        className={`p-3.5 bg-transparent z-20 sticky border-b-2 border-b-white hover:bg-white/5 rounded-t-lg placeholder:text-white/50 ${className}`}
+        className={`p-3.5 bg-transparent z-20 sticky border-b-2 border-b-foreground hover:bg-foreground/5 rounded-t-lg placeholder:text-muted ${className}`}
       />
     </div>
   );

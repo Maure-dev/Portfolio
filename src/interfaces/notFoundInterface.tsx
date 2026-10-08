@@ -1,32 +1,68 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import HomeAvatar from "../assets/sectionHome/home-avatar-480.webp";
 import { ButtonInterface } from "./buttonInterface";
+import { applyRobots } from "../hooks/usePageMeta";
 
-export const NotFoundInterface = () => {
+type NotFoundProps = {
+  /** "error" renders the route error fallback with the same layout. */
+  variant?: "notFound" | "error";
+};
+
+/** 404 page (and the friendly route-error fallback). Never indexed. */
+export const NotFoundInterface = ({ variant = "notFound" }: NotFoundProps) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const isError = variant === "error";
+  const title = isError ? t("errors.title") : t("notFound.title");
+  const description = isError
+    ? t("errors.description")
+    : t("notFound.description");
 
   useEffect(() => {
-    document.title = `${t("notFound.title")} — Mauro Gerardi`;
-  }, [t]);
+    document.title = `${title} — Mauro Gerardi`;
+    return applyRobots("noindex");
+  }, [title]);
 
   return (
-    <section className="h-screen w-full bg-background flex flex-col items-center justify-center text-center px-4 text-white">
-      <p className="text-primary text-7xl lg:text-9xl font-bold mb-4">404</p>
-      <h1 className="text-3xl lg:text-5xl font-semibold mb-4">
-        {t("notFound.title")}
-      </h1>
-      <p className="text-lg lg:text-xl text-secondary mb-10 max-w-xl">
-        {t("notFound.description")}
-      </p>
-      <ButtonInterface
-        primary
-        type="button"
-        onClick={() => navigate("/")}
-        description={t("notFound.cta")}
-        className="w-fit cursor-pointer"
+    <section className="flex min-h-dvh w-full flex-col items-center justify-center bg-background px-4 pt-24 pb-16 text-center text-foreground sm:px-6">
+      <img
+        src={HomeAvatar}
+        alt=""
+        width={480}
+        height={505}
+        className="mb-6 w-full max-w-[160px]"
       />
+      {!isError && (
+        <p className="mb-2 text-display text-primary" aria-hidden="true">
+          404
+        </p>
+      )}
+      <h1 className="text-title">{title}</h1>
+      <p className="mt-4 max-w-xl text-lead text-pretty text-secondary">
+        {description}
+      </p>
+      <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
+        {isError ? (
+          // Full navigation on purpose: it recovers from broken client state.
+          <ButtonInterface href="/" icon={faHouse} description={t("notFound.cta")} />
+        ) : (
+          <ButtonInterface to="/" icon={faHouse} description={t("notFound.cta")} />
+        )}
+        {isError ? (
+          <ButtonInterface
+            href="/projects"
+            variant="outline"
+            description={t("notFound.ctaProjects")}
+          />
+        ) : (
+          <ButtonInterface
+            to="/projects"
+            variant="outline"
+            description={t("notFound.ctaProjects")}
+          />
+        )}
+      </div>
     </section>
   );
 };

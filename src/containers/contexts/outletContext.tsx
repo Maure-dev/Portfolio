@@ -1,38 +1,29 @@
+import { createContext, useCallback, useMemo, useState } from "react";
 import type {
   OutletContextPropsType,
   OutletContextType,
 } from "../entities/entities";
-import { createContext, useState } from "react";
 
 export const OutletContext = createContext<OutletContextType | null>(null);
 
+/**
+ * Shell state shared by the header, mobile menu, outlet and back-to-top
+ * button. Scroll position is deliberately NOT React state: the progress bar
+ * and back-to-top read `window` scroll inside requestAnimationFrame.
+ */
 export const OutletProvider = ({ children }: OutletContextPropsType) => {
-  const [scrollTop, setScrollTop] = useState<number>(0);
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  const handleScroll = (event: React.UIEvent<HTMLElement>) => {
-    const element = event.currentTarget;
-    setScrollTop(element.scrollTop);
-    const max = element.scrollHeight - element.clientHeight;
-    setScrollProgress(max > 0 ? (element.scrollTop / max) * 100 : 0);
-  };
-
-  const handleSetMenuOpen = (option: boolean) => {
+  const handleSetMenuOpen = useCallback((option: boolean) => {
     setMenuOpen(option);
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({ menuOpen, handleSetMenuOpen }),
+    [menuOpen, handleSetMenuOpen]
+  );
 
   return (
-    <OutletContext.Provider
-      value={{
-        scrollTop,
-        scrollProgress,
-        handleScroll,
-        menuOpen,
-        handleSetMenuOpen,
-      }}
-    >
-      {children}
-    </OutletContext.Provider>
+    <OutletContext.Provider value={value}>{children}</OutletContext.Provider>
   );
 };

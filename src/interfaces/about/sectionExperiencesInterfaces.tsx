@@ -13,7 +13,7 @@ export const SectionExperiencesInterface = () => {
   const company = t("about.experiences.company");
 
   return (
-    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-white">
+    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
       <Reveal className="w-full max-w-3xl">
         <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
           {t("about.experiences.title")}

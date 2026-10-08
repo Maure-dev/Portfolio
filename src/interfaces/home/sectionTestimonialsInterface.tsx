@@ -14,7 +14,7 @@ const testimonials: { id: "armando" | "tamara"; image: string; linkedin: string 
 export const SectionTestimonialsInterface = () => {
   const { t } = useTranslation();
   return (
-    <section className="w-full bg-background flex flex-col items-center text-center px-4 lg:px-48 py-28 justify-center text-white">
+    <section className="w-full bg-background flex flex-col items-center text-center px-4 lg:px-48 py-28 justify-center text-foreground">
       <Reveal className="flex flex-col items-center w-full">
         <h1 className="text-5xl lg:text-6xl mb-8 lg:mb-16 font-semibold">
           {t("home.testimonials.title")}

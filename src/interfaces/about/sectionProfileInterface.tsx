@@ -30,7 +30,7 @@ export const SectionProfileInterface = () => {
   ];
 
   return (
-    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-white">
+    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
       <Reveal className="w-full max-w-5xl">
         <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
           {t("about.profile.title")}
@@ -47,7 +47,7 @@ export const SectionProfileInterface = () => {
                   className="text-2xl"
                   aria-hidden="true"
                 />
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-foreground">
                   {card.label}
                 </h3>
               </div>
@@ -61,7 +61,7 @@ export const SectionProfileInterface = () => {
                 className="text-2xl"
                 aria-hidden="true"
               />
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-xl font-semibold text-foreground">
                 {t("about.profile.languagesLabel")}
               </h3>
             </div>

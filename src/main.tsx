@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
@@ -8,9 +9,11 @@ import "./i18n/i18n";
 import "./main.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <ThemeProvider>
-    <RouterProvider router={router} />
-    <Analytics />
-    <SpeedInsights />
-  </ThemeProvider>
+  <StrictMode>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+      <Analytics />
+      <SpeedInsights />
+    </ThemeProvider>
+  </StrictMode>
 );

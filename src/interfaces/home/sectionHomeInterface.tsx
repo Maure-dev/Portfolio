@@ -13,29 +13,30 @@ export const SectionHomeInterface = () => {
   const cvUrl = getCvUrl(i18n.resolvedLanguage);
 
   return (
-    <section className="h-full w-full bg-background flex flex-col items-center px-4 lg:px-48 justify-center text-white">
+    // min-h-dvh (never a fixed height) + pt-24 keeps the h1 clear of the fixed
+    // header on every viewport; the section grows when the content is taller.
+    <section className="flex min-h-dvh w-full flex-col items-center justify-center bg-background px-4 pt-24 pb-16 text-foreground sm:px-6 lg:px-8">
       <h1
-        className={`text-5xl lg:text-7xl text-center mb-8 leading-tight lg:leading-tight ${reveal}`}
+        className={`mb-8 text-center text-4xl leading-tight text-balance sm:text-5xl lg:text-7xl lg:leading-tight ${reveal}`}
       >
         {t("home.hero.greeting")} <br /> <b className="text-primary">Mauro</b>
       </h1>
       <p
-        className={`text-2xl lg:text-3xl mb-10 text-center ${reveal}`}
+        className={`mb-10 text-center text-xl text-balance sm:text-2xl lg:text-3xl ${reveal}`}
         style={{ animationDelay: "0.1s" }}
       >
         {t("home.hero.subtitle")}
       </p>
       <div
-        className={`flex items-stretch gap-4 mb-16 ${reveal}`}
+        className={`mb-16 flex items-stretch gap-4 ${reveal}`}
         style={{ animationDelay: "0.2s" }}
       >
         <ButtonInterface
-          primary
           href={cvUrl}
           download
+          size="lg"
           icon={faFileArrowDown}
           description={t("common.downloadCv")}
-          className="text-lg lg:text-2xl cursor-pointer"
         />
         <a
           href={cvUrl}
@@ -43,9 +44,10 @@ export const SectionHomeInterface = () => {
           rel="noopener noreferrer"
           aria-label={t("common.viewCv")}
           title={t("common.viewCv")}
-          className="flex aspect-square items-center justify-center rounded-lg border-4 border-primary text-primary text-xl hover:bg-primary hover:text-white transition-colors"
+          className="flex aspect-square items-center justify-center rounded-lg border-2 border-accent text-xl text-accent motion-safe:transition-colors hover:border-primary hover:bg-primary hover:text-on-primary"
         >
           <FontAwesomeIcon icon={faEye} aria-hidden="true" />
+          <span className="sr-only"> {t("common.newTab")}</span>
         </a>
       </div>
       <div
@@ -53,7 +55,7 @@ export const SectionHomeInterface = () => {
         style={{ animationDelay: "0.3s" }}
       >
         <img
-          className="w-2/3 lg:w-1/6"
+          className="w-1/2 max-w-[220px] sm:max-w-xs lg:w-1/6 lg:max-w-none"
           src={HomeAvatar}
           alt={t("home.hero.avatarAlt")}
           width={1344}
