@@ -9,7 +9,6 @@ import type {
 } from "react";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-
 export type OutletContextType = {
   menuOpen: boolean;
   handleSetMenuOpen: (option: boolean) => void;
@@ -26,19 +25,16 @@ export type NavItemType = {
   router: string;
 };
 
-
 export type ThemeType = "dark" | "light";
 
 export type ThemeContextType = {
   theme: ThemeType;
   toggleTheme: () => void;
-  setTheme: (option: ThemeType) => void;
 };
 
 export type ThemeContextPropsType = {
   children: ReactNode;
 };
-
 
 export type ContactStatus = "idle" | "sending" | "success" | "error";
 
@@ -105,7 +101,6 @@ export type TextAreaInterfaceType = FieldBaseType & {
   onInvalid?: FormEventHandler<HTMLTextAreaElement>;
 };
 
-
 export type ButtonVariant = "primary" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
@@ -113,7 +108,6 @@ export type ButtonInterfaceType = {
   description: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  primary?: boolean;
   className?: string;
   labelClassName?: string;
   type?: "button" | "submit" | "reset";
@@ -149,7 +143,6 @@ export type SectionInterfaceType = {
   id?: string;
   band?: SectionBand;
   className?: string;
-  containerClassName?: string;
   labelledBy?: string;
   children: ReactNode;
 };

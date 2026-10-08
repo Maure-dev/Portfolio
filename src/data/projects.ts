@@ -19,7 +19,6 @@ import certificados600 from "../assets/sectionProjects/certificados-600.webp";
 import portal1200 from "../assets/sectionProjects/portal-1200.webp";
 import portal600 from "../assets/sectionProjects/portal-600.webp";
 
-
 export type ProjectId =
   | "abrilVet"
   | "carili"

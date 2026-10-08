@@ -68,7 +68,9 @@ node cv/build-cv.mjs --body-size 8.5pt    # override the template's --body-size 
 
 ## Security
 
-**Headers** (`vercel.json`, applied by Vercel on every response): a Content Security Policy, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, a restrictive `Permissions-Policy` and `Cross-Origin-Opener-Policy: same-origin`, plus `Cache-Control` rules (hashed `/assets/*` and `/fonts/*` are immutable for a year; icons, PDFs and the manifest get 1 h / 1 day on the edge). Vercel does not apply these headers to `npm run dev` or `npm run preview`, so check them on a preview deployment: DevTools → Console shows any `Refused to …` message; https://securityheaders.com and https://csp-evaluator.withgoogle.com validate the policy.
+**Headers** (`vercel.json`, applied by Vercel on every response): a Content Security Policy, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, a restrictive `Permissions-Policy` and `Cross-Origin-Opener-Policy: same-origin`, plus `Cache-Control` rules (hashed `/assets/*` are immutable for a year; the unhashed `/fonts/*` files are cached for a day in the browser and a year on the edge with `stale-while-revalidate`; icons, PDFs and the manifest get 1 h / 1 day on the edge). Vercel does not apply these headers to `npm run dev` or `npm run preview`, so check them on a preview deployment: DevTools → Console shows any `Refused to …` message; https://securityheaders.com and https://csp-evaluator.withgoogle.com validate the policy.
+
+**Preview deployments.** Vercel injects its Toolbar (served from `vercel.live`) into preview deployments, and the CSP blocks it on purpose, so the preview console logs `Refused to load the script 'https://vercel.live/_next-live/feedback/feedback.js'` and similar messages. They are not app problems: production has no toolbar, and `vercel.live` is deliberately kept out of the policy. If the noise gets in the way, disable the toolbar under Project → Settings → Toolbar.
 
 The CSP only trusts the origins the app actually uses:
 
@@ -99,7 +101,7 @@ The project is **Git-connected** on Vercel: every push to `master` is a producti
 
 `vercel.json` installs with `npm ci`, rewrites the real routes (`/projects`, `/about`, `/contact`) to the SPA shell and lets every other unknown path fall through to `dist/404.html` (a copy of the shell made by `postbuild`), so missing pages return a real 404 status while the app still renders its own not-found screen.
 
-If the production domain changes, update it in `index.html` (canonical, Open Graph, JSON-LD), `src/constants.ts`, `public/robots.txt`, `public/sitemap.xml`, the reCAPTCHA key's allowed domains and `README.md`.
+If the production domain changes, update it in `index.html` (canonical, Open Graph, JSON-LD), `src/constants.ts`, `public/robots.txt`, `public/sitemap.xml`, `cv/data.en.json` and `cv/data.es.json` (contact links; then rebuild the PDFs with `npm run cv:build`), the reCAPTCHA key's allowed domains and `README.md`.
 
 ## Project structure
 
@@ -113,7 +115,7 @@ src/
     contexts/            # Theme, Outlet (layout state) and Contact contexts
     entities/            # Shared TypeScript types
   data/                  # Static content: projects, skills, stats, GitHub repos
-  hooks/                 # usePageMeta (per-route document head)
+  hooks/                 # usePageMeta (per-route document head), useScrollLock, scrollToTop, motion
   i18n/                  # i18next setup + en/es translation catalogs
   interfaces/            # UI components: design-system primitives, header, footer, sections per page
   routes/                # Router (lazy-loaded screens, error boundary)

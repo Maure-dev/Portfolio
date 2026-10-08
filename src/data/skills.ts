@@ -1,4 +1,3 @@
-
 export type SkillGroupId =
   | "frontend"
   | "backend"

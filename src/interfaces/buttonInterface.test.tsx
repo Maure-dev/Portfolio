@@ -54,13 +54,6 @@ describe("ButtonInterface", () => {
     expect(button.className).toContain("h-9");
   });
 
-  it("keeps the legacy `primary={false}` prop working as the outline variant", () => {
-    render(<ButtonInterface primary={false} description="Legacy" />);
-    expect(screen.getByRole("button", { name: "Legacy" }).className).toContain(
-      "border-accent"
-    );
-  });
-
   it("supports an icon with a visually hidden label (icon-only)", () => {
     render(
       <ButtonInterface

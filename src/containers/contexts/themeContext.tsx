@@ -41,12 +41,11 @@ export const ThemeProvider = ({ children }: ThemeContextPropsType) => {
     persistTheme(theme);
   }, [theme]);
 
-  const setTheme = (option: ThemeType) => setThemeState(option);
   const toggleTheme = () =>
     setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { RevealInterfaceType } from "../containers/entities/entities";
-
-const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+import { prefersReducedMotion } from "../hooks/motion";
 
 export const Reveal = ({ children, className, delayMs = 0 }: RevealInterfaceType) => {
   const ref = useRef<HTMLDivElement>(null);

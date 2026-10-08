@@ -4,7 +4,6 @@ import cvEs from "../../cv/data.es.json";
 import en from "../i18n/locales/en/translation.json";
 import es from "../i18n/locales/es/translation.json";
 
-
 type Dated = { period: string };
 type Catalog = {
   about: {

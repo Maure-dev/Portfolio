@@ -1,10 +1,9 @@
 import { Suspense, useContext, useEffect, useLayoutEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { OutletContext } from "../containers/contexts/outletContext";
+import { RouteFallbackInterface } from "./routeFallbackInterface";
 
 export const OutletInterface = () => {
-  const { t } = useTranslation();
   const { pathname } = useLocation();
   const { menuOpen, handleSetMenuOpen } = useContext(OutletContext)!;
   const mainRef = useRef<HTMLElement>(null);
@@ -30,18 +29,7 @@ export const OutletInterface = () => {
       inert={menuOpen}
       className="outline-none"
     >
-      <Suspense
-        fallback={
-          <div
-            className="min-h-dvh pt-16 lg:pt-20"
-            role="status"
-            aria-busy="true"
-            aria-live="polite"
-          >
-            <span className="sr-only">{t("common.loading")}</span>
-          </div>
-        }
-      >
+      <Suspense fallback={<RouteFallbackInterface />}>
         <Outlet />
       </Suspense>
     </main>

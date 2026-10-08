@@ -3,7 +3,12 @@ import { useTranslation } from "react-i18next";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import HomeAvatar from "../assets/sectionHome/home-avatar-480.webp";
 import { ButtonInterface } from "./buttonInterface";
-import { applyRobots } from "../hooks/usePageMeta";
+import {
+  applyRobots,
+  removeLink,
+  removeMeta,
+  upsertMeta,
+} from "../hooks/usePageMeta";
 
 type NotFoundProps = {
   variant?: "notFound" | "error";
@@ -19,8 +24,15 @@ export const NotFoundInterface = ({ variant = "notFound" }: NotFoundProps) => {
 
   useEffect(() => {
     document.title = `${title} — Mauro Gerardi`;
+    upsertMeta("name", "description", description);
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+    removeLink("canonical");
+    removeMeta("property", "og:url");
     return applyRobots("noindex");
-  }, [title]);
+  }, [title, description]);
 
   return (
     <section className="flex min-h-dvh w-full flex-col items-center justify-center bg-background px-4 pt-24 pb-16 text-center text-foreground sm:px-6">

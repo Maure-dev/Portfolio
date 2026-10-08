@@ -1,6 +1,5 @@
 import { GITHUB_URL } from "../constants";
 
-
 export const GITHUB_USER = "Maure-dev";
 
 export const FEATURED_REPOS = ["Abril-Vet", "carilidesign", "Portfolio"] as const;

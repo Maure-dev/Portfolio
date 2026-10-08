@@ -25,8 +25,13 @@ const noComments = {
 
 const local = { rules: { "no-comments": noComments } };
 
+const houseRules = {
+  "local/no-comments": "error",
+  "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 0 }],
+};
+
 export default tseslint.config(
-  { ignores: ["dist", "src/assets/fontawesome"] },
+  { ignores: ["dist"] },
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -40,7 +45,7 @@ export default tseslint.config(
       globals: globals.browser,
     },
     plugins: { local },
-    rules: { "local/no-comments": "error" },
+    rules: houseRules,
   },
   {
     files: ["**/*.{js,mjs,cjs}"],
@@ -51,7 +56,7 @@ export default tseslint.config(
       globals: { ...globals.node, ...globals.browser },
     },
     plugins: { local },
-    rules: { "local/no-comments": "error" },
+    rules: houseRules,
   },
   {
     files: ["src/containers/contexts/**/*.{ts,tsx}", "src/routes/router.tsx"],

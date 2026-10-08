@@ -10,12 +10,19 @@ import { SectionHeadingInterface } from "../sectionHeadingInterface";
 import { ButtonInterface } from "../buttonInterface";
 import { getCvUrl } from "../../constants";
 
+type ProfileFact = {
+  id: string;
+  label: string;
+  values: string[];
+  wide?: boolean;
+};
+
 export const SectionProfileInterface = () => {
   const { t, i18n } = useTranslation();
   const cvUrl = getCvUrl(i18n.resolvedLanguage);
   const name = t("home.hero.name");
 
-  const facts: { id: string; label: string; values: string[] }[] = [
+  const facts: ProfileFact[] = [
     {
       id: "location",
       label: t("about.profile.locationLabel"),
@@ -43,6 +50,18 @@ export const SectionProfileInterface = () => {
       id: "openTo",
       label: t("about.profile.openToLabel"),
       values: [t("about.profile.openTo")],
+    },
+    {
+      id: "objectives",
+      label: t("about.profile.objectivesLabel"),
+      values: [t("about.profile.objectives")],
+      wide: true,
+    },
+    {
+      id: "aptitudes",
+      label: t("about.profile.aptitudesLabel"),
+      values: [t("about.profile.aptitudes")],
+      wide: true,
     },
   ];
 
@@ -74,10 +93,18 @@ export const SectionProfileInterface = () => {
           <Reveal delayMs={160}>
             <dl className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2">
               {facts.map((fact) => (
-                <div key={fact.id}>
+                <div key={fact.id} className={fact.wide ? "sm:col-span-2" : undefined}>
                   <dt className="text-sm font-medium text-muted">{fact.label}</dt>
                   {fact.values.map((value) => (
-                    <dd key={value} className="mt-1 text-foreground">
+                    <dd
+                      key={value}
+                      className={[
+                        "mt-1 text-foreground",
+                        fact.wide ? "max-w-prose leading-relaxed text-pretty" : "",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")}
+                    >
                       {value}
                     </dd>
                   ))}

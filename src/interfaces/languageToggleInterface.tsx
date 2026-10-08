@@ -16,7 +16,7 @@ export const LanguageToggleInterface = ({
     { code: "en", label: t("common.switchToEnglish") },
     { code: "es", label: t("common.switchToSpanish") },
   ];
-  const optionSize = size === "lg" ? "h-11 min-w-12 px-3" : "h-10 min-w-10 px-2";
+  const optionSize = size === "lg" ? "h-11 min-w-12 px-3" : "h-11 min-w-11 px-2.5";
 
   return (
     <div

@@ -25,9 +25,8 @@ const SIZES: Record<ButtonSize, string> = {
 
 export const ButtonInterface = ({
   description,
-  variant,
+  variant = "primary",
   size = "md",
-  primary,
   className,
   labelClassName,
   onClick,
@@ -46,9 +45,7 @@ export const ButtonInterface = ({
   "aria-describedby": ariaDescribedBy,
 }: ButtonInterfaceType) => {
   const { t } = useTranslation();
-  const resolvedVariant: ButtonVariant =
-    variant ?? (primary === false ? "outline" : "primary");
-  const classes = [BASE, VARIANTS[resolvedVariant], SIZES[size], className]
+  const classes = [BASE, VARIANTS[variant], SIZES[size], className]
     .filter(Boolean)
     .join(" ");
 

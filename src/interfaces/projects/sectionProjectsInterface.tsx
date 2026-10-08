@@ -20,6 +20,7 @@ import { CardInterface } from "../cardInterface";
 import { TagInterface } from "../tagInterface";
 import { ButtonInterface } from "../buttonInterface";
 import { Reveal } from "../revealInterface";
+import { useScrollLock } from "../../hooks/useScrollLock";
 
 const CARD_SIZES = "(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw";
 const DIALOG_SIZES = "(min-width: 704px) 672px, 100vw";
@@ -112,17 +113,7 @@ export const SectionProjectsInterface = () => {
     }
   }, [selected]);
 
-  useEffect(() => {
-    if (!selected) return;
-    const { documentElement: html, body } = document;
-    const previous = { html: html.style.overflow, body: body.style.overflow };
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    return () => {
-      html.style.overflow = previous.html;
-      body.style.overflow = previous.body;
-    };
-  }, [selected]);
+  useScrollLock(selected !== null);
 
   const selectedYears = selected ? formatYears(selected, t) : null;
   const selectedHighlights = selected ? highlightsFor(selected.id, t) : [];

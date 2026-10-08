@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { OutletContext } from "../containers/contexts/outletContext";
+import { scrollToTopAndFocusMain } from "../hooks/scrollToTop";
 
 const SHOW_AFTER_PX = 400;
 
@@ -31,16 +32,10 @@ export const BackToTopInterface = () => {
 
   const shown = visible && !menuOpen;
 
-  const handleClick = () => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-    document.getElementById("main")?.focus({ preventScroll: true });
-  };
-
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={scrollToTopAndFocusMain}
       aria-label={t("common.backToTop")}
       title={t("common.backToTop")}
       tabIndex={shown ? 0 : -1}

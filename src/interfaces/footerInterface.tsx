@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faEnvelope, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { OutletContext } from "../containers/contexts/outletContext";
 import { ButtonInterface } from "./buttonInterface";
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, NAV_ITEMS } from "../constants";
+import { scrollToTopAndFocusMain } from "../hooks/scrollToTop";
 
 const FOOTER_LINK =
   "inline-flex min-h-11 items-center rounded-lg px-2 text-sm font-medium text-secondary motion-safe:transition-colors hover:text-foreground aria-[current=page]:text-accent";
@@ -12,17 +15,15 @@ const FOOTER_LINK =
 export const FooterInterface = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const { menuOpen } = useContext(OutletContext)!;
   const year = new Date().getFullYear();
   const onContactPage = pathname === "/contact";
 
-  const scrollToTop = () => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-    document.getElementById("main")?.focus({ preventScroll: true });
-  };
-
   return (
-    <footer className="w-full border-t border-border bg-backgroundSecondary py-16">
+    <footer
+      inert={menuOpen}
+      className="w-full border-t border-border bg-backgroundSecondary py-16"
+    >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-title text-foreground">{t("footer.title")}</h2>
@@ -79,7 +80,7 @@ export const FooterInterface = () => {
           <p className="text-center">{t("footer.copyright", { year })}</p>
           <button
             type="button"
-            onClick={scrollToTop}
+            onClick={scrollToTopAndFocusMain}
             className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg px-2 text-sm font-medium text-secondary motion-safe:transition-colors hover:text-foreground"
           >
             <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" />

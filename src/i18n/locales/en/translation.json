@@ -11,9 +11,7 @@
   "common": {
     "brand": "Mauro Gerardi",
     "downloadCv": "Download CV",
-    "viewCv": "View CV",
     "backToTop": "Back to top",
-    "profilePhotoAlt": "Photo of Mauro Gerardi",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "switchToLight": "Switch to light theme",
@@ -21,7 +19,6 @@
     "skipToContent": "Skip to content",
     "linkedin": "LinkedIn profile",
     "github": "GitHub profile",
-    "goToContact": "Go to the contact section",
     "newTab": "(opens in a new tab)",
     "viewProjects": "View projects",
     "contactMe": "Send a message",
@@ -31,7 +28,6 @@
     "switchToEnglish": "Switch to English (EN)",
     "currentLanguage": "Current language: {{lang}}",
     "themeDark": "Dark theme",
-    "themeLight": "Light theme",
     "photoOf": "Photo of {{name}}",
     "email": "Email",
     "loading": "Loading…",
@@ -155,7 +151,6 @@
       "title": "Experience",
       "company": "Leafnoise Company S.A.",
       "companyMeta": "May 2021 – Present · Remote",
-      "present": "Present",
       "items": {
         "techLead": {
           "role": "Tech Lead — COMPR.AR / CONTRAT.AR",

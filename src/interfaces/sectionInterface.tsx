@@ -4,7 +4,6 @@ export const SectionInterface = ({
   id,
   band = "default",
   className,
-  containerClassName,
   labelledBy,
   children,
 }: SectionInterfaceType) => (
@@ -19,12 +18,6 @@ export const SectionInterface = ({
       .filter(Boolean)
       .join(" ")}
   >
-    <div
-      className={["mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8", containerClassName]
-        .filter(Boolean)
-        .join(" ")}
-    >
-      {children}
-    </div>
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">{children}</div>
   </section>
 );

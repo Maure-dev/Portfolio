@@ -9,6 +9,7 @@ import { EMAIL, getCvUrl, GITHUB_URL, LINKEDIN_URL, NAV_ITEMS } from "../constan
 import { ButtonInterface } from "./buttonInterface";
 import { ThemeToggleInterface } from "./themeToggleInterface";
 import { LanguageToggleInterface } from "./languageToggleInterface";
+import { useScrollLock } from "../hooks/useScrollLock";
 
 const DESKTOP_QUERY = "(min-width: 768px)";
 
@@ -42,13 +43,10 @@ export const SidenavMobileInterface = () => {
     return () => mql.removeEventListener("change", onChange);
   }, [menuOpen, handleSetMenuOpen]);
 
+  useScrollLock(menuOpen);
+
   useEffect(() => {
     if (!menuOpen) return;
-    const html = document.documentElement;
-    const body = document.body;
-    const previous = { html: html.style.overflow, body: body.style.overflow };
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
     const openedAtPath = window.location.pathname;
 
     panelRef.current
@@ -56,8 +54,6 @@ export const SidenavMobileInterface = () => {
       ?.focus({ preventScroll: true });
 
     return () => {
-      html.style.overflow = previous.html;
-      body.style.overflow = previous.body;
       if (window.location.pathname === openedAtPath) {
         document.getElementById("menu-button")?.focus({ preventScroll: true });
       }

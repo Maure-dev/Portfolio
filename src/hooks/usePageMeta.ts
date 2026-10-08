@@ -4,15 +4,17 @@ import { useLocation } from "react-router-dom";
 import { SITE_URL } from "../constants";
 
 type PageKey = "home" | "projects" | "about" | "contact";
+type MetaAttr = "name" | "property";
 
-const upsertMeta = (
-  attr: "name" | "property",
+const metaSelector = (attr: MetaAttr, key: string) => `meta[${attr}="${key}"]`;
+const linkSelector = (rel: string) => `link[rel="${rel}"]`;
+
+export const upsertMeta = (
+  attr: MetaAttr,
   key: string,
   content: string
 ): HTMLMetaElement => {
-  let tag = document.head.querySelector<HTMLMetaElement>(
-    `meta[${attr}="${key}"]`
-  );
+  let tag = document.head.querySelector<HTMLMetaElement>(metaSelector(attr, key));
   if (!tag) {
     tag = document.createElement("meta");
     tag.setAttribute(attr, key);
@@ -22,14 +24,23 @@ const upsertMeta = (
   return tag;
 };
 
-const upsertLink = (rel: string, href: string) => {
-  let tag = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+export const upsertLink = (rel: string, href: string): HTMLLinkElement => {
+  let tag = document.head.querySelector<HTMLLinkElement>(linkSelector(rel));
   if (!tag) {
     tag = document.createElement("link");
     tag.setAttribute("rel", rel);
     document.head.appendChild(tag);
   }
   tag.setAttribute("href", href);
+  return tag;
+};
+
+export const removeMeta = (attr: MetaAttr, key: string) => {
+  document.head.querySelector(metaSelector(attr, key))?.remove();
+};
+
+export const removeLink = (rel: string) => {
+  document.head.querySelector(linkSelector(rel))?.remove();
 };
 
 export const canonicalUrlFor = (pathname: string): string => {

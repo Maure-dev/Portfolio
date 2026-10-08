@@ -2,10 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getStats } from "../../data/stats";
 import { SectionInterface } from "../sectionInterface";
-
-const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+import { prefersReducedMotion } from "../../hooks/motion";
 
 const DURATION_MS = 1200;
 

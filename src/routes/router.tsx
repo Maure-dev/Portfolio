@@ -1,20 +1,15 @@
-import { createBrowserRouter, useRouteError } from "react-router-dom";
-import { lazy, useEffect } from "react";
+import {
+  Outlet,
+  ScrollRestoration,
+  createBrowserRouter,
+  useRouteError,
+} from "react-router-dom";
+import type { RouteObject } from "react-router-dom";
+import { Fragment, useEffect } from "react";
 import { MainScreen } from "../screens/mainScreen";
 import { HomeScreen } from "../screens/homeScreen";
 import { NotFoundInterface } from "../interfaces/notFoundInterface";
-
-const AboutScreen = lazy(() =>
-  import("../screens/aboutScreen").then((m) => ({ default: m.AboutScreen }))
-);
-const ProjectsScreen = lazy(() =>
-  import("../screens/projectsScreen").then((m) => ({
-    default: m.ProjectsScreen,
-  }))
-);
-const ContactScreen = lazy(() =>
-  import("../screens/contactScreen").then((m) => ({ default: m.ContactScreen }))
-);
+import { RouteFallbackInterface } from "../interfaces/routeFallbackInterface";
 
 const RouteErrorInterface = () => {
   const error = useRouteError();
@@ -24,22 +19,51 @@ const RouteErrorInterface = () => {
   return <NotFoundInterface variant="error" />;
 };
 
-export const router = createBrowserRouter([
+const ScrollRestoringOutlet = () => (
+  <Fragment>
+    <Outlet />
+    <ScrollRestoration />
+  </Fragment>
+);
+
+export const routes: RouteObject[] = [
   {
     path: "/",
     element: <MainScreen />,
     errorElement: <RouteErrorInterface />,
     children: [
       {
+        element: <ScrollRestoringOutlet />,
         errorElement: <RouteErrorInterface />,
+        hydrateFallbackElement: <RouteFallbackInterface />,
         children: [
           { index: true, element: <HomeScreen /> },
-          { path: "about", element: <AboutScreen /> },
-          { path: "projects", element: <ProjectsScreen /> },
-          { path: "contact", element: <ContactScreen /> },
+          {
+            path: "about",
+            lazy: () =>
+              import("../screens/aboutScreen").then((m) => ({
+                Component: m.AboutScreen,
+              })),
+          },
+          {
+            path: "projects",
+            lazy: () =>
+              import("../screens/projectsScreen").then((m) => ({
+                Component: m.ProjectsScreen,
+              })),
+          },
+          {
+            path: "contact",
+            lazy: () =>
+              import("../screens/contactScreen").then((m) => ({
+                Component: m.ContactScreen,
+              })),
+          },
           { path: "*", element: <NotFoundInterface /> },
         ],
       },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);

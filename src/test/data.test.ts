@@ -12,7 +12,6 @@ import { SKILL_GROUPS, SPOKEN_LANGUAGES, skills, skillsByGroup } from "../data/s
 import { CAREER_START_YEAR, getStats } from "../data/stats";
 import { FALLBACK_REPOS, FEATURED_REPOS, REPO_LIMIT, selectRepos } from "../data/github";
 
-
 type ProjectCopy = {
   subtitle?: string;
   description?: string;

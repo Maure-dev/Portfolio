@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ScrollRestoration } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { OutletInterface } from "../interfaces/outletInterface";
 import {
@@ -7,6 +6,7 @@ import {
   OutletProvider,
 } from "../containers/contexts/outletContext";
 import { HeaderInterface } from "../interfaces/headerInterface";
+import { FooterInterface } from "../interfaces/footerInterface";
 import { ScrollProgressInterface } from "../interfaces/scrollProgressInterface";
 import { BackToTopInterface } from "../interfaces/backToTopInterface";
 
@@ -30,7 +30,7 @@ export const MainScreen = () => (
     <ScrollProgressInterface />
     <HeaderInterface />
     <OutletInterface />
+    <FooterInterface />
     <BackToTopInterface />
-    <ScrollRestoration />
   </OutletProvider>
 );

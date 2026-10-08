@@ -134,7 +134,7 @@
     {
       "name": "Moorea",
       "meta": "Leafnoise · Desarrollador Front-End",
-      "description": "SaaS de inteligencia documental y automatización de procesos.",
+      "description": "SaaS de gestión y automatización de procesos.",
       "stack": "React · TypeScript · Tailwind CSS",
       "links": [
         { "label": "moorea.io", "href": "https://moorea.io/" },
