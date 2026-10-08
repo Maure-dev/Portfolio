@@ -10,7 +10,6 @@ import { ButtonInterface } from "./buttonInterface";
 import { ThemeToggleInterface } from "./themeToggleInterface";
 import { LanguageToggleInterface } from "./languageToggleInterface";
 
-// Must match the `md:` breakpoint where the inline nav replaces the menu.
 const DESKTOP_QUERY = "(min-width: 768px)";
 
 const MENU_LINK =
@@ -19,17 +18,11 @@ const MENU_LINK =
 const ICON_LINK =
   "inline-flex h-11 w-11 items-center justify-center rounded-lg text-xl text-secondary motion-safe:transition-colors hover:bg-foreground/5 hover:text-foreground";
 
-/**
- * Full-screen mobile menu (below `md`). Dialog-like: focus moves in on open
- * and back to the toggle on close, the page behind is inert (see
- * HeaderInterface/OutletInterface), body scroll is locked and Escape closes.
- */
 export const SidenavMobileInterface = () => {
   const { t, i18n } = useTranslation();
   const { menuOpen, handleSetMenuOpen } = useContext(OutletContext)!;
   const panelRef = useRef<HTMLElement>(null);
 
-  // Escape closes the menu while it is open.
   useEffect(() => {
     if (!menuOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -39,7 +32,6 @@ export const SidenavMobileInterface = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [menuOpen, handleSetMenuOpen]);
 
-  // Close when the viewport grows into the desktop layout (inline nav).
   useEffect(() => {
     if (!menuOpen) return;
     const mql = window.matchMedia(DESKTOP_QUERY);
@@ -50,7 +42,6 @@ export const SidenavMobileInterface = () => {
     return () => mql.removeEventListener("change", onChange);
   }, [menuOpen, handleSetMenuOpen]);
 
-  // Scroll lock + focus management.
   useEffect(() => {
     if (!menuOpen) return;
     const html = document.documentElement;
@@ -67,8 +58,6 @@ export const SidenavMobileInterface = () => {
     return () => {
       html.style.overflow = previous.html;
       body.style.overflow = previous.body;
-      // Restore focus to the toggle, unless the menu closed because the
-      // route changed (then OutletInterface moves focus to <main>).
       if (window.location.pathname === openedAtPath) {
         document.getElementById("menu-button")?.focus({ preventScroll: true });
       }

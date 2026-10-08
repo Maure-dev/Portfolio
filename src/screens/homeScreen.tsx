@@ -4,7 +4,7 @@ import { SectionHomeInterface } from "../interfaces/home/sectionHomeInterface";
 import { SectionPresentationInterface } from "../interfaces/home/sectionPresentationInterface";
 import { SectionServicesInterface } from "../interfaces/home/sectionServicesInterface";
 import { SectionStatsInterface } from "../interfaces/home/sectionStatsInterface";
-import { SectionRecentProjectInterface } from "../interfaces/home/sectionRecentProjectInterface";
+import { SectionLatestProjectsInterface } from "../interfaces/home/sectionLatestProjectsInterface";
 import { SectionTestimonialsInterface } from "../interfaces/home/sectionTestimonialsInterface";
 import { usePageMeta } from "../hooks/usePageMeta";
 
@@ -16,7 +16,7 @@ export const HomeScreen = () => {
       <SectionPresentationInterface />
       <SectionServicesInterface />
       <SectionStatsInterface />
-      <SectionRecentProjectInterface />
+      <SectionLatestProjectsInterface />
       <SectionTestimonialsInterface />
       <FooterInterface />
     </React.Fragment>

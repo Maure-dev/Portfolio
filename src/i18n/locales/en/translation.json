@@ -13,11 +13,7 @@
     "downloadCv": "Download CV",
     "viewCv": "View CV",
     "backToTop": "Back to top",
-    "seeMoreProjects": "See more projects",
     "profilePhotoAlt": "Photo of Mauro Gerardi",
-    "macbookAlt": "MacBook mockup",
-    "projectPreviewAlt": "Project preview",
-    "openInNewTab": "Open {{name}} in a new tab",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "switchToLight": "Switch to light theme",
@@ -53,7 +49,7 @@
     },
     "presentation": {
       "title": "Nice to meet you",
-      "body": "I am a passionate Front-End developer with experience in AngularJS and Angular Material, a Functional Analyst, Scrum Master, and PO. I am a graduate of the University Technical Degree in Web Development at UNER, where I learned to use HTML, CSS, and JavaScript to create attractive and functional user interfaces for web applications. I also took a ReactJS course at CoderHouse to expand my skill set.",
+      "body": "I'm a front-end developer with 5+ years building web platforms — from Argentina's national e-procurement portals (COMPR.AR / CONTRAT.AR) to the Moorea SaaS, and lately my own products: a veterinary clinic management system and an e-commerce with Mercado Pago. I work mostly with React, TypeScript and Tailwind CSS (Angular and .NET before that), and as a Business Analyst I spend as much time understanding the problem as writing the code. University Technical Degree in Web Development, UNER.",
       "moreAboutMe": "More about me",
       "facts": {
         "years": "5+ years",
@@ -63,31 +59,28 @@
       }
     },
     "stats": {
+      "title": "At a glance",
       "experience": "Years of experience",
-      "projects": "Featured projects",
+      "projects": "Projects shipped",
       "technologies": "Technologies",
-      "languages": "Languages"
+      "languages": "Spoken languages"
     },
     "services": {
       "title": "What I do",
       "items": {
         "frontend": {
-          "title": "Frontend Development",
-          "description": "Accessible, responsive interfaces built with Angular and React, focused on a great user experience."
+          "title": "Front-End Development",
+          "description": "Accessible, responsive interfaces in React, TypeScript and Angular — built mobile-first and tested before they ship."
         },
         "analysis": {
           "title": "Business Analysis",
-          "description": "I map and improve business processes and act as the bridge between stakeholders and the technical team."
+          "description": "I map and improve business processes, write functional specs and user stories, and act as the bridge between stakeholders and the technical team."
         },
         "platforms": {
           "title": "SaaS & Web Platforms",
-          "description": "End-to-end product work — from gathering requirements to shipping the final experience to users."
+          "description": "End-to-end product work, from gathering requirements to shipping the final experience: dashboards, e-commerce, admin panels and public portals."
         }
       }
-    },
-    "recentProject": {
-      "titleLine1": "My recent",
-      "titleLine2": "work"
     },
     "latestProjects": {
       "title": "Latest projects",
@@ -96,16 +89,16 @@
     },
     "testimonials": {
       "title": "Testimonials",
-      "subtitle": "People I've worked with have said some nice things...",
+      "subtitle": "What people I've worked with say",
       "items": {
         "armando": {
           "name": "Armando Trillo",
-          "title": "Bachelor of Information Systems",
+          "title": "Information Systems graduate · teammate on the COMPR.AR / CONTRAT.AR Scrum team",
           "quote": "Mauro has demonstrated a positive, proactive attitude and strong commitment, adapting to the rapid changes in the project. He has overcome challenges and grown with each new role assigned to him: developer, incident manager, coordination, and training of teammates. He has a special ability as a Business Analyst to understand and describe business operational flows, integrating that knowledge into the code as a developer. He has a very well-rounded profile and has been a great colleague on the C&C Scrum Team."
         },
         "tamara": {
           "name": "Tamara Martínez",
-          "title": "UX/UI Designer & Freelancer",
+          "title": "UX/UI Designer · freelance collaborator",
           "quote": "It was a real pleasure working with Mauro, and I hope to work with him again. He is definitely the kind of developer you can trust with a project from start to finish. He has a great ability to understand project requirements and translate them into effective technical solutions. In addition, his attention to detail and commitment to quality are evident in every line of code he writes. He is always willing to collaborate and contribute ideas to improve the final product. I highly recommend Mauro for any web development project."
         }
       }
@@ -113,13 +106,13 @@
   },
   "about": {
     "profile": {
-      "title": "Profile",
-      "objectivesLabel": "Goals",
-      "objectives": "To put my knowledge into practice, gain experience and grow professionally — working as part of a team and delivering the projects each role requires.",
-      "aptitudesLabel": "Strengths",
-      "aptitudes": "Punctual, organized and detail-oriented, with a strong sense of ownership and clear communication.",
+      "title": "About me",
+      "objectivesLabel": "What I'm looking for",
+      "objectives": "A product-minded, remote team where I can own features end to end — from analysis to a polished, accessible interface — and keep growing toward a senior front-end role.",
+      "aptitudesLabel": "How I work",
+      "aptitudes": "Organized and detail-oriented; I write clear specs and clear code, communicate early with stakeholders, and take ownership from requirement to release.",
       "availabilityLabel": "Availability",
-      "availability": "Full-time · Remote",
+      "availability": "Full-time · Remote · Argentina (GMT-3)",
       "languagesLabel": "Languages",
       "languages": {
         "spanish": "Spanish — Native",
@@ -136,8 +129,8 @@
       "status": "Graduate",
       "items": {
         "uner": {
-          "degree": "University Technician in Web Development",
-          "institution": "UNER — School of Administration Sciences",
+          "degree": "University Technical Degree in Web Development",
+          "institution": "UNER — Faculty of Administrative Sciences",
           "period": "2023 - 2025"
         },
         "technical": {
@@ -149,12 +142,13 @@
     },
     "skills": {
       "title": "Skills",
-      "subtitle": "Technologies and tools I work with.",
+      "subtitle": "Technologies and tools I use in production.",
       "groups": {
-        "frontend": "Frontend",
-        "languages": "Languages",
+        "frontend": "Front-End",
+        "backend": "Back end & cloud",
+        "languages": "Programming languages",
         "databases": "Databases",
-        "tooling": "Tooling"
+        "tooling": "Tooling & practices"
       }
     },
     "experiences": {
@@ -164,31 +158,33 @@
       "present": "Present",
       "items": {
         "techLead": {
-          "role": "Technical Leader",
+          "role": "Tech Lead — COMPR.AR / CONTRAT.AR",
           "period": "Dec 2021 - Jun 2022",
-          "description": "Leader of the COMPR.AR & CONTRAT.AR project belonging to the Office of the Chief of Staff of Ministers and administrators for the National Contracting Office (ONC). Managed the team of developers in .NET, Angular Material, and SQL languages."
+          "description": "Led the development team of COMPR.AR and CONTRAT.AR, Argentina's national procurement platforms (Chief of Cabinet of Ministers, operated by the National Procurement Office — ONC): priorities, code reviews, estimates and releases on a .NET, Angular Material and SQL stack, plus the day-to-day link with the ONC's functional team."
         },
         "businessAnalyst": {
-          "role": "Semi-Senior Business Analyst",
+          "role": "Business Analyst",
           "period": "Feb 2022 - Aug 2024",
-          "description": "Responsible for analyzing the company's processes with a view to satisfying customer needs. Acting as the link between the customer and the technical team."
+          "description": "Analyzed and documented business processes for Leafnoise's clients, wrote functional specifications and user stories, and acted as the bridge between stakeholders and developers so that what shipped matched what the business needed."
         },
         "frontendDev": {
-          "role": "Semi-Senior Frontend Developer",
+          "role": "Front-End Developer",
           "period": "Aug 2021 - Present",
-          "description": "Responsible for the platform belonging to the company seeking to meet customer needs, I work from the customer's perspective, interpreting and adapting web development languages to create the final experience for that customer/user."
+          "description": "Front-end developer of Moorea, Leafnoise's process-management SaaS, and its public site. I take features from requirement to release — UI components, forms, data tables and workflow screens in React, TypeScript and Tailwind CSS (Angular + Angular Material earlier on) — always from the user's point of view."
         },
         "fullStack": {
-          "role": "Full Stack Developer",
+          "role": "Full-Stack Developer — COMPR.AR / CONTRAT.AR",
           "period": "May 2021 - Jun 2022",
-          "description": "Maintenance of the COMPR.AR & CONTRAT.AR project belonging to the Office of the Chief of Staff of Ministers and administrators by the National Contracting Office (ONC). Management of the team of developers in the languages .NET, Angular Material, and SQL."
+          "description": "Maintenance and evolution of COMPR.AR and CONTRAT.AR: bug fixing and new features across the .NET back end, the Angular Material front end and the SQL database, working with the ONC's functional team."
         }
       }
     }
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "A selection of products and platforms I have worked on.",
+    "subtitle": "Products I have built — from national procurement portals to SaaS and e-commerce.",
+    "filterLabel": "Filter projects by category",
+    "showing": "Showing {{count}} of {{total}} projects",
     "filters": {
       "all": "All",
       "freelance": "Freelance",
@@ -203,56 +199,135 @@
     "viewDetails": "View details",
     "visitSite": "Visit site",
     "viewCode": "View code",
+    "live": "Live",
     "close": "Close",
     "stackLabel": "Tech stack",
     "roleLabel": "My role",
     "highlightsLabel": "Highlights",
     "year": "Year",
+    "present": "present",
     "items": {
+      "abrilVet": {
+        "subtitle": "Veterinary clinic management SaaS",
+        "description": "All-in-one management platform for veterinary clinics: clients and patients, agenda, medical records, vaccinations, lab studies, surgeries and hospitalizations, billing, POS sales, inventory, purchases, cash register, reports and role-based staff access — with light and dark mode. Designed and built end to end as a solo developer. The public URL shows the login screen; demo access on request.",
+        "role": "Solo developer — product, UX, front end and back end",
+        "roleShort": "Solo developer",
+        "highlights": [
+          "Role-based access (admin / vet / receptionist / assistant) with Firebase Auth custom claims and Firestore security rules",
+          "Vercel Functions back end on the Firebase Admin SDK, with staff invitations by email (Resend)",
+          "Cloudinary uploads for photos, studies and PDFs; 15+ feature modules behind one consistent UI"
+        ]
+      },
+      "carili": {
+        "subtitle": "E-commerce for handmade ceramic sinks",
+        "description": "Online store for an Argentine ceramics studio that sells handmade bathroom sinks: catalog with search and filters, cart, checkout with Mercado Pago (payment webhook), order tracking, customer accounts and an admin panel for products, orders, users, site content and contact messages.",
+        "role": "Solo developer — storefront, admin panel and payments",
+        "roleShort": "Solo developer",
+        "highlights": [
+          "Mercado Pago Checkout with a server-side webhook that confirms orders",
+          "Admin panel to manage products, orders, users, content and messages without touching code",
+          "CI on GitHub Actions (lint, type-check, tests) and continuous deploys on Vercel"
+        ]
+      },
       "saasMoorea": {
-        "subtitle": "Manage and automate your processes",
-        "description": "SaaS is a software distribution model where the software and the respective data it handles are hosted on a provider's servers, which are accessed via the Internet."
+        "subtitle": "Process management and automation SaaS",
+        "description": "Moorea's SaaS lets organizations model, run and track internal procedures (requests, approvals, document flows) from one dashboard. I build the React front end — new modules, forms, data tables and the process-flow screens — turning stakeholder requirements into shipped features, and I write the functional specs as the team's Business Analyst.",
+        "role": "Front-End Developer & Business Analyst — Leafnoise",
+        "roleShort": "Front-End Developer & Business Analyst",
+        "highlights": [
+          "New modules, forms and data tables in React + TypeScript, from requirement to release",
+          "Process-flow screens that let teams model and track their internal procedures",
+          "Functional specs and user stories written as the team's Business Analyst"
+        ]
       },
       "moorea": {
-        "subtitle": "Transform processes into experiences",
-        "description": "Moorea enables you to extract, analyze, and manage critical information from a variety of digital formats. It transforms the way organizations interact with their vast document collections, ensuring accuracy, efficiency, and security at every step."
+        "subtitle": "Product website for Moorea",
+        "description": "Public site for the Moorea product: value proposition, features, FAQ and the AI demo entry point that funnels visitors into the SaaS. A fast, responsive marketing site in React, TypeScript and Tailwind CSS.",
+        "role": "Front-End Developer — Leafnoise",
+        "roleShort": "Front-End Developer",
+        "highlights": [
+          "Responsive marketing site in React, TypeScript and Tailwind CSS",
+          "Value proposition, features and FAQ sections that funnel visitors into the SaaS",
+          "Same design language as the product for a seamless hand-off"
+        ]
       },
       "leafnoise": {
-        "subtitle": "Simpler and smarter processes",
-        "description": "Make your digital transformation process simpler and more successful. The digitization of your organization is within your reach."
+        "subtitle": "Corporate website of Leafnoise Company",
+        "description": "Website of the software company behind Moorea: services, digital-transformation offering and contact. A responsive React + Tailwind CSS site.",
+        "role": "Front-End Developer — Leafnoise",
+        "roleShort": "Front-End Developer",
+        "highlights": [
+          "Services and digital-transformation offering in a clear, scannable layout",
+          "Responsive React + Tailwind CSS build",
+          "Contact flow for inbound business inquiries"
+        ]
       },
       "comprar": {
-        "subtitle": "Goods and Services Contracting Portal",
-        "description": "It is the electronic system for managing purchases and contracts for the National Public Administration. Through the platform, government entities process and publish their purchasing processes, and suppliers submit their bids in an agile, transparent, and secure manner."
+        "subtitle": "Argentina's national e-procurement system",
+        "description": "COMPR.AR is the electronic purchasing system of the National Public Administration (Chief of Cabinet of Ministers, operated by the National Procurement Office — ONC): agencies publish tenders and suppliers bid online. I joined as a full-stack developer maintaining the .NET + Angular Material + SQL platform and later led the development team as Tech Lead.",
+        "role": "Full-Stack Developer → Tech Lead — Leafnoise for the ONC",
+        "roleShort": "Full-Stack Developer → Tech Lead",
+        "highlights": [
+          "Maintenance and new features across the .NET back end, the Angular Material front end and the SQL database",
+          "Led the development team as Tech Lead: priorities, code reviews, estimates and releases",
+          "Day-to-day link with the National Procurement Office's functional team"
+        ]
       },
       "contratar": {
-        "subtitle": "Public Works Contracts and Concessions Portal",
-        "description": "It is the electronic system for managing national government contracts. Through the platform, government entities process and publish their contracting processes, and builders submit their bids in a fast, transparent, and secure manner."
+        "subtitle": "Public works contracts and concessions portal",
+        "description": "Sister platform of COMPR.AR for public-works contracts and concessions: agencies run their tendering processes and construction companies submit bids online. Same team and stack (.NET, Angular Material, SQL): maintenance, new features and team coordination for the ONC.",
+        "role": "Full-Stack Developer → Tech Lead — Leafnoise for the ONC",
+        "roleShort": "Full-Stack Developer → Tech Lead",
+        "highlights": [
+          "Sister platform of COMPR.AR, built and maintained by the same team on the same stack",
+          "Tendering for public works: agencies publish, construction companies bid online",
+          "Maintenance, new features and team coordination for the ONC"
+        ]
       },
       "libretas": {
-        "subtitle": "System for health, education, and vaccination control",
-        "description": "It is a document that recipients of the Universal Child Allowance (AUH) must submit every year to prove that their children are complying with health checks, vaccinations, and education requirements."
+        "subtitle": "ANSES — Libreta AUH yearly compliance system",
+        "description": "System ANSES uses to register and validate the yearly Libreta AUH — the proof of health check-ups, vaccination and school attendance that Universal Child Allowance families must submit. Delivered by the Leafnoise team on .NET, Angular Material and SQL.",
+        "role": "Full-Stack Developer — Leafnoise team (for ANSES)",
+        "roleShort": "Full-Stack Developer",
+        "highlights": [
+          "Yearly registration and validation of the Libreta AUH for Universal Child Allowance families",
+          "Health check-up, vaccination and school-attendance data in one workflow",
+          "Leafnoise team delivery on .NET, Angular Material and SQL"
+        ]
       },
       "certificados": {
-        "subtitle": "School attendance monitoring system",
-        "description": "This document confirms that children are actually attending school, and parents have until the last working day of the year to submit it. This allows them to receive financial assistance from ANSES."
+        "subtitle": "ANSES — school attendance certificates",
+        "description": "System to issue and validate the annual school-attendance certificate required for ANSES's Ayuda Escolar Anual benefit, used by schools, families and ANSES staff. Delivered by the Leafnoise team on .NET, Angular Material and SQL.",
+        "role": "Full-Stack Developer — Leafnoise team (for ANSES)",
+        "roleShort": "Full-Stack Developer",
+        "highlights": [
+          "Issuing and validating the annual certificate behind the Ayuda Escolar Anual benefit",
+          "One flow for schools, families and ANSES staff",
+          "Leafnoise team delivery on .NET, Angular Material and SQL"
+        ]
       },
       "portal": {
-        "subtitle": "Single Portal for Digital Procedures for Citizens",
-        "description": "Free access portal (no authentication required) where citizens can view all available procedures, both in person and online. Each procedure will display relevant information so that citizens can understand how to complete it and, if it is online, will allow them to access it."
+        "subtitle": "Santa Fe province — single portal for citizen procedures",
+        "description": "Public, login-free portal where citizens of Santa Fe browse every provincial procedure, in person or online, with requirements, steps and direct access to the digital ones. Front-end work in React, TypeScript and Tailwind CSS.",
+        "role": "Front-End Developer — Leafnoise team (for the Province of Santa Fe)",
+        "roleShort": "Front-End Developer",
+        "highlights": [
+          "Catalogue of every provincial procedure with its requirements and steps",
+          "Public access without authentication, with direct entry to the online procedures",
+          "Front end in React, TypeScript and Tailwind CSS"
+        ]
       }
     }
   },
   "contact": {
     "heading": "Send me a message!",
-    "orEmail": "Or reach me directly",
+    "orEmail": "Or write to me directly",
     "linkedin": "LinkedIn",
     "form": {
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email",
       "phoneNumber": "Phone Number",
-      "message": "Got a question or proposal, or just want to say hello? Go ahead.",
       "messageLabel": "Message",
       "messagePlaceholder": "Got a question or proposal, or just want to say hello? Go ahead.",
       "optional": "optional",
@@ -284,30 +359,33 @@
   },
   "github": {
     "title": "On GitHub",
-    "subtitle": "A look at some of my public repositories.",
+    "subtitle": "Selected public repositories.",
     "viewProfile": "View full profile",
-    "error": "Repositories couldn't be loaded right now.",
+    "error": "Live GitHub data isn't available right now — showing a curated selection.",
     "stars": "stars",
     "forks": "forks",
     "updated": "Updated {{date}}",
-    "live": "Live"
+    "live": "Live",
+    "fallback": {
+      "portfolio": "Personal portfolio — React 19, Vite, TypeScript, Tailwind CSS v4, EN/ES i18n"
+    }
   },
   "meta": {
     "home": {
       "title": "Mauro Gerardi — Front-End Developer & Business Analyst",
-      "description": "Portfolio of Mauro Gerardi, a Semi-Senior Front-End Developer (Angular & React) and Business Analyst. Explore projects, experience, and skills."
+      "description": "Front-end developer from Argentina with 5+ years building SaaS, e-commerce and government platforms in React, TypeScript and Angular. Open to remote roles."
     },
     "projects": {
       "title": "Projects — Mauro Gerardi",
-      "description": "Selected projects by Mauro Gerardi: SaaS platforms, government portals, and web applications built with Angular and React."
+      "description": "Projects by Mauro Gerardi: Abril Vet (veterinary SaaS), Carili Design (e-commerce with Mercado Pago), Moorea and the COMPR.AR / CONTRAT.AR procurement portals."
     },
     "about": {
       "title": "About — Mauro Gerardi",
-      "description": "Experience and skills of Mauro Gerardi, Front-End Developer and Business Analyst."
+      "description": "5+ years at Leafnoise as Front-End Developer, Business Analyst and Tech Lead on e-procurement portals. University Technical Degree in Web Development (UNER)."
     },
     "contact": {
       "title": "Contact — Mauro Gerardi",
-      "description": "Get in touch with Mauro Gerardi for front-end development and business analysis opportunities."
+      "description": "Contact Mauro Gerardi for front-end development (React, TypeScript, Angular) or business analysis. Remote from Argentina (GMT-3)."
     }
   }
 }

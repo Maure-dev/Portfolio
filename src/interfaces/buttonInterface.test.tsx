@@ -26,8 +26,6 @@ describe("ButtonInterface", () => {
     render(
       <ButtonInterface description="GitHub" href="https://github.com" target="_blank" />
     );
-    // jsdom's name computation drops the whitespace between inline nodes
-    // (browsers keep it), hence the optional space.
     const link = screen.getByRole("link", { name: /GitHub ?\(opens in a new tab\)/ });
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });

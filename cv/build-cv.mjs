@@ -1,16 +1,3 @@
-#!/usr/bin/env node
-// Builds the downloadable CVs from cv/template.html + cv/data.{en,es}.json.
-//
-//   node cv/build-cv.mjs                    # both languages → public/Mauro-Gerardi-CV-{EN,ES}.pdf
-//   node cv/build-cv.mjs --lang es          # one language
-//   node cv/build-cv.mjs --out some/dir     # write somewhere else (e.g. to inspect a draft)
-//   node cv/build-cv.mjs --body-size 8.5pt  # override the template's --body-size for a tight fit
-//
-// Rendering: headless Google Chrome (playwright-core, channel "chrome"; falls back to
-// $CV_BROWSER_PATH or the Playwright Chromium cache) prints the page to a tagged A4 PDF.
-// pdf-lib then sets Title / Author / Subject / Keywords / Lang. The build fails if a CV does
-// not fit on exactly one page, if Sora did not load, or if a bracketed placeholder leaked in.
-// Run it locally and commit the PDFs; it is not part of the Vercel build.
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -23,7 +10,6 @@ const ROOT = path.resolve(CV_DIR, "..");
 const FILE_NAMES = { en: "Mauro-Gerardi-CV-EN.pdf", es: "Mauro-Gerardi-CV-ES.pdf" };
 const AUTHOR = "Mauro Alejandro Gerardi";
 const SIZE_BUDGET_BYTES = 120 * 1024;
-// A4 content box with the template's 14 mm margins, in CSS px (96 dpi).
 const PAGE_CONTENT_HEIGHT_PX = ((297 - 2 * 14) * 96) / 25.4;
 
 const args = parseArgs(process.argv.slice(2));
@@ -115,10 +101,10 @@ async function buildOne(context, lang) {
     pdf.setTitle(data.meta.title, { showInWindowTitleBar: true });
     pdf.setAuthor(AUTHOR);
     pdf.setSubject(data.meta.subject);
-    pdf.setKeywords(data.meta.keywords);
+    pdf.setKeywords([data.meta.keywords.join(", ")]);
     pdf.setLanguage(data.meta.language);
-    pdf.setCreator("cv/build-cv.mjs (Chromium + pdf-lib)");
-    pdf.setProducer("pdf-lib");
+    pdf.setCreator(AUTHOR);
+    pdf.setProducer("Chromium + pdf-lib (cv/build-cv.mjs)");
     pdf.setCreationDate(now);
     pdf.setModificationDate(now);
 

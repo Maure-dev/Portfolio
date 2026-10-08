@@ -2,13 +2,13 @@ import type {
   ChangeEventHandler,
   Dispatch,
   FormEvent,
+  FormEventHandler,
   MouseEventHandler,
   ReactNode,
   SetStateAction,
 } from "react";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-/* ------------------------------------------------------------------ Layout */
 
 export type OutletContextType = {
   menuOpen: boolean;
@@ -26,7 +26,6 @@ export type NavItemType = {
   router: string;
 };
 
-/* ------------------------------------------------------------------- Theme */
 
 export type ThemeType = "dark" | "light";
 
@@ -40,7 +39,6 @@ export type ThemeContextPropsType = {
   children: ReactNode;
 };
 
-/* ----------------------------------------------------------------- Contact */
 
 export type ContactStatus = "idle" | "sending" | "success" | "error";
 
@@ -55,7 +53,10 @@ export type FormDataType = {
 export type ContactContextType = {
   formData: FormDataType;
   setFormData: Dispatch<SetStateAction<FormDataType>>;
-  handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<ContactStatus>;
+  handleSubmit: (
+    e: FormEvent<HTMLFormElement>,
+    captchaToken: string
+  ) => Promise<ContactStatus>;
   status: ContactStatus;
 };
 
@@ -63,61 +64,66 @@ export type ContactContextPropsType = {
   children: ReactNode;
 };
 
-export type AlertInterfaceType = {
-  className?: string;
-};
-
 export type ContactFormInterfaceType = {
   className?: string;
 };
 
-export type InputInterfaceType = {
-  type: string;
+export type FieldInputMode =
+  | "none"
+  | "text"
+  | "tel"
+  | "url"
+  | "email"
+  | "numeric"
+  | "decimal"
+  | "search";
+
+type FieldBaseType = {
+  id: string;
+  label: string;
   name: string;
   placeholder?: string;
-  value: string | number;
+  value: string;
+  className?: string;
+  required?: boolean;
+  autoComplete?: string;
+  inputMode?: FieldInputMode;
+  maxLength?: number;
+  minLength?: number;
+  error?: string;
+};
+
+export type InputInterfaceType = FieldBaseType & {
+  type?: "text" | "email" | "tel";
   onChange: ChangeEventHandler<HTMLInputElement>;
-  className?: string;
-  required?: boolean;
+  onInvalid?: FormEventHandler<HTMLInputElement>;
 };
 
-export type TextAreaInterfaceType = {
-  name: string;
-  placeholder?: string;
-  value: string | number;
+export type TextAreaInterfaceType = FieldBaseType & {
+  rows?: number;
   onChange: ChangeEventHandler<HTMLTextAreaElement>;
-  className?: string;
-  required?: boolean;
+  onInvalid?: FormEventHandler<HTMLTextAreaElement>;
 };
 
-/* -------------------------------------------------------------- Components */
 
 export type ButtonVariant = "primary" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export type ButtonInterfaceType = {
-  /** Visible label. */
   description: string;
-  /** Visual style. Defaults to "primary". */
   variant?: ButtonVariant;
-  /** Control height/padding. Defaults to "md". */
   size?: ButtonSize;
-  /** @deprecated Use `variant`. `primary={false}` maps to the outline variant. */
   primary?: boolean;
   className?: string;
-  /** Extra classes for the label span (e.g. "hidden xl:inline" for icon-only). */
   labelClassName?: string;
   type?: "button" | "submit" | "reset";
   onClick?: MouseEventHandler<HTMLElement>;
   disabled?: boolean;
-  /** Renders an <a>. */
   href?: string;
   download?: boolean | string;
   target?: string;
   rel?: string;
-  /** Renders a react-router <NavLink>. */
   to?: string;
-  /** Optional FontAwesome icon. */
   icon?: IconProp;
   iconPosition?: "start" | "end";
   id?: string;
@@ -130,7 +136,6 @@ export type CardElement = "div" | "article" | "li" | "figure" | "section";
 
 export type CardInterfaceType = {
   as?: CardElement;
-  /** Adds the hover lift/border change. Only for clickable cards. */
   interactive?: boolean;
   className?: string;
   children: ReactNode;
@@ -142,13 +147,9 @@ export type SectionBand = "default" | "secondary";
 
 export type SectionInterfaceType = {
   id?: string;
-  /** Alternating background band. */
   band?: SectionBand;
-  /** Classes for the <section> element. */
   className?: string;
-  /** Classes for the inner max-width container. */
   containerClassName?: string;
-  /** id of the heading that labels the section (aria-labelledby). */
   labelledBy?: string;
   children: ReactNode;
 };
@@ -157,7 +158,6 @@ export type SectionHeadingInterfaceType = {
   title: string;
   eyebrow?: string;
   subtitle?: string;
-  /** Heading level: "h1" for the page title, "h2" (default) for sections. */
   as?: "h1" | "h2";
   align?: "center" | "left";
   id?: string;
@@ -176,6 +176,5 @@ export type TagInterfaceType = {
 export type RevealInterfaceType = {
   children: ReactNode;
   className?: string;
-  /** Stagger delay in milliseconds. */
   delayMs?: number;
 };

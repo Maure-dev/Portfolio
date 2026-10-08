@@ -17,12 +17,21 @@ const EMPTY_FORM: FormDataType = {
   message: "",
 };
 
+const trimForm = (form: FormDataType): FormDataType => ({
+  firstName: form.firstName.trim(),
+  lastName: form.lastName.trim(),
+  email: form.email.trim(),
+  phoneNumber: form.phoneNumber.trim(),
+  message: form.message.trim(),
+});
+
 export const ContactProvider = ({ children }: ContactContextPropsType) => {
   const [formData, setFormData] = useState<FormDataType>(EMPTY_FORM);
   const [status, setStatus] = useState<ContactStatus>("idle");
 
   const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
+    e: React.FormEvent<HTMLFormElement>,
+    captchaToken: string
   ): Promise<ContactStatus> => {
     e.preventDefault();
     setStatus("sending");
@@ -31,8 +40,15 @@ export const ContactProvider = ({ children }: ContactContextPropsType) => {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID!,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
-        formData,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+        {
+          ...trimForm(formData),
+          "g-recaptcha-response": captchaToken,
+        },
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY!,
+          blockHeadless: true,
+          limitRate: { id: "contact-form", throttle: 10_000 },
+        }
       );
       setFormData(EMPTY_FORM);
       setStatus("success");

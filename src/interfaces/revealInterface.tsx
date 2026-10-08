@@ -5,12 +5,6 @@ const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/**
- * Fades and slides its children in when they scroll into the viewport (the
- * window is the scroll container, so the observer root is null). Shown
- * immediately when the user prefers reduced motion or when
- * IntersectionObserver is unavailable.
- */
 export const Reveal = ({ children, className, delayMs = 0 }: RevealInterfaceType) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(

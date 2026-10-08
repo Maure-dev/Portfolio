@@ -9,7 +9,6 @@ import { EMAIL, GITHUB_URL, LINKEDIN_URL, NAV_ITEMS } from "../constants";
 const FOOTER_LINK =
   "inline-flex min-h-11 items-center rounded-lg px-2 text-sm font-medium text-secondary motion-safe:transition-colors hover:text-foreground aria-[current=page]:text-accent";
 
-/** Compact call-to-action footer: title, subtitle, CTAs, mini nav and © line. */
 export const FooterInterface = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();

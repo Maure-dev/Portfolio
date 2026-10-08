@@ -15,8 +15,6 @@ describe("router smoke test", () => {
     const main = await screen.findByRole("main");
     expect(main).toHaveAttribute("id", "main");
 
-    // The hero title is the first h1. (The one-h1-per-route rule is enforced by
-    // the axe scans in QA once the section components move to h2.)
     const headings = await within(main).findAllByRole("heading", { level: 1 });
     expect(headings[0]).toHaveTextContent(/Mauro/);
 

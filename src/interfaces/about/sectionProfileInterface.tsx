@@ -1,77 +1,131 @@
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBullseye,
-  faStar,
-  faClock,
-  faGlobe,
+  faArrowUpRightFromSquare,
+  faFileArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { Reveal } from "../revealInterface";
+import { SectionInterface } from "../sectionInterface";
+import { SectionHeadingInterface } from "../sectionHeadingInterface";
+import { ButtonInterface } from "../buttonInterface";
+import { getCvUrl } from "../../constants";
 
 export const SectionProfileInterface = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const cvUrl = getCvUrl(i18n.resolvedLanguage);
+  const name = t("home.hero.name");
 
-  const cards = [
+  const facts: { id: string; label: string; values: string[] }[] = [
     {
-      icon: faBullseye,
-      label: t("about.profile.objectivesLabel"),
-      body: t("about.profile.objectives"),
+      id: "location",
+      label: t("about.profile.locationLabel"),
+      values: [t("about.profile.location")],
     },
     {
-      icon: faStar,
-      label: t("about.profile.aptitudesLabel"),
-      body: t("about.profile.aptitudes"),
-    },
-    {
-      icon: faClock,
+      id: "availability",
       label: t("about.profile.availabilityLabel"),
-      body: t("about.profile.availability"),
+      values: [t("about.profile.availability")],
+    },
+    {
+      id: "languages",
+      label: t("about.profile.languagesLabel"),
+      values: [
+        t("about.profile.languages.spanish"),
+        t("about.profile.languages.english"),
+      ],
+    },
+    {
+      id: "education",
+      label: t("about.profile.educationLabel"),
+      values: [t("about.education.items.uner.degree")],
+    },
+    {
+      id: "openTo",
+      label: t("about.profile.openToLabel"),
+      values: [t("about.profile.openTo")],
     },
   ];
 
   return (
-    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
-      <Reveal className="w-full max-w-5xl">
-        <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
-          {t("about.profile.title")}
-        </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          {cards.map((card) => (
-            <div
-              key={card.label}
-              className="bg-backgroundSecondary rounded-xl p-6 lg:p-8 transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="flex items-center gap-3 mb-3 text-primary">
-                <FontAwesomeIcon
-                  icon={card.icon}
-                  className="text-2xl"
-                  aria-hidden="true"
-                />
-                <h3 className="text-xl font-semibold text-foreground">
-                  {card.label}
-                </h3>
-              </div>
-              <p className="text-secondary leading-relaxed">{card.body}</p>
-            </div>
-          ))}
-          <div className="bg-backgroundSecondary rounded-xl p-6 lg:p-8 transition-transform duration-300 hover:-translate-y-1">
-            <div className="flex items-center gap-3 mb-3 text-primary">
-              <FontAwesomeIcon
-                icon={faGlobe}
-                className="text-2xl"
-                aria-hidden="true"
+    <SectionInterface
+      id="profile"
+      labelledBy="profile-title"
+      className="pt-28 lg:pt-36"
+    >
+      <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
+        <div>
+          <Reveal>
+            <SectionHeadingInterface
+              as="h1"
+              id="profile-title"
+              align="left"
+              eyebrow={name}
+              title={t("about.profile.title")}
+              subtitle={t("home.hero.subtitle")}
+            />
+          </Reveal>
+
+          <Reveal delayMs={80}>
+            <p className="max-w-prose text-lg leading-relaxed text-pretty text-foreground">
+              {t("home.presentation.body")}
+            </p>
+          </Reveal>
+
+          <Reveal delayMs={160}>
+            <dl className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+              {facts.map((fact) => (
+                <div key={fact.id}>
+                  <dt className="text-sm font-medium text-muted">{fact.label}</dt>
+                  {fact.values.map((value) => (
+                    <dd key={value} className="mt-1 text-foreground">
+                      {value}
+                    </dd>
+                  ))}
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+
+          <Reveal delayMs={240}>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonInterface
+                href={cvUrl}
+                download
+                icon={faFileArrowDown}
+                description={t("common.downloadCv")}
               />
-              <h3 className="text-xl font-semibold text-foreground">
-                {t("about.profile.languagesLabel")}
-              </h3>
+              <a
+                href={cvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm font-medium text-accent underline-offset-4 hover:underline"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  aria-hidden="true"
+                  className="text-xs"
+                />
+                {t("home.hero.viewCv")}
+                <span className="sr-only"> {t("common.newTab")}</span>
+              </a>
             </div>
-            <ul className="space-y-2 text-secondary">
-              <li>{t("about.profile.languages.spanish")}</li>
-              <li>{t("about.profile.languages.english")}</li>
-            </ul>
-          </div>
+          </Reveal>
         </div>
-      </Reveal>
-    </section>
+
+        <Reveal
+          delayMs={120}
+          className="order-first flex justify-center lg:order-none lg:justify-end"
+        >
+          <img
+            src="/profile-192.webp"
+            alt={t("common.photoOf", { name })}
+            width={192}
+            height={192}
+            decoding="async"
+            className="size-32 rounded-full bg-surface ring-1 ring-border sm:size-40 lg:size-48"
+          />
+        </Reveal>
+      </div>
+    </SectionInterface>
   );
 };

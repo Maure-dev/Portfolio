@@ -1,6 +1,5 @@
 import type { SectionHeadingInterfaceType } from "../containers/entities/entities";
 
-/** Eyebrow + title (h2 by default, h1 for the page title) + optional subtitle. */
 export const SectionHeadingInterface = ({
   title,
   eyebrow,

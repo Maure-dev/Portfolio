@@ -3,11 +3,9 @@ import type { AppLanguage } from "../i18n/i18n";
 
 type LanguageToggleProps = {
   className?: string;
-  /** "lg" gives 44px-tall targets for the touch menu. */
   size?: "md" | "lg";
 };
 
-/** Segmented EN | ES control; the pressed option is the current language. */
 export const LanguageToggleInterface = ({
   className,
   size = "md",

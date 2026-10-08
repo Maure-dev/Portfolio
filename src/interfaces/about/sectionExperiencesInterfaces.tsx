@@ -1,5 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Reveal } from "../revealInterface";
+import { SectionInterface } from "../sectionInterface";
+import { SectionHeadingInterface } from "../sectionHeadingInterface";
+import { TagInterface } from "../tagInterface";
 
 const EXPERIENCE_ORDER = [
   "frontendDev",
@@ -7,38 +10,62 @@ const EXPERIENCE_ORDER = [
   "techLead",
   "fullStack",
 ] as const;
+const CURRENT_ROLE = "frontendDev";
 
 export const SectionExperiencesInterface = () => {
   const { t } = useTranslation();
-  const company = t("about.experiences.company");
 
   return (
-    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
-      <Reveal className="w-full max-w-3xl">
-        <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
-          {t("about.experiences.title")}
-        </h1>
-        <ol className="relative border-l-2 border-primary/40 ml-2">
-          {EXPERIENCE_ORDER.map((id) => (
-            <li key={id} className="relative pl-8 lg:pl-12 pb-12 last:pb-0">
+    <SectionInterface id="experience" labelledBy="experience-title">
+      <Reveal>
+        <SectionHeadingInterface
+          id="experience-title"
+          title={t("about.experiences.title")}
+        />
+      </Reveal>
+
+      <div className="mx-auto max-w-3xl">
+        <Reveal>
+          <div className="mb-8 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+            <p className="text-lg font-semibold text-accent">
+              {t("about.experiences.company")}
+            </p>
+            <p className="text-sm text-muted">
+              {t("about.experiences.companyMeta")}
+            </p>
+          </div>
+        </Reveal>
+
+        <ol className="relative ml-1.5 border-l border-border">
+          {EXPERIENCE_ORDER.map((id, index) => (
+            <li
+              key={id}
+              className="relative pb-10 pl-8 last:pb-0 sm:pl-10"
+            >
               <span
-                className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-primary ring-4 ring-background"
+                className="absolute top-1.5 -left-[7px] size-3 rounded-full bg-primary ring-4 ring-background"
                 aria-hidden="true"
               />
-              <p className="text-sm text-textDark mb-1">
-                {t(`about.experiences.items.${id}.period`)}
-              </p>
-              <h3 className="text-xl lg:text-2xl font-semibold">
-                {t(`about.experiences.items.${id}.role`)}
-              </h3>
-              <p className="text-primary font-medium mb-3">{company}</p>
-              <p className="text-secondary leading-relaxed">
-                {t(`about.experiences.items.${id}.description`)}
-              </p>
+              <Reveal delayMs={index * 80}>
+                <p className="text-sm text-muted">
+                  {t(`about.experiences.items.${id}.period`)}
+                </p>
+                <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <h3 className="text-card-title text-foreground">
+                    {t(`about.experiences.items.${id}.role`)}
+                  </h3>
+                  {id === CURRENT_ROLE && (
+                    <TagInterface tone="success">{t("common.current")}</TagInterface>
+                  )}
+                </div>
+                <p className="mt-3 leading-relaxed text-pretty text-secondary">
+                  {t(`about.experiences.items.${id}.description`)}
+                </p>
+              </Reveal>
             </li>
           ))}
         </ol>
-      </Reveal>
-    </section>
+      </div>
+    </SectionInterface>
   );
 };

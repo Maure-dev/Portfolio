@@ -1,11 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { OutletContext } from "../containers/contexts/outletContext";
 
-/**
- * 4px reading-progress bar under the top edge. Zero React state: the window
- * scroll position is read inside requestAnimationFrame and written straight
- * to the bar's transform.
- */
 export const ScrollProgressInterface = () => {
+  const { menuOpen } = useContext(OutletContext)!;
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,7 +20,6 @@ export const ScrollProgressInterface = () => {
     };
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
-    // Content height changes (lazy routes, images) also move the ratio.
     const resizeObserver =
       typeof ResizeObserver !== "undefined"
         ? new ResizeObserver(schedule)
@@ -40,7 +36,10 @@ export const ScrollProgressInterface = () => {
 
   return (
     <div
-      className="pointer-events-none fixed inset-x-0 top-0 z-200 h-1"
+      className={[
+        "pointer-events-none fixed inset-x-0 top-0 z-200 h-1 motion-safe:transition-opacity motion-safe:duration-200",
+        menuOpen ? "opacity-0" : "opacity-100",
+      ].join(" ")}
       aria-hidden="true"
     >
       <div

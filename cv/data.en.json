@@ -24,6 +24,7 @@
     "skills": "Skills",
     "experience": "Experience",
     "projects": "Selected projects",
+    "stack": "Stack",
     "education": "Education",
     "courses": "Courses",
     "languages": "Languages",
@@ -45,7 +46,7 @@
   "skills": [
     {
       "group": "Front end",
-      "items": "React 19, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Angular + Angular Material, Vite, React Router, i18next, responsive and accessible UI"
+      "items": "React 19, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Angular + Angular Material, Vite, React Router, i18next, responsive and accessible UI"
     },
     {
       "group": "Back end & cloud",
@@ -71,8 +72,8 @@
           "title": "Front-End Developer",
           "period": "Aug 2021 – Present",
           "bullets": [
-            "Build and maintain the front end of Leafnoise's SaaS products (Moorea, SaaS Moorea, leafnoise.io) in React, TypeScript and Tailwind CSS, turning UX designs into responsive, accessible production screens.",
-            "Own features from requirement to release: component architecture, forms and data-heavy views, REST API integration, state management, i18n and cross-browser/mobile QA."
+            "Build and maintain the front end of Leafnoise's SaaS products in React, TypeScript and Tailwind CSS.",
+            "Own features from UX design to release: component architecture, forms and data-heavy views, REST API integration, state management, i18n, accessibility and cross-browser/mobile QA."
           ],
           "metrics": []
         },
@@ -81,8 +82,8 @@
           "title": "Business Analyst",
           "period": "Feb 2022 – Aug 2024",
           "bullets": [
-            "Analysed and documented customers' business processes and turned them into functional specifications, user stories and acceptance criteria for the Scrum team.",
-            "Bridge between stakeholders and developers, covering Product Owner and Scrum Master duties: backlog prioritisation, incident management, and coordination and training of teammates."
+            "Analyzed and documented customers' business processes and turned them into functional specifications, user stories and acceptance criteria for the Scrum team.",
+            "Bridge between stakeholders and developers, covering Product Owner and Scrum Master duties: backlog prioritization, incident management, and coordination and training of teammates."
           ],
           "metrics": []
         },
@@ -112,8 +113,8 @@
     {
       "name": "Abril Vet",
       "meta": "2026 · Freelance · Solo developer",
-      "description": "Management SaaS for veterinary clinics — patients, agenda, medical records, billing/POS, inventory, cash register, reports — with role-based staff access (Firebase Auth claims, Firestore rules) and a Vercel Functions back end.",
-      "stack": "React 19 · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Cloudinary · Resend",
+      "description": "Management SaaS for veterinary clinics — patients, agenda, medical records, billing/POS, inventory, cash register, reports — with role-based staff access (Firebase Auth claims, Firestore rules).",
+      "stack": "React 19 · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Cloudinary · Resend",
       "links": [
         { "label": "abril-vet.vercel.app", "href": "https://abril-vet.vercel.app" },
         { "label": "GitHub", "href": "https://github.com/Maure-dev/Abril-Vet" }
@@ -122,7 +123,7 @@
     {
       "name": "Carili Design",
       "meta": "2026 · Freelance · Solo developer",
-      "description": "E-commerce for a handmade ceramic sinks studio: catalogue, cart, Mercado Pago checkout confirmed by a server-side webhook, customer accounts and an admin panel (products, orders, users, content, messages).",
+      "description": "E-commerce for a handmade ceramic sinks studio: catalog, cart, Mercado Pago checkout confirmed by a server-side webhook, customer accounts and an admin panel (products, orders, content).",
       "stack": "React · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Mercado Pago · GitHub Actions",
       "links": [
         { "label": "carilidesign.vercel.app", "href": "https://carilidesign.vercel.app" },
@@ -141,7 +142,7 @@
     },
     {
       "name": "COMPR.AR & CONTRAT.AR",
-      "meta": "Leafnoise for the ONC · Tech Lead / Full-Stack Developer",
+      "meta": "Leafnoise for the ONC · Tech Lead / Full-Stack",
       "description": "Argentina's national e-procurement and public-works contracting portals, where government entities publish their processes and suppliers submit their bids.",
       "stack": ".NET · Angular Material · SQL",
       "links": [

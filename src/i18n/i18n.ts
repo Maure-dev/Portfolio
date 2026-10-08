@@ -5,7 +5,6 @@ import es from "./locales/es/translation.json";
 
 export type AppLanguage = "en" | "es";
 
-/** Maps any BCP-47-ish value ("es-AR", "EN", "en_US") to a supported language. */
 export const normalizeLanguage = (
   value: string | null | undefined
 ): AppLanguage | null => {
@@ -24,7 +23,6 @@ const getStoredLanguage = (): AppLanguage | null => {
   }
 };
 
-/** First visit: the first browser language we support, else English. */
 const detectBrowserLanguage = (): AppLanguage => {
   if (typeof navigator === "undefined") return "en";
   const candidates = navigator.languages?.length
@@ -49,13 +47,18 @@ void i18n.use(initReactI18next).init({
   react: { useSuspense: false },
 });
 
+const persistLanguage = (lng: AppLanguage): boolean => {
+  try {
+    localStorage.setItem("lang", lng);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 const applyLanguage = (lng: string) => {
   const safe = normalizeLanguage(lng) ?? "en";
-  try {
-    localStorage.setItem("lang", safe);
-  } catch {
-    /* ignore: storage may be unavailable */
-  }
+  persistLanguage(safe);
   document.documentElement.lang = safe;
 };
 

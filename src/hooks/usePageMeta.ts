@@ -32,27 +32,16 @@ const upsertLink = (rel: string, href: string) => {
   tag.setAttribute("href", href);
 };
 
-/** Absolute canonical URL for a router pathname (no trailing slash except "/"). */
 export const canonicalUrlFor = (pathname: string): string => {
   const clean = pathname.replace(/\/+$/, "");
   return clean ? `${SITE_URL}${clean}` : `${SITE_URL}/`;
 };
 
-/**
- * Adds/updates `<meta name="robots">` while a component is mounted (404 and
- * error pages must not be indexed). Returns a cleanup that removes it.
- */
 export const applyRobots = (content: string): (() => void) => {
   const tag = upsertMeta("name", "robots", content);
   return () => tag.remove();
 };
 
-/**
- * Sets the document title, description, canonical, OG/Twitter meta and
- * og:locale for the current route. Re-runs on language change so metadata
- * stays localized. Used because react-router-dom 7's `meta` export is only
- * available in framework mode, not in this client-only SPA.
- */
 export const usePageMeta = (page: PageKey) => {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();

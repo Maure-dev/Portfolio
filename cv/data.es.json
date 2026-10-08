@@ -1,6 +1,7 @@
 {
   "lang": "es",
   "photo": true,
+  "photoSrc": "./photo.jpg",
   "meta": {
     "title": "Mauro Gerardi — Desarrollador Front-End y Analista Funcional — CV (ES)",
     "subject": "Curriculum Vitae",
@@ -24,6 +25,7 @@
     "skills": "Habilidades",
     "experience": "Experiencia",
     "projects": "Proyectos destacados",
+    "stack": "Stack",
     "education": "Educación",
     "courses": "Cursos",
     "languages": "Idiomas",
@@ -45,7 +47,7 @@
   "skills": [
     {
       "group": "Front end",
-      "items": "React 19, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Angular + Angular Material, Vite, React Router, i18next, UI responsiva y accesible"
+      "items": "React 19, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Angular + Angular Material, Vite, React Router, i18next, UI responsiva y accesible"
     },
     {
       "group": "Back end y cloud",
@@ -71,8 +73,8 @@
           "title": "Desarrollador Front-End",
           "period": "Ago 2021 – Actualidad",
           "bullets": [
-            "Desarrollo y mantengo el front end de los productos SaaS de Leafnoise (Moorea, SaaS Moorea, leafnoise.io) en React, TypeScript y Tailwind CSS, convirtiendo diseños de UX en pantallas responsivas y accesibles.",
-            "Llevo funcionalidades del requerimiento al release: arquitectura de componentes, formularios y vistas con mucha data, integración con APIs REST, manejo de estado, i18n y QA cross-browser y mobile."
+            "Desarrollo y mantengo el front end de los SaaS de Leafnoise en React, TypeScript y Tailwind CSS.",
+            "Llevo funcionalidades del diseño de UX al release: arquitectura de componentes, formularios y vistas con mucha data, APIs REST, manejo de estado, i18n, accesibilidad y QA cross-browser y mobile."
           ],
           "metrics": []
         },
@@ -91,7 +93,7 @@
           "title": "Líder Técnico — COMPR.AR / CONTRAT.AR",
           "period": "Dic 2021 – Jun 2022",
           "bullets": [
-            "Lideré el equipo de desarrollo de COMPR.AR y CONTRAT.AR, los portales nacionales de compras públicas y contrataciones de obra pública (Jefatura de Gabinete de Ministros / Oficina Nacional de Contrataciones, ONC).",
+            "Lideré el equipo de desarrollo de COMPR.AR y CONTRAT.AR, portales nacionales de compras públicas y obra pública (Jefatura de Gabinete de Ministros / Oficina Nacional de Contrataciones, ONC).",
             "Coordiné el trabajo diario del equipo, la resolución de incidentes y las entregas con el cliente."
           ],
           "metrics": []
@@ -112,8 +114,8 @@
     {
       "name": "Abril Vet",
       "meta": "2026 · Freelance · Desarrollador único",
-      "description": "SaaS de gestión para clínicas veterinarias —pacientes, agenda, historia clínica, facturación/POS, inventario, caja, reportes— con acceso del personal por roles (claims de Firebase Auth, reglas de Firestore) y back end en Vercel Functions.",
-      "stack": "React 19 · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Cloudinary · Resend",
+      "description": "SaaS de gestión para clínicas veterinarias —pacientes, agenda, historia clínica, facturación/POS, inventario, caja, reportes— con acceso del personal por roles (claims de Firebase Auth, reglas de Firestore).",
+      "stack": "React 19 · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Cloudinary · Resend",
       "links": [
         { "label": "abril-vet.vercel.app", "href": "https://abril-vet.vercel.app" },
         { "label": "GitHub", "href": "https://github.com/Maure-dev/Abril-Vet" }
@@ -122,7 +124,7 @@
     {
       "name": "Carili Design",
       "meta": "2026 · Freelance · Desarrollador único",
-      "description": "E-commerce para un taller de bachas de cerámica hechas a mano: catálogo, carrito, checkout con Mercado Pago confirmado por webhook, cuentas de clientes y panel de administración (productos, pedidos, usuarios, contenido, mensajes).",
+      "description": "E-commerce para un taller de bachas de cerámica hechas a mano: catálogo, carrito, checkout con Mercado Pago confirmado por webhook, cuentas de clientes y panel de administración (productos, pedidos, contenido).",
       "stack": "React · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Mercado Pago · GitHub Actions",
       "links": [
         { "label": "carilidesign.vercel.app", "href": "https://carilidesign.vercel.app" },
@@ -142,7 +144,7 @@
     {
       "name": "COMPR.AR & CONTRAT.AR",
       "meta": "Leafnoise para la ONC · Líder Técnico / Full-Stack",
-      "description": "Portales nacionales de compras electrónicas y contrataciones de obra pública de Argentina, donde los organismos del Estado publican sus procesos y los proveedores presentan sus ofertas.",
+      "description": "Portales nacionales de compras públicas y obra pública de Argentina, donde los organismos del Estado publican sus procesos y los proveedores presentan sus ofertas.",
       "stack": ".NET · Angular Material · SQL",
       "links": [
         { "label": "comprar.gob.ar", "href": "https://comprar.gob.ar/" },

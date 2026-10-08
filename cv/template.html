@@ -4,18 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mauro Gerardi — CV</title>
-    <!--
-      CV template. The page is empty until `renderCv(data)` fills it with one of the
-      `cv/data.*.json` files; `cv/build-cv.mjs` does that in headless Chrome and prints the
-      result to PDF. Keep everything (CSS + markup) in this single file.
-      Design tokens mirror src/main.css: Sora, #1E1E1E text, #CE1F36 accent.
-    -->
     <style>
-      /*
-        Sora (OFL, see fonts/LICENSE) as static 400/600/700 instances generated from
-        node_modules/@fontsource-variable/sora. Chrome prints a *variable* font as Type3 glyph
-        outlines (160 KB+ PDFs); static instances are embedded as compact TrueType subsets.
-      */
       @font-face {
         font-family: "Sora";
         font-style: normal;
@@ -82,9 +71,9 @@
         --faint: #8f8f8f;
         --primary: #ce1f36;
         --rule: #e5e5e5;
-        /* Body size is the main knob for fitting one page; the build script can override it. */
-        --body-size: 8.75pt;
+        --body-size: 9pt;
         --line: 1.24;
+        --small: 0.95rem;
       }
 
       * {
@@ -102,8 +91,6 @@
       }
 
       body {
-        /* Always lay out at the printed content width (A4 minus the 14 mm margins), so the
-           on-screen preview and the build script's height check match the PDF. */
         width: 182mm;
         font-family: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         font-size: 1rem;
@@ -118,7 +105,6 @@
         print-color-adjust: exact;
       }
 
-      /* On screen, centre the A4 content box so the layout can be checked in a browser. */
       @media screen {
         body {
           margin: 14mm auto;
@@ -146,12 +132,11 @@
         padding: 0;
       }
 
-      /* Header */
       .cv-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 8mm;
+        gap: 6mm;
         margin-bottom: 2.6mm;
       }
 
@@ -176,7 +161,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.2em 0.55em;
-        font-size: 0.92rem;
+        font-size: var(--small);
         color: var(--muted);
       }
 
@@ -188,13 +173,12 @@
 
       .photo {
         flex: none;
-        width: 25mm;
-        height: 25mm;
+        width: 28mm;
+        height: 28mm;
         border-radius: 50%;
         object-fit: cover;
       }
 
-      /* Sections */
       section {
         margin-top: 2mm;
       }
@@ -214,7 +198,6 @@
         border-bottom: 1.5pt solid var(--primary);
       }
 
-      /* Education and Languages (+ courses) share the last row of the page. */
       .bottom {
         display: grid;
         grid-template-columns: 1fr 54mm;
@@ -245,9 +228,10 @@
       }
 
       .when,
-      .muted {
+      .muted,
+      .stack {
         color: var(--muted);
-        font-size: 0.93rem;
+        font-size: var(--small);
       }
 
       .when {
@@ -255,7 +239,6 @@
         white-space: nowrap;
       }
 
-      /* Skills */
       .skills {
         list-style: none;
       }
@@ -269,7 +252,6 @@
         font-weight: 600;
       }
 
-      /* Experience */
       .company + .company {
         margin-top: 2.5mm;
       }
@@ -297,7 +279,6 @@
         color: var(--primary);
       }
 
-      /* Projects */
       .projects {
         list-style: none;
       }
@@ -318,10 +299,13 @@
       .project .links {
         flex: none;
         white-space: nowrap;
-        font-size: 0.93rem;
+        font-size: var(--small);
       }
 
-      /* Education */
+      .stack .label {
+        font-weight: 600;
+      }
+
       .education {
         list-style: none;
       }
@@ -366,7 +350,7 @@
         }
 
         var photo = data.photo
-          ? '<img class="photo" src="' + esc(data.photoSrc || "../public/profile.jpg") +
+          ? '<img class="photo" src="' + esc(data.photoSrc || "./photo.jpg") +
             '" alt="' + esc(L.photoAlt) + '" width="106" height="106" />'
           : "";
 
@@ -415,7 +399,8 @@
               '<li class="project">' +
               '<div class="row"><div><h3>' + esc(p.name) + '</h3> <span class="muted">· ' + esc(p.meta) + "</span></div>" +
               '<span class="links">' + list(p.links, link).replace(/<\/a><a/g, "</a> · <a") + "</span></div>" +
-              "<p>" + esc(p.description) + ' <span class="muted">' + esc(p.stack) + "</span></p>" +
+              "<p>" + esc(p.description) + ' <span class="stack"><span class="label">' +
+              esc(L.stack || "Stack") + ":</span>&nbsp;" + esc(p.stack) + "</span></p>" +
               "</li>"
             );
           }) +
@@ -452,9 +437,6 @@
 
       window.renderCv = renderCv;
 
-      // Convenience for design work: when the repo is served by any static HTTP server, opening
-      // cv/template.html?lang=es renders the matching data file in the browser. Over file://
-      // (how cv/build-cv.mjs loads it) nothing is fetched; the build script injects the data.
       if (location.protocol !== "file:") {
         var lang = new URLSearchParams(location.search).get("lang") || "en";
         fetch("./data." + lang + ".json")

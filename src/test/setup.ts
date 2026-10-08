@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom/vitest";
 import "../i18n/i18n";
 
-// jsdom doesn't implement matchMedia; several components rely on it.
 if (typeof window.matchMedia !== "function") {
   window.matchMedia = (query: string): MediaQueryList =>
     ({
@@ -16,8 +15,6 @@ if (typeof window.matchMedia !== "function") {
     }) as MediaQueryList;
 }
 
-// jsdom has no IntersectionObserver: report every target as visible at once
-// so Reveal/stat counters render their content in tests.
 if (typeof window.IntersectionObserver !== "function") {
   class ImmediateIntersectionObserver {
     readonly root = null;
@@ -51,7 +48,6 @@ if (typeof window.IntersectionObserver !== "function") {
     ImmediateIntersectionObserver as unknown as typeof IntersectionObserver;
 }
 
-// jsdom logs "Not implemented: window.scrollTo"; the shell calls it on navigation.
 Object.defineProperty(window, "scrollTo", {
   value: () => {},
   writable: true,

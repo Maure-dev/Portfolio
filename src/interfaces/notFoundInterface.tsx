@@ -6,11 +6,9 @@ import { ButtonInterface } from "./buttonInterface";
 import { applyRobots } from "../hooks/usePageMeta";
 
 type NotFoundProps = {
-  /** "error" renders the route error fallback with the same layout. */
   variant?: "notFound" | "error";
 };
 
-/** 404 page (and the friendly route-error fallback). Never indexed. */
 export const NotFoundInterface = ({ variant = "notFound" }: NotFoundProps) => {
   const { t } = useTranslation();
   const isError = variant === "error";
@@ -44,7 +42,6 @@ export const NotFoundInterface = ({ variant = "notFound" }: NotFoundProps) => {
       </p>
       <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
         {isError ? (
-          // Full navigation on purpose: it recovers from broken client state.
           <ButtonInterface href="/" icon={faHouse} description={t("notFound.cta")} />
         ) : (
           <ButtonInterface to="/" icon={faHouse} description={t("notFound.cta")} />

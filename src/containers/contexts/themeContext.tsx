@@ -8,10 +8,17 @@ import { THEME_COLORS } from "../../constants";
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-// Trust the class the inline <head> script already put on <html> so React's
-// initial state matches the pre-paint theme (no flash, no recompute).
 const getInitialTheme = (): ThemeType =>
   document.documentElement.classList.contains("light") ? "light" : "dark";
+
+const persistTheme = (theme: ThemeType): boolean => {
+  try {
+    localStorage.setItem("theme", theme);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 export const ThemeProvider = ({ children }: ThemeContextPropsType) => {
   const [theme, setThemeState] = useState<ThemeType>(getInitialTheme);
@@ -22,7 +29,6 @@ export const ThemeProvider = ({ children }: ThemeContextPropsType) => {
     root.classList.toggle("light", theme === "light");
     root.style.colorScheme = theme;
 
-    // Keep the browser chrome (address bar, PWA title bar) in sync.
     let meta = document.head.querySelector<HTMLMetaElement>(
       'meta[name="theme-color"]'
     );
@@ -32,12 +38,7 @@ export const ThemeProvider = ({ children }: ThemeContextPropsType) => {
       document.head.appendChild(meta);
     }
     meta.content = THEME_COLORS[theme];
-
-    try {
-      localStorage.setItem("theme", theme);
-    } catch {
-      /* storage unavailable (blocked cookies, quota): the theme still applies for this session */
-    }
+    persistTheme(theme);
   }, [theme]);
 
   const setTheme = (option: ThemeType) => setThemeState(option);

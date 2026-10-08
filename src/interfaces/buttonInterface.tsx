@@ -23,11 +23,6 @@ const SIZES: Record<ButtonSize, string> = {
   lg: "h-12 px-6 text-lg",
 };
 
-/**
- * The one button style of the site. Polymorphic: `to` renders a NavLink,
- * `href` renders an <a> (with rel="noopener noreferrer" and an sr-only
- * "opens in a new tab" hint when target="_blank"), otherwise a <button>.
- */
 export const ButtonInterface = ({
   description,
   variant,

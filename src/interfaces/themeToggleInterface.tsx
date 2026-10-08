@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "../containers/contexts/themeContext";
 
-/** Toggle button named "Dark theme" whose pressed state is the current theme. */
 export const ThemeToggleInterface = ({ className }: { className?: string }) => {
   const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation();

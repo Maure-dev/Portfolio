@@ -1,9 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getStats } from "../../data/stats";
+import { SectionInterface } from "../sectionInterface";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const DURATION_MS = 1200;
 
 const Counter = ({
   value,
@@ -24,12 +28,11 @@ const Counter = ({
       return () => cancelAnimationFrame(id);
     }
 
-    const duration = 1200;
     let startTs: number | null = null;
     let raf = 0;
     const tick = (ts: number) => {
       if (startTs === null) startTs = ts;
-      const progress = Math.min((ts - startTs) / duration, 1);
+      const progress = Math.min((ts - startTs) / DURATION_MS, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setN(Math.round(eased * value));
       if (progress < 1) raf = requestAnimationFrame(tick);
@@ -39,34 +42,32 @@ const Counter = ({
   }, [start, value]);
 
   return (
-    <span>
-      {n}
-      {suffix}
-    </span>
+    <>
+      <span aria-hidden="true">
+        {n}
+        {suffix}
+      </span>
+      <span className="sr-only">
+        {value}
+        {suffix}
+      </span>
+    </>
   );
 };
 
 export const SectionStatsInterface = () => {
   const { t } = useTranslation();
-  const sectionRef = useRef<HTMLElement>(null);
+  const stats = useMemo(() => getStats(), []);
+  const listRef = useRef<HTMLDListElement>(null);
   const [started, setStarted] = useState(prefersReducedMotion);
-
-  const stats: {
-    key: "experience" | "projects" | "technologies" | "languages";
-    value: number;
-    suffix: string;
-  }[] = [
-    { key: "experience", value: new Date().getFullYear() - 2021, suffix: "+" },
-    { key: "projects", value: 8, suffix: "" },
-    { key: "technologies", value: 23, suffix: "+" },
-    { key: "languages", value: 2, suffix: "" },
-  ];
 
   useEffect(() => {
     if (started) return;
-    const el = sectionRef.current;
-    if (!el) return;
-    const root = document.getElementById("sectionContainer");
+    const el = listRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setStarted(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -77,29 +78,32 @@ export const SectionStatsInterface = () => {
           }
         }
       },
-      { root, threshold: 0.3 }
+      { root: null, threshold: 0.3 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, [started]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="min-h-screen w-full bg-backgroundSecondary flex items-center justify-center px-4 lg:px-48 py-24 text-foreground"
-    >
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 w-full max-w-5xl">
+    <SectionInterface band="secondary" labelledBy="stats-title">
+      <h2 id="stats-title" className="sr-only">
+        {t("home.stats.title")}
+      </h2>
+      <dl
+        ref={listRef}
+        className="mx-auto grid max-w-5xl grid-cols-2 gap-10 lg:grid-cols-4 lg:gap-16"
+      >
         {stats.map((stat) => (
-          <div key={stat.key} className="flex flex-col items-center text-center">
-            <span className="text-5xl lg:text-7xl font-bold text-primary">
+          <div key={stat.id} className="flex flex-col-reverse items-center text-center">
+            <dt className="mt-3 text-base text-secondary lg:text-lg">
+              {t(`home.stats.${stat.id}`)}
+            </dt>
+            <dd className="text-5xl font-bold text-accent tabular-nums lg:text-6xl">
               <Counter value={stat.value} suffix={stat.suffix} start={started} />
-            </span>
-            <span className="mt-3 text-base lg:text-lg text-secondary">
-              {t(`home.stats.${stat.key}`)}
-            </span>
+            </dd>
           </div>
         ))}
-      </div>
-    </section>
+      </dl>
+    </SectionInterface>
   );
 };

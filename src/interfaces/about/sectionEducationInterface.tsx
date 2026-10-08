@@ -2,51 +2,66 @@ import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { Reveal } from "../revealInterface";
+import { SectionInterface } from "../sectionInterface";
+import { SectionHeadingInterface } from "../sectionHeadingInterface";
+import { CardInterface } from "../cardInterface";
+import { TagInterface } from "../tagInterface";
 
-const EDUCATION_IDS = ["uner", "technical"] as const;
+const EDUCATION = [
+  { id: "uner", graduate: true, lang: undefined },
+  { id: "technical", graduate: false, lang: "es" },
+] as const;
 
 export const SectionEducationInterface = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-screen w-full bg-backgroundSecondary flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
-      <Reveal className="w-full max-w-4xl">
-        <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
-          {t("about.education.title")}
-        </h1>
-        <div className="flex flex-col gap-6">
-          {EDUCATION_IDS.map((id, index) => (
-            <div
-              key={id}
-              className="flex gap-5 bg-background rounded-xl p-6 lg:p-8 transition-transform duration-300 hover:-translate-y-1"
-            >
-              <FontAwesomeIcon
-                icon={faGraduationCap}
-                className="text-primary text-3xl mt-1 shrink-0"
-                aria-hidden="true"
-              />
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl lg:text-2xl font-semibold">
-                    {t(`about.education.items.${id}.degree`)}
-                  </h3>
-                  {index === 0 && (
-                    <span className="text-xs font-semibold uppercase tracking-wide bg-primary text-white rounded-full px-3 py-1">
-                      {t("about.education.status")}
-                    </span>
-                  )}
-                </div>
-                <p className="text-secondary mt-1">
-                  {t(`about.education.items.${id}.institution`)}
-                </p>
-                <p className="text-textDark mt-1 text-sm">
-                  {t(`about.education.items.${id}.period`)}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <SectionInterface
+      id="education"
+      band="secondary"
+      labelledBy="education-title"
+    >
+      <Reveal>
+        <SectionHeadingInterface
+          id="education-title"
+          title={t("about.education.title")}
+        />
       </Reveal>
-    </section>
+
+      <ul className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+        {EDUCATION.map((entry, index) => (
+          <li key={entry.id}>
+            <Reveal delayMs={index * 80} className="h-full">
+              <CardInterface className="flex h-full gap-4">
+                <span
+                  className="inline-flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-accent"
+                  aria-hidden="true"
+                >
+                  <FontAwesomeIcon icon={faGraduationCap} className="text-xl" />
+                </span>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <h3 className="text-card-title text-foreground">
+                      {t(`about.education.items.${entry.id}.degree`)}
+                    </h3>
+                    {entry.graduate && (
+                      <TagInterface tone="success">
+                        {t("about.education.status")}
+                      </TagInterface>
+                    )}
+                  </div>
+                  <p className="mt-2 text-secondary" lang={entry.lang}>
+                    {t(`about.education.items.${entry.id}.institution`)}
+                  </p>
+                  <p className="mt-1 text-sm text-muted">
+                    {t(`about.education.items.${entry.id}.period`)}
+                  </p>
+                </div>
+              </CardInterface>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
+    </SectionInterface>
   );
 };

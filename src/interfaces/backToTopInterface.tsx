@@ -6,11 +6,6 @@ import { OutletContext } from "../containers/contexts/outletContext";
 
 const SHOW_AFTER_PX = 400;
 
-/**
- * Floating "back to top" button. Reads the window scroll position inside
- * requestAnimationFrame (passive listener) and only re-renders when the
- * visible/hidden boolean flips. Leaves the tab order while hidden.
- */
 export const BackToTopInterface = () => {
   const { t } = useTranslation();
   const { menuOpen } = useContext(OutletContext)!;

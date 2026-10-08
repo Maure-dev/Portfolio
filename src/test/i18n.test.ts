@@ -3,7 +3,7 @@ import en from "../i18n/locales/en/translation.json";
 import es from "../i18n/locales/es/translation.json";
 import { normalizeLanguage } from "../i18n/i18n";
 
-type Catalog = { [key: string]: string | Catalog };
+type Catalog = { [key: string]: string | Catalog } | string[];
 
 const flatten = (obj: Catalog, prefix = ""): Record<string, string> =>
   Object.entries(obj).reduce<Record<string, string>>((acc, [key, value]) => {

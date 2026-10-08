@@ -14,7 +14,6 @@ import { LanguageToggleInterface } from "./languageToggleInterface";
 import { ButtonInterface } from "./buttonInterface";
 import { getCvUrl, NAV_ITEMS } from "../constants";
 
-// Active link = accent colour + underline bar (keyed on aria-current, no weight jump).
 const NAV_LINK =
   "relative inline-flex min-h-11 items-center rounded-lg px-2 text-sm font-medium whitespace-nowrap text-secondary motion-safe:transition-colors hover:text-foreground lg:px-3 lg:text-base aria-[current=page]:text-accent after:absolute after:inset-x-2 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-accent after:opacity-0 motion-safe:after:transition-opacity aria-[current=page]:after:opacity-100 lg:after:inset-x-3";
 

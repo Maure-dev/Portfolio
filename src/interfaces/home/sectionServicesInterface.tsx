@@ -6,6 +6,9 @@ import {
   faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { Reveal } from "../revealInterface";
+import { SectionInterface } from "../sectionInterface";
+import { SectionHeadingInterface } from "../sectionHeadingInterface";
+import { CardInterface } from "../cardInterface";
 
 const SERVICES = [
   { id: "frontend", icon: faCode },
@@ -17,32 +20,36 @@ export const SectionServicesInterface = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-screen w-full bg-background flex flex-col items-center justify-center px-4 lg:px-48 py-28 text-foreground">
-      <Reveal className="w-full max-w-5xl flex flex-col items-center">
-        <h1 className="text-5xl lg:text-6xl mb-12 lg:mb-16 font-semibold text-center">
-          {t("home.services.title")}
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
-          {SERVICES.map((service) => (
-            <div
-              key={service.id}
-              className="bg-backgroundSecondary rounded-xl p-8 text-center transition-transform duration-300 hover:-translate-y-2"
-            >
-              <FontAwesomeIcon
-                icon={service.icon}
-                className="text-primary text-4xl mb-5"
-                aria-hidden="true"
-              />
-              <h3 className="text-xl font-semibold mb-3">
-                {t(`home.services.items.${service.id}.title`)}
-              </h3>
-              <p className="text-secondary leading-relaxed">
-                {t(`home.services.items.${service.id}.description`)}
-              </p>
-            </div>
-          ))}
-        </div>
+    <SectionInterface id="services" labelledBy="services-title">
+      <Reveal>
+        <SectionHeadingInterface
+          id="services-title"
+          title={t("home.services.title")}
+        />
       </Reveal>
-    </section>
+
+      <ul className="grid gap-6 md:grid-cols-3">
+        {SERVICES.map((service, index) => (
+          <li key={service.id}>
+            <Reveal delayMs={index * 80} className="h-full">
+              <CardInterface className="h-full">
+                <span
+                  className="inline-flex size-12 items-center justify-center rounded-lg bg-primary/10 text-accent"
+                  aria-hidden="true"
+                >
+                  <FontAwesomeIcon icon={service.icon} className="text-xl" />
+                </span>
+                <h3 className="mt-5 text-card-title text-foreground">
+                  {t(`home.services.items.${service.id}.title`)}
+                </h3>
+                <p className="mt-2 leading-relaxed text-pretty text-secondary">
+                  {t(`home.services.items.${service.id}.description`)}
+                </p>
+              </CardInterface>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
+    </SectionInterface>
   );
 };

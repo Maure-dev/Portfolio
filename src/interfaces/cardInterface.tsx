@@ -3,7 +3,6 @@ import type { CardInterfaceType } from "../containers/entities/entities";
 const INTERACTIVE =
   "motion-safe:transition-[transform,border-color,box-shadow] motion-safe:duration-300 hover:-translate-y-1 hover:border-primary/40 focus-within:border-primary/40 light:hover:shadow-md";
 
-/** Surface card: rounded-xl, 1px border, surface fill, p-6. Lift only when interactive. */
 export const CardInterface = ({
   as: Tag = "div",
   interactive = false,

@@ -13,11 +13,7 @@
     "downloadCv": "Descargar CV",
     "viewCv": "Ver CV",
     "backToTop": "Volver arriba",
-    "seeMoreProjects": "Ver más proyectos",
     "profilePhotoAlt": "Foto de Mauro Gerardi",
-    "macbookAlt": "Maqueta de MacBook",
-    "projectPreviewAlt": "Vista previa del proyecto",
-    "openInNewTab": "Abrir {{name}} en una pestaña nueva",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "switchToLight": "Cambiar a tema claro",
@@ -53,7 +49,7 @@
     },
     "presentation": {
       "title": "Encantado de conocerte",
-      "body": "Soy un apasionado desarrollador Front-End con experiencia en AngularJS y Angular Material, Analista Funcional, Scrum Master y PO. Soy egresado de la Tecnicatura Universitaria en Desarrollo Web en la UNER, donde aprendí a usar HTML, CSS y JavaScript para crear interfaces de usuario atractivas y funcionales para aplicaciones web. También realicé un curso de ReactJS en CoderHouse para ampliar mis habilidades.",
+      "body": "Soy desarrollador front-end con más de 5 años construyendo plataformas web: desde los portales nacionales de compras públicas (COMPR.AR / CONTRAT.AR) hasta el SaaS de Moorea y, últimamente, productos propios: un sistema de gestión para clínicas veterinarias y un e-commerce con Mercado Pago. Trabajo sobre todo con React, TypeScript y Tailwind CSS (antes Angular y .NET) y, como Analista Funcional, dedico tanto tiempo a entender el problema como a escribir el código. Técnico Universitario en Desarrollo Web, UNER.",
       "moreAboutMe": "Más sobre mí",
       "facts": {
         "years": "5+ años",
@@ -63,8 +59,9 @@
       }
     },
     "stats": {
+      "title": "En números",
       "experience": "Años de experiencia",
-      "projects": "Proyectos destacados",
+      "projects": "Proyectos entregados",
       "technologies": "Tecnologías",
       "languages": "Idiomas"
     },
@@ -72,22 +69,18 @@
       "title": "Qué hago",
       "items": {
         "frontend": {
-          "title": "Desarrollo Frontend",
-          "description": "Interfaces accesibles y responsivas hechas con Angular y React, enfocadas en una gran experiencia de usuario."
+          "title": "Desarrollo Front-End",
+          "description": "Interfaces accesibles y responsivas en React, TypeScript y Angular, pensadas mobile-first y probadas antes de salir a producción."
         },
         "analysis": {
-          "title": "Análisis de Negocios",
-          "description": "Relevo y mejoro procesos de negocio, y actúo como nexo entre los interesados y el equipo técnico."
+          "title": "Análisis Funcional",
+          "description": "Relevo y mejoro procesos de negocio, escribo especificaciones funcionales e historias de usuario, y soy el nexo entre los interesados y el equipo técnico."
         },
         "platforms": {
-          "title": "Plataformas SaaS y Web",
-          "description": "Trabajo de punta a punta en el producto: desde el relevamiento de requerimientos hasta la experiencia final del usuario."
+          "title": "Plataformas SaaS y web",
+          "description": "Trabajo de punta a punta en el producto, del relevamiento de requerimientos a la experiencia final: dashboards, e-commerce, paneles de administración y portales públicos."
         }
       }
-    },
-    "recentProject": {
-      "titleLine1": "Mi trabajo",
-      "titleLine2": "reciente"
     },
     "latestProjects": {
       "title": "Últimos proyectos",
@@ -96,16 +89,16 @@
     },
     "testimonials": {
       "title": "Testimonios",
-      "subtitle": "Personas con las que trabajé dijeron cosas lindas...",
+      "subtitle": "Lo que dicen las personas con las que trabajé",
       "items": {
         "armando": {
           "name": "Armando Trillo",
-          "title": "Licenciado en Sistemas de Información",
-          "quote": "Mauro demostró una actitud positiva y proactiva y un fuerte compromiso, adaptándose a los rápidos cambios del proyecto. Superó desafíos y creció con cada nuevo rol que se le asignó: desarrollador, gestor de incidentes, coordinación y capacitación de compañeros. Tiene una habilidad especial como Analista de Negocios para entender y describir los flujos operativos del negocio, integrando ese conocimiento en el código como desarrollador. Tiene un perfil muy completo y fue un gran compañero en el Scrum Team de C&C."
+          "title": "Licenciado en Sistemas de Información · compañero en el Scrum Team de COMPR.AR / CONTRAT.AR",
+          "quote": "Mauro demostró una actitud positiva y proactiva y un fuerte compromiso, adaptándose a los rápidos cambios del proyecto. Superó desafíos y creció con cada nuevo rol que se le asignó: desarrollador, gestor de incidentes, coordinación y capacitación de compañeros. Tiene una habilidad especial como Analista Funcional para entender y describir los flujos operativos del negocio, integrando ese conocimiento en el código como desarrollador. Tiene un perfil muy completo y fue un gran compañero en el Scrum Team de C&C."
         },
         "tamara": {
           "name": "Tamara Martínez",
-          "title": "Diseñadora UX/UI y Freelancer",
+          "title": "Diseñadora UX/UI · colaboradora freelance",
           "quote": "Fue un verdadero placer trabajar con Mauro, y espero volver a hacerlo. Es, sin dudas, del tipo de desarrollador al que podés confiarle un proyecto de principio a fin. Tiene una gran capacidad para entender los requerimientos del proyecto y traducirlos en soluciones técnicas efectivas. Además, su atención al detalle y su compromiso con la calidad se notan en cada línea de código que escribe. Siempre está dispuesto a colaborar y aportar ideas para mejorar el producto final. Recomiendo a Mauro para cualquier proyecto de desarrollo web."
         }
       }
@@ -113,13 +106,13 @@
   },
   "about": {
     "profile": {
-      "title": "Perfil",
-      "objectivesLabel": "Objetivos",
-      "objectives": "Poner en práctica mis conocimientos, ganar experiencia y crecer profesionalmente, trabajando en equipo y llevando adelante los proyectos que cada rol requiere.",
-      "aptitudesLabel": "Fortalezas",
-      "aptitudes": "Puntual, organizado y atento al detalle, con un fuerte sentido de responsabilidad y comunicación clara.",
+      "title": "Sobre mí",
+      "objectivesLabel": "Qué busco",
+      "objectives": "Un equipo remoto orientado a producto donde pueda hacerme cargo de funcionalidades de punta a punta —del análisis a una interfaz pulida y accesible— y seguir creciendo hacia un rol front-end senior.",
+      "aptitudesLabel": "Cómo trabajo",
+      "aptitudes": "Organizado y atento al detalle; escribo especificaciones y código claros, me comunico temprano con los interesados y me hago cargo de cada funcionalidad del requerimiento al release.",
       "availabilityLabel": "Disponibilidad",
-      "availability": "Full-time · Remoto",
+      "availability": "Tiempo completo · Remoto · Argentina (GMT-3)",
       "languagesLabel": "Idiomas",
       "languages": {
         "spanish": "Español — Nativo",
@@ -149,12 +142,13 @@
     },
     "skills": {
       "title": "Habilidades",
-      "subtitle": "Tecnologías y herramientas con las que trabajo.",
+      "subtitle": "Tecnologías y herramientas que uso en producción.",
       "groups": {
-        "frontend": "Frontend",
-        "languages": "Lenguajes",
+        "frontend": "Front-End",
+        "backend": "Back end y nube",
+        "languages": "Lenguajes de programación",
         "databases": "Bases de datos",
-        "tooling": "Herramientas"
+        "tooling": "Herramientas y prácticas"
       }
     },
     "experiences": {
@@ -164,31 +158,33 @@
       "present": "Actualidad",
       "items": {
         "techLead": {
-          "role": "Líder Técnico",
+          "role": "Líder Técnico — COMPR.AR / CONTRAT.AR",
           "period": "Dic 2021 - Jun 2022",
-          "description": "Líder del proyecto COMPR.AR y CONTRAT.AR perteneciente a la Jefatura de Gabinete de Ministros y administradores para la Oficina Nacional de Contrataciones (ONC). Gestioné el equipo de desarrolladores en los lenguajes .NET, Angular Material y SQL."
+          "description": "Lideré el equipo de desarrollo de COMPR.AR y CONTRAT.AR, las plataformas nacionales de compras públicas (Jefatura de Gabinete de Ministros, administradas por la Oficina Nacional de Contrataciones — ONC): prioridades, revisiones de código, estimaciones y releases sobre un stack .NET, Angular Material y SQL, además del vínculo diario con el equipo funcional de la ONC."
         },
         "businessAnalyst": {
-          "role": "Analista de Negocios Semi-Senior",
+          "role": "Analista Funcional",
           "period": "Feb 2022 - Ago 2024",
-          "description": "Responsable de analizar los procesos de la empresa con el objetivo de satisfacer las necesidades del cliente. Actuando como nexo entre el cliente y el equipo técnico."
+          "description": "Relevé y documenté procesos de negocio de los clientes de Leafnoise, escribí especificaciones funcionales e historias de usuario, y fui el nexo entre los interesados y el equipo de desarrollo para que lo entregado respondiera a lo que el negocio necesitaba."
         },
         "frontendDev": {
-          "role": "Desarrollador Frontend Semi-Senior",
+          "role": "Desarrollador Front-End",
           "period": "Ago 2021 - Actualidad",
-          "description": "Responsable de la plataforma de la empresa que busca satisfacer las necesidades del cliente. Trabajo desde la perspectiva del cliente, interpretando y adaptando lenguajes de desarrollo web para crear la experiencia final de ese cliente/usuario."
+          "description": "Desarrollador front-end de Moorea, el SaaS de gestión de procesos de Leafnoise, y de su sitio público. Llevo funcionalidades del requerimiento al release —componentes de UI, formularios, tablas de datos y pantallas de flujos de trabajo en React, TypeScript y Tailwind CSS (antes Angular + Angular Material)—, siempre desde el punto de vista del usuario."
         },
         "fullStack": {
-          "role": "Desarrollador Full Stack",
+          "role": "Desarrollador Full-Stack — COMPR.AR / CONTRAT.AR",
           "period": "May 2021 - Jun 2022",
-          "description": "Mantenimiento del proyecto COMPR.AR y CONTRAT.AR perteneciente a la Jefatura de Gabinete de Ministros y administradores por la Oficina Nacional de Contrataciones (ONC). Gestión del equipo de desarrolladores en los lenguajes .NET, Angular Material y SQL."
+          "description": "Mantenimiento y evolución de COMPR.AR y CONTRAT.AR: corrección de errores y nuevas funcionalidades en el back end .NET, el front end Angular Material y la base de datos SQL, junto al equipo funcional de la ONC."
         }
       }
     }
   },
   "projects": {
     "title": "Proyectos",
-    "subtitle": "Una selección de productos y plataformas en los que trabajé.",
+    "subtitle": "Productos que construí: desde portales nacionales de compras públicas hasta SaaS y e-commerce.",
+    "filterLabel": "Filtrar proyectos por categoría",
+    "showing": "Mostrando {{count}} de {{total}} proyectos",
     "filters": {
       "all": "Todos",
       "freelance": "Freelance",
@@ -203,56 +199,135 @@
     "viewDetails": "Ver detalle",
     "visitSite": "Visitar sitio",
     "viewCode": "Ver código",
+    "live": "Ver sitio",
     "close": "Cerrar",
     "stackLabel": "Tecnologías",
     "roleLabel": "Mi rol",
     "highlightsLabel": "Destacados",
     "year": "Año",
+    "present": "actualidad",
     "items": {
+      "abrilVet": {
+        "subtitle": "SaaS de gestión para clínicas veterinarias",
+        "description": "Plataforma de gestión integral para clínicas y consultorios veterinarios: clientes y pacientes, agenda, historia clínica, vacunación, estudios, cirugías e internaciones, facturación, ventas (POS), inventario, compras, caja, reportes y acceso del personal por roles, con modo claro y oscuro. Diseñada y desarrollada de punta a punta como único desarrollador. La URL pública muestra la pantalla de ingreso; acceso de demo a pedido.",
+        "role": "Desarrollador único: producto, UX, front end y back end",
+        "roleShort": "Desarrollador único",
+        "highlights": [
+          "Acceso por roles (admin / veterinario / recepción / asistente) con custom claims de Firebase Auth y reglas de seguridad de Firestore",
+          "Back end con Vercel Functions sobre Firebase Admin SDK, con invitaciones al personal por email (Resend)",
+          "Carga de fotos, estudios y PDFs con Cloudinary; más de 15 módulos detrás de una misma UI"
+        ]
+      },
+      "carili": {
+        "subtitle": "E-commerce de bachas de cerámica hechas a mano",
+        "description": "Tienda online para un taller de cerámica argentino que vende bachas de baño hechas a mano: catálogo con búsqueda y filtros, carrito, checkout con Mercado Pago (webhook de pagos), seguimiento de pedidos, cuentas de clientes y un panel de administración para productos, pedidos, usuarios, contenido del sitio y mensajes de contacto.",
+        "role": "Desarrollador único: tienda, panel de administración y pagos",
+        "roleShort": "Desarrollador único",
+        "highlights": [
+          "Checkout de Mercado Pago con webhook del lado del servidor que confirma los pedidos",
+          "Panel de administración para gestionar productos, pedidos, usuarios, contenido y mensajes sin tocar código",
+          "CI en GitHub Actions (lint, tipos, tests) y deploys continuos en Vercel"
+        ]
+      },
       "saasMoorea": {
-        "subtitle": "Gestioná y automatizá tus procesos",
-        "description": "SaaS es un modelo de distribución de software donde el software y los datos que maneja se alojan en los servidores de un proveedor, a los que se accede a través de Internet."
+        "subtitle": "SaaS de gestión y automatización de procesos",
+        "description": "El SaaS de Moorea permite a las organizaciones modelar, ejecutar y seguir trámites internos (solicitudes, aprobaciones, circuitos documentales) desde un único panel. Desarrollo el front end en React —nuevos módulos, formularios, tablas de datos y las pantallas de flujos de proceso—, convirtiendo los requerimientos de los interesados en funcionalidades entregadas, y escribo las especificaciones funcionales como Analista Funcional del equipo.",
+        "role": "Desarrollador Front-End y Analista Funcional — Leafnoise",
+        "roleShort": "Desarrollador Front-End y Analista Funcional",
+        "highlights": [
+          "Nuevos módulos, formularios y tablas de datos en React + TypeScript, del requerimiento al release",
+          "Pantallas de flujos de proceso para modelar y seguir los trámites internos de cada equipo",
+          "Especificaciones funcionales e historias de usuario como Analista Funcional del equipo"
+        ]
       },
       "moorea": {
-        "subtitle": "Transformá procesos en experiencias",
-        "description": "Moorea te permite extraer, analizar y gestionar información crítica de una variedad de formatos digitales. Transforma la manera en que las organizaciones interactúan con sus vastas colecciones de documentos, garantizando precisión, eficiencia y seguridad en cada paso."
+        "subtitle": "Sitio del producto Moorea",
+        "description": "Sitio público del producto Moorea: propuesta de valor, funcionalidades, FAQ y la entrada a la demo con IA que lleva a los visitantes al SaaS. Un sitio de marketing rápido y responsive en React, TypeScript y Tailwind CSS.",
+        "role": "Desarrollador Front-End — Leafnoise",
+        "roleShort": "Desarrollador Front-End",
+        "highlights": [
+          "Sitio de marketing responsive en React, TypeScript y Tailwind CSS",
+          "Secciones de propuesta de valor, funcionalidades y FAQ que llevan a los visitantes al SaaS",
+          "Mismo lenguaje visual que el producto para una transición fluida"
+        ]
       },
       "leafnoise": {
-        "subtitle": "Procesos más simples e inteligentes",
-        "description": "Hacé tu proceso de transformación digital más simple y exitoso. La digitalización de tu organización está a tu alcance."
+        "subtitle": "Sitio corporativo de Leafnoise Company",
+        "description": "Sitio de la empresa de software detrás de Moorea: servicios, oferta de transformación digital y contacto. Un sitio responsive en React + Tailwind CSS.",
+        "role": "Desarrollador Front-End — Leafnoise",
+        "roleShort": "Desarrollador Front-End",
+        "highlights": [
+          "Servicios y oferta de transformación digital en un diseño claro y fácil de recorrer",
+          "Construcción responsive en React + Tailwind CSS",
+          "Flujo de contacto para consultas comerciales"
+        ]
       },
       "comprar": {
-        "subtitle": "Portal de Contratación de Bienes y Servicios",
-        "description": "Es el sistema electrónico de gestión de compras y contrataciones de la Administración Pública Nacional. A través de la plataforma, los organismos del Estado tramitan y publican sus procesos de compra, y los proveedores presentan sus ofertas de manera ágil, transparente y segura."
+        "subtitle": "Sistema nacional de compras públicas electrónicas",
+        "description": "COMPR.AR es el sistema electrónico de compras de la Administración Pública Nacional (Jefatura de Gabinete de Ministros, administrado por la Oficina Nacional de Contrataciones — ONC): los organismos publican sus licitaciones y los proveedores ofertan en línea. Ingresé como desarrollador full-stack manteniendo la plataforma .NET + Angular Material + SQL y luego lideré el equipo de desarrollo como Líder Técnico.",
+        "role": "Desarrollador Full-Stack → Líder Técnico — Leafnoise para la ONC",
+        "roleShort": "Desarrollador Full-Stack → Líder Técnico",
+        "highlights": [
+          "Mantenimiento y nuevas funcionalidades en el back end .NET, el front end Angular Material y la base de datos SQL",
+          "Lideré el equipo de desarrollo como Líder Técnico: prioridades, revisiones de código, estimaciones y releases",
+          "Vínculo diario con el equipo funcional de la Oficina Nacional de Contrataciones"
+        ]
       },
       "contratar": {
-        "subtitle": "Portal de Contratos y Concesiones de Obra Pública",
-        "description": "Es el sistema electrónico de gestión de contratos del Estado nacional. A través de la plataforma, los organismos del Estado tramitan y publican sus procesos de contratación, y los constructores presentan sus ofertas de manera rápida, transparente y segura."
+        "subtitle": "Portal de contratos y concesiones de obra pública",
+        "description": "Plataforma hermana de COMPR.AR para contratos y concesiones de obra pública: los organismos tramitan sus licitaciones y las constructoras presentan ofertas en línea. Mismo equipo y stack (.NET, Angular Material, SQL): mantenimiento, nuevas funcionalidades y coordinación del equipo para la ONC.",
+        "role": "Desarrollador Full-Stack → Líder Técnico — Leafnoise para la ONC",
+        "roleShort": "Desarrollador Full-Stack → Líder Técnico",
+        "highlights": [
+          "Plataforma hermana de COMPR.AR, construida y mantenida por el mismo equipo sobre el mismo stack",
+          "Licitaciones de obra pública: los organismos publican y las constructoras ofertan en línea",
+          "Mantenimiento, nuevas funcionalidades y coordinación del equipo para la ONC"
+        ]
       },
       "libretas": {
-        "subtitle": "Sistema de control de salud, educación y vacunación",
-        "description": "Es un documento que las personas que perciben la Asignación Universal por Hijo (AUH) deben presentar cada año para acreditar que sus hijos cumplen con los controles de salud, la vacunación y los requisitos de educación."
+        "subtitle": "ANSES — sistema de la Libreta AUH anual",
+        "description": "Sistema con el que ANSES registra y valida la Libreta AUH anual: la acreditación de controles de salud, vacunación y asistencia escolar que deben presentar las familias que perciben la Asignación Universal por Hijo. Desarrollado por el equipo de Leafnoise en .NET, Angular Material y SQL.",
+        "role": "Desarrollador Full-Stack — equipo Leafnoise (para ANSES)",
+        "roleShort": "Desarrollador Full-Stack",
+        "highlights": [
+          "Registro y validación anual de la Libreta AUH para las familias que perciben la asignación",
+          "Datos de controles de salud, vacunación y asistencia escolar en un mismo circuito",
+          "Entrega del equipo Leafnoise en .NET, Angular Material y SQL"
+        ]
       },
       "certificados": {
-        "subtitle": "Sistema de seguimiento de asistencia escolar",
-        "description": "Este documento confirma que los chicos realmente asisten a la escuela, y los padres tienen hasta el último día hábil del año para presentarlo. Esto les permite recibir la ayuda económica de ANSES."
+        "subtitle": "ANSES — certificados de escolaridad",
+        "description": "Sistema para emitir y validar el certificado anual de asistencia escolar requerido para la Ayuda Escolar Anual de ANSES, usado por escuelas, familias y personal del organismo. Desarrollado por el equipo de Leafnoise en .NET, Angular Material y SQL.",
+        "role": "Desarrollador Full-Stack — equipo Leafnoise (para ANSES)",
+        "roleShort": "Desarrollador Full-Stack",
+        "highlights": [
+          "Emisión y validación del certificado anual que respalda la Ayuda Escolar Anual",
+          "Un mismo circuito para escuelas, familias y personal de ANSES",
+          "Entrega del equipo Leafnoise en .NET, Angular Material y SQL"
+        ]
       },
       "portal": {
-        "subtitle": "Portal Único de Trámites Digitales para la Ciudadanía",
-        "description": "Portal de acceso libre (sin autenticación) donde la ciudadanía puede ver todos los trámites disponibles, tanto presenciales como en línea. Cada trámite muestra información relevante para que las personas entiendan cómo realizarlo y, si es en línea, les permite acceder a él."
+        "subtitle": "Provincia de Santa Fe — portal único de trámites",
+        "description": "Portal público y sin login donde la ciudadanía de Santa Fe consulta todos los trámites provinciales, presenciales u online, con requisitos, pasos y acceso directo a los digitales. Trabajo de front end en React, TypeScript y Tailwind CSS.",
+        "role": "Desarrollador Front-End — equipo Leafnoise (para la Provincia de Santa Fe)",
+        "roleShort": "Desarrollador Front-End",
+        "highlights": [
+          "Catálogo de todos los trámites provinciales con sus requisitos y pasos",
+          "Acceso público sin autenticación, con entrada directa a los trámites online",
+          "Front end en React, TypeScript y Tailwind CSS"
+        ]
       }
     }
   },
   "contact": {
-    "heading": "¡Envíame un mensaje!",
-    "orEmail": "O contactame directamente",
+    "heading": "¡Enviame un mensaje!",
+    "orEmail": "O escribime directamente",
     "linkedin": "LinkedIn",
     "form": {
       "firstName": "Nombre",
       "lastName": "Apellido",
       "email": "Correo electrónico",
       "phoneNumber": "Teléfono",
-      "message": "¿Tenés una pregunta o propuesta, o solo querés saludar? Adelante.",
       "messageLabel": "Mensaje",
       "messagePlaceholder": "¿Tenés una pregunta o propuesta, o solo querés saludar? Adelante.",
       "optional": "opcional",
@@ -284,30 +359,33 @@
   },
   "github": {
     "title": "En GitHub",
-    "subtitle": "Un vistazo a algunos de mis repositorios públicos.",
+    "subtitle": "Repositorios públicos seleccionados.",
     "viewProfile": "Ver perfil completo",
-    "error": "No se pudieron cargar los repositorios en este momento.",
+    "error": "Los datos en vivo de GitHub no están disponibles ahora; mostramos una selección curada.",
     "stars": "estrellas",
     "forks": "forks",
     "updated": "Actualizado {{date}}",
-    "live": "En vivo"
+    "live": "Ver sitio",
+    "fallback": {
+      "portfolio": "Portfolio personal: React 19, Vite, TypeScript, Tailwind CSS v4, i18n EN/ES"
+    }
   },
   "meta": {
     "home": {
-      "title": "Mauro Gerardi — Desarrollador Front-End y Analista de Negocios",
-      "description": "Portfolio de Mauro Gerardi, Desarrollador Front-End Semi-Senior (Angular y React) y Analista de Negocios. Conocé proyectos, experiencia y habilidades."
+      "title": "Mauro Gerardi — Desarrollador Front-End y Analista Funcional",
+      "description": "Desarrollador front-end de Argentina con 5+ años creando plataformas SaaS, e-commerce y de gobierno en React, TypeScript y Angular. Abierto a roles remotos."
     },
     "projects": {
       "title": "Proyectos — Mauro Gerardi",
-      "description": "Proyectos seleccionados de Mauro Gerardi: plataformas SaaS, portales gubernamentales y aplicaciones web hechas con Angular y React."
+      "description": "Proyectos de Mauro Gerardi: Abril Vet (SaaS veterinario), Carili Design (e-commerce con Mercado Pago), Moorea y los portales COMPR.AR / CONTRAT.AR."
     },
     "about": {
       "title": "Sobre mí — Mauro Gerardi",
-      "description": "Experiencia y habilidades de Mauro Gerardi, Desarrollador Front-End y Analista de Negocios."
+      "description": "5+ años en Leafnoise como Desarrollador Front-End, Analista Funcional y Líder Técnico en compras públicas. Tecnicatura Universitaria en Desarrollo Web (UNER)."
     },
     "contact": {
       "title": "Contacto — Mauro Gerardi",
-      "description": "Ponete en contacto con Mauro Gerardi para oportunidades de desarrollo front-end y análisis de negocios."
+      "description": "Contactá a Mauro Gerardi para desarrollo front-end (React, TypeScript, Angular) o análisis funcional. Remoto desde Argentina (GMT-3)."
     }
   }
 }

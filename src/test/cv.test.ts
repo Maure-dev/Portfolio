@@ -4,9 +4,6 @@ import cvEs from "../../cv/data.es.json";
 import en from "../i18n/locales/en/translation.json";
 import es from "../i18n/locales/es/translation.json";
 
-// Drift guard: the CVs in public/ are generated from cv/data.*.json, while the site reads
-// translation.json. Both must tell the same story about dates, so this test fails when one
-// side is edited without the other (then run `node cv/build-cv.mjs`).
 
 type Dated = { period: string };
 type Catalog = {
@@ -16,7 +13,6 @@ type Catalog = {
   };
 };
 
-/** "Aug 2021 – Present" (en dash) and "Aug 2021 - Present" (hyphen) are the same period. */
 const normalise = (value: string) =>
   value.replace(/[‒–—−-]/g, "-").replace(/\s+/g, " ").trim();
 
