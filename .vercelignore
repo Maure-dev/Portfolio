@@ -1,5 +1,3 @@
-# Files the Vercel CLI must not upload (Git-connected deploys clone the repo,
-# so they are unaffected). Never list package-lock.json here: `npm ci` needs it.
 .git
 node_modules
 dist
@@ -11,9 +9,6 @@ coverage
 .vscode
 .idea
 
-# CV generator sources: the PDFs are committed under public/ and built locally.
-# cv/data.*.json must stay — src/test/cv.test.ts imports them and `tsc`
-# (first step of `npm run build`) type-checks the tests.
 cv/fonts
 cv/template.html
 cv/build-cv.mjs

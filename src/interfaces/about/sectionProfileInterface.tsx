@@ -117,12 +117,12 @@ export const SectionProfileInterface = () => {
           className="order-first flex justify-center lg:order-none lg:justify-end"
         >
           <img
-            src="/profile-192.webp"
+            src="/photo.webp"
             alt={t("common.photoOf", { name })}
-            width={192}
-            height={192}
+            width={205}
+            height={205}
             decoding="async"
-            className="size-32 rounded-full bg-surface ring-1 ring-border sm:size-40 lg:size-48"
+            className="size-32 rounded-full bg-surface object-cover ring-1 ring-border sm:size-40 lg:size-48"
           />
         </Reveal>
       </div>

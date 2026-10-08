@@ -1,6 +1,7 @@
 {
   "lang": "en",
-  "photo": false,
+  "photo": true,
+  "photoSrc": "./photo.jpg",
   "meta": {
     "title": "Mauro Gerardi — Front-End Developer & Business Analyst — CV (EN)",
     "subject": "Curriculum Vitae",
@@ -34,12 +35,29 @@
     "name": "Mauro Alejandro Gerardi",
     "title": "Front-End Developer & Business Analyst",
     "contact": [
-      { "label": "Buenos Aires, Argentina (GMT-3) · Remote" },
-      { "label": "+54 9 11 3579-3196", "href": "tel:+5491135793196" },
-      { "label": "alegerardi.00@gmail.com", "href": "mailto:alegerardi.00@gmail.com" },
-      { "label": "maure-dev.vercel.app", "href": "https://maure-dev.vercel.app" },
-      { "label": "linkedin.com/in/mauro-gerardi", "href": "https://www.linkedin.com/in/mauro-gerardi" },
-      { "label": "github.com/Maure-dev", "href": "https://github.com/Maure-dev" }
+      {
+        "label": "Buenos Aires, Argentina (GMT-3) · Remote"
+      },
+      {
+        "label": "+54 9 11 3579-3196",
+        "href": "tel:+5491135793196"
+      },
+      {
+        "label": "alegerardi.00@gmail.com",
+        "href": "mailto:alegerardi.00@gmail.com"
+      },
+      {
+        "label": "maure-dev.vercel.app",
+        "href": "https://maure-dev.vercel.app"
+      },
+      {
+        "label": "linkedin.com/in/mauro-gerardi",
+        "href": "https://www.linkedin.com/in/mauro-gerardi"
+      },
+      {
+        "label": "github.com/Maure-dev",
+        "href": "https://github.com/Maure-dev"
+      }
     ]
   },
   "summary": "Front-End Developer and Business Analyst with 5+ years at Leafnoise Company S.A., building SaaS products (Moorea) and Argentine public-sector platforms (COMPR.AR / CONTRAT.AR). I ship accessible, responsive interfaces in React, TypeScript and Angular, and turn business processes into clear requirements for Scrum teams. In 2026 I designed, built and launched two products solo: Abril Vet and Carili Design.",
@@ -116,8 +134,14 @@
       "description": "Management SaaS for veterinary clinics — patients, agenda, medical records, billing/POS, inventory, cash register, reports — with role-based staff access (Firebase Auth claims, Firestore rules).",
       "stack": "React 19 · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Cloudinary · Resend",
       "links": [
-        { "label": "abril-vet.vercel.app", "href": "https://abril-vet.vercel.app" },
-        { "label": "GitHub", "href": "https://github.com/Maure-dev/Abril-Vet" }
+        {
+          "label": "abril-vet.vercel.app",
+          "href": "https://abril-vet.vercel.app"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/Maure-dev/Abril-Vet"
+        }
       ]
     },
     {
@@ -126,8 +150,14 @@
       "description": "E-commerce for a handmade ceramic sinks studio: catalog, cart, Mercado Pago checkout confirmed by a server-side webhook, customer accounts and an admin panel (products, orders, content).",
       "stack": "React · TypeScript · Vite · Tailwind CSS v4 · Firebase · Vercel Functions · Mercado Pago · GitHub Actions",
       "links": [
-        { "label": "carilidesign.vercel.app", "href": "https://carilidesign.vercel.app" },
-        { "label": "GitHub", "href": "https://github.com/Maure-dev/carilidesign" }
+        {
+          "label": "carilidesign.vercel.app",
+          "href": "https://carilidesign.vercel.app"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/Maure-dev/carilidesign"
+        }
       ]
     },
     {
@@ -136,8 +166,14 @@
       "description": "Document-intelligence and process-automation SaaS.",
       "stack": "React · TypeScript · Tailwind CSS",
       "links": [
-        { "label": "moorea.io", "href": "https://moorea.io/" },
-        { "label": "saas.moorea.io", "href": "https://saas.moorea.io/" }
+        {
+          "label": "moorea.io",
+          "href": "https://moorea.io/"
+        },
+        {
+          "label": "saas.moorea.io",
+          "href": "https://saas.moorea.io/"
+        }
       ]
     },
     {
@@ -146,8 +182,14 @@
       "description": "Argentina's national e-procurement and public-works contracting portals, where government entities publish their processes and suppliers submit their bids.",
       "stack": ".NET · Angular Material · SQL",
       "links": [
-        { "label": "comprar.gob.ar", "href": "https://comprar.gob.ar/" },
-        { "label": "contratar.gob.ar", "href": "https://contratar.gob.ar/" }
+        {
+          "label": "comprar.gob.ar",
+          "href": "https://comprar.gob.ar/"
+        },
+        {
+          "label": "contratar.gob.ar",
+          "href": "https://contratar.gob.ar/"
+        }
       ]
     }
   ],
@@ -166,9 +208,20 @@
       "period": "2013 – 2019"
     }
   ],
-  "courses": [{ "name": "React JS", "institution": "Coderhouse" }],
+  "courses": [
+    {
+      "name": "React JS",
+      "institution": "Coderhouse"
+    }
+  ],
   "languages": [
-    { "name": "Spanish", "level": "Native" },
-    { "name": "English", "level": "Intermediate" }
+    {
+      "name": "Spanish",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Intermediate"
+    }
   ]
 }
